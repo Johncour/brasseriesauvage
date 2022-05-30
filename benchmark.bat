@@ -1,0 +1,11 @@
+start chrome https://www.brasserie-bretagne.fr/;
+start chrome https://www.bapbap.paris/;
+start chrome https://www.vieuxsinge.com/;
+start chrome https://www.skumenn.com/;
+start chrome https://www.brasseriedrao.com/;
+start chrome https://bieres-nao.fr/;
+start chrome https://brasserie-coreff.com/;
+start chrome http://www.brasserie-bosco.com/;
+start chrome https://www.brasserie-sainte-colombe.com/;
+start chrome https://www.brasserieladilettante.com/;
+start chrome https://www.trimartolod.fr/;
