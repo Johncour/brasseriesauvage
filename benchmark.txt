@@ -1,6 +1,7 @@
 Lecture en F/
 
 alert(etes vous majeur, L’abus d’alcool est dangereux pour la santé. À consommer avec modération.);
+
 icones Réseau sociaux communauté
 -------------------------------------------------------------------------------------------
 |logo                                 menu :Accueil / La brasserie / Nos bières / 
