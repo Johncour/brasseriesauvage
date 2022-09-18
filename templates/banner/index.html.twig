@@ -1,65 +1,86 @@
 <div id="banner">
-    {# <p>fond : video / photo / caroussel / dessin</p> #}
-    <div id="onTitle" class="flex">
-        <div class="col-2">
-            <div id="brasserie" class="brasserie zI2">
-                <div><p class="title">B</p></div>
-                <div></div>
-                <div><p class="title2">r</p></div>
-                <div><p class="title">a</p></div>
-                <div><p class="title2">s</p></div>
-                <div><p class="title">s</p></div>
-                <div><p class="title2">e</p></div>
-                <div><p class="title">r</p></div>
-                <div><p class="title2">i</p></div>
-                <div><p class="title">e</p></div>
+    <div class="container">
+        <div id="onTitle" class="flex wrap col-0"> 
+            <div class="col-40">
+                <div id="brasserie" class="brasserie zI3 pAbsolute flex jcCenter">
+                    <div><p class="title2">B</p></div>
+                    <div><p class="title1">r</p></div>
+                    <div><p class="title2">a</p></div>
+                    <div><p class="title1">s</p></div>
+                    <div><p class="title2">s</p></div>
+                    <div><p class="title1">e</p></div>
+                    <div><p class="title2">r</p></div>
+                    <div><p class="title1">i</p></div>
+                    <div><p class="title2">e</p></div>
+                </div>
+                <div id="brasseriePlus" class="brasserie zI3 pAbsolute flex jcCenter">
+                    <div><p class="title1">B</p></div>
+                    <div><p class="title3">r</p></div>
+                    <div><p class="title1">a</p></div>
+                    <div><p class="title3">s</p></div>
+                    <div><p class="title1">s</p></div>
+                    <div><p class="title3">e</p></div>
+                    <div><p class="title1">r</p></div>
+                    <div><p class="title3">i</p></div>
+                    <div><p class="title1">e</p></div>
+                </div>
             </div>
-            <div id="brasseriePlus" class="brasserie zI2">
-                <div><p class="title2">B</p></div>
-                <div></div>
-                <div><p class="title3">r</p></div>
-                <div><p class="title2">a</p></div>
-                <div><p class="title3">s</p></div>
-                <div><p class="title2">s</p></div>
-                <div><p class="title3">e</p></div>
-                <div><p class="title2">r</p></div>
-                <div><p class="title3">i</p></div>
-                <div><p class="title2">e</p></div>
+            <div class="col-2">
+                <div id="sauvage" class="sauvage zI3 pAbsolute flex jcCenter">
+                    <div class="marg"><p class="title1">S</p></div>
+                    <div class="marg"><p class="title4">A</p></div>
+                    <div class="marg"><p class="title1">U</p></div>
+                    <div class="marg"><p class="title4">V</p></div>
+                    <div class="marg"><p class="title1">A</p></div>
+                    <div class="marg"><p class="title4">G</p></div>
+                    <div class="marg"><p class="title1">E</p></div>
+                </div>
+                <div id="sauvagePlus" class="sauvage zI3 pAbsolute flex jcCenter">
+                    <div class="marg"><p class="title5">S</p></div>
+                    <div class="marg"><p class="title1">A</p></div>
+                    <div class="marg"><p class="title5">U</p></div>
+                    <div class="marg"><p class="title1">V</p></div>
+                    <div class="marg"><p class="title5">A</p></div>
+                    <div class="marg"><p class="title1">G</p></div>
+                    <div class="marg"><p class="title5">E</p></div>
+                </div>
             </div>
-        </div>
-        <div class="col-2">
-            <div id="sauvage" class="sauvage zI2">
-                <div><p class="title2">S</p></div>
-                <div><p class="title4">A</p></div>
-                <div><p class="title2">U</p></div>
-                <div><p class="title4">V</p></div>
-                <div><p class="title2">A</p></div>
-                <div><p class="title4">G</p></div>
-                <div><p class="title2">E</p></div>
-            </div>
-            <div id="sauvagePlus" class="sauvage zI2">
-                <div><p class="title5">S</p></div>
-                <div><p class="title2">A</p></div>
-                <div><p class="title5">U</p></div>
-                <div><p class="title2">V</p></div>
-                <div><p class="title5">A</p></div>
-                <div><p class="title2">G</p></div>
-                <div><p class="title5">E</p></div>
-            </div>
-        </div>
-    </div>
-    <div id="button" class="zI2">
-        <div>
-            <button class="button">Click & collect</button>
-        </div>
-        <div>
-            <button class="button">Mon compte</button>
-            <button class="button">Inscription</button>
         </div>
     </div>
-    <img id="canette" src="{{ asset('img/canette.png') }}" class="zI2" alt="">
-    <div id="square"  class="zI2"></div>
-    {# <img id="design1" src="{{ asset('img/design1.png') }}" alt=""> #}
-    {# <canvas id="canvas" class="zI1"><canvas> #}
-    
+    <div id="button" class="zI4 pAbsolute col-0 vHidden">
+        <div>
+            <a href=""><button class="button">Click & collect</button></a>
+        </div>
+        <div>
+            <a href=""><button class="button">Mon compte</button></a>
+            <a href=""><button class="button">Inscription</button></a>
+        </div>
+    </div>
+    <canvas id="canvas" class="zI1 col-0 pAbsolute"><canvas>
 </div>
+<div id="beerFoam" class="zI2 pAbsolute">
+    {% for i in 1..21 %}
+       <div class="foam{{i}} pAbsolute" style="top: {{topSize[i - 1]}}px; left: {{leftSize[i - 1]}}%"></div>          
+    {% endfor %}
+    {% for i in 22..42 %}
+       <div id="foam{{i}}" style="top: {{topSize[i - 1]}}px; left: {{leftSize[i - 1]}}%"></div>          
+    {% endfor %}
+</div>
+
+<div id="beer" class="zI1 pAbsolute col-0">
+    {% for i in 1..35 %}
+       <div class="bubble bubble{{i}} pAbsolute" style="left: {{i * 3}}%; animation-delay: {{random(500, 1500)}}ms; animation-duration: {{random(500, 1500)}}ms;"></div>          
+    {% endfor %}
+</div>
+
+<div class="container">
+    <div id="hello" class="zI2 pAbsolute">
+        <h3>hello</h3>
+    </div>
+</div>
+<div class="container">
+    <div id="hell">
+        <h3>hell</h3>
+    </div>
+</div>
+<div class="container">

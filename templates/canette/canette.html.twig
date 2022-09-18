@@ -1,0 +1,6 @@
+<div class="col-0 text-center">
+    <img id="eclat" src="{{ asset('img/eclat.png') }}" class="zI5 pAbsolute" alt="éclat explosion canette">
+        {% for i in 1..4 %}
+            <img id="canette{{ i }}" src="{{ asset('img/canette' ~ i ~ '.png') }}" class="zI4 pAbsolute" alt="canette de présentation du produit{{ i }}">           
+        {% endfor %}
+</div>

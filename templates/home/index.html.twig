@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('Home') }}
+</head> 
+{% endblock %}  
 
-{% block title %}Brasserie Sauvage!{% endblock %}
-
-{% block body %} 
-{# {{ include("modal/alcoholWarning.html.twig") }} #}   
-<div class="container">
-    <div class="flex pRelative col-0 ">
-        {{ include("socialNetwork/index.html.twig") }}       
-        <div id="lang" class="pAbsolute">
-            <p><span>FR <img src="" alt=""></span> | <span>EN <img src="" alt=""></span></p>
-        </div>
-        {{ include("logo/index.html.twig") }} 
+{% block beforeBody %}
+    {{ include("modal/alcoholWarning.html.twig") }}     
+    {{ include("canette/canette.html.twig") }}   
+    <div id="white" class="zI4">
+{% endblock %}
+{% block endHeader %}   
     </div>
-    {{ include("menu/index.html.twig") }} 
-</div>
-{{ include("banner/index.html.twig") }} 
+{% endblock %}
+{% block body %}
+    {{ include("banner/index.html.twig") }}
 {% endblock %}

@@ -1,0 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sauvage{% endblock %}</title>
+    <link rel="icon" href="{{ asset('img/logobs.jpg') }}">
+
+    <!--OPENGRAPH-->
+    <meta property="og:title" content="Mandala | Le site vitrine d'une entreprise d'architecture">
+    <meta property="og:site_name" content="Mandala Architecture">
+    <meta property="og:url" content="<?= $website_url; ?>">
+    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="<?= $website_url; ?>/img/fb-opengraph.jpg">
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allan&family=Alumni+Sans:ital,wght@1,300&family=Amatic+SC:wght@700&family=Antonio:wght@100&family=Big+Shoulders+Display:wght@200&family=Big+Shoulders+Inline+Display:wght@200&family=Big+Shoulders+Stencil+Display:wght@300&family=Big+Shoulders+Text:wght@100&family=Caveat&family=Chathura&family=Dorsa&family=Just+Another+Hand&family=Roboto:wght@300;400&family=Smooch+Sans:wght@300&family=Teko:wght@300&display=swap" rel="stylesheet">
+
+    <!--CSS-->
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('Home') }}
+        {{ encore_entry_link_tags('Other') }}
+    {% endblock %}
+
+    <!--JS-->
