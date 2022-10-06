@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %} 
+    <div class="container">
+        <div id="brasseriePresent">
+            <h2>Contact</h2>
+            <div class="flex" id="fColumn">
+                <div class="col-2">  
+                    <div>
+                        <p>3 Rue Jacqueline Auriol</p>
+                        <p>35136 Saint-Jacques-de-la-Lande</p>
+                        <p>FRANCE</p>
+                    </div>
+                    <div>
+                        <p>Facebook</p>
+                        <a href="https://www.facebook.com/sauvagebrasserie" target="blank"><p>https://www.facebook.com/sauvagebrasserie</p></a>
+                    </div>
+                    <div>
+                        <p>Instagram</p>
+                        <a href="https://www.instagram.com/brasserie_sauvage/?hl=fr" target="blank"><p>https://www.instagram.com/brasserie_sauvage/?hl=fr</p></a>
+                    </div>
+                    <div>
+                        <p>Adresse e-mail :</p>
+                        <a href="mailto:allo@brasseriesauvage.co" target="blank"><p>allo@brasseriesauvage.co;</p></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="{{ asset('img/local.png') }}" alt="">
+                </div>
+            </div>
+            <div class="text-center">
+                <h3>Formulez votre demande. Réponse dans les 72h</h3>
+                <div>
+                    <form action="" id="formContact">
+                        <div class="flex">
+                            <div class="flex">
+                                <label for="name">Nom*</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="firstname">Prénom*</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex">
+                                <label for="mail">E-mail*</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="topic">Sujet*</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="flex message">
+                            <label for="message">Message*</label>
+                            <textarea name="message" id="message" cols="20" rows="7"></textarea>
+                        </div>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

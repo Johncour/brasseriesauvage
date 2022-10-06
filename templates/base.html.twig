@@ -9,7 +9,7 @@
     <body>
         {% block beforeBody %}{% endblock %}
         <div class="container">
-            <div class="flex pRelative col-0 ">
+            <div class="flex pRelative col-0">
                 {{ include("socialNetwork/index.html.twig") }}
                 {{ include("logo/index.html.twig") }}
                 {{ include("language/index.html.twig") }}
@@ -19,6 +19,18 @@
         <div class="container">
             {{ include("menu/index.html.twig") }}
         </div>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="container">
+                {{ include("button/button.html.twig") }}
+           </div>
+        {% endblock %}
+        {% block body2 %}{% endblock %}
+        {{ include("footer/index.html.twig") }}  
+        <div id="fTop" class="text-center">
+            <a href="#logo">
+                <img class="arrow2" src="{{ asset('img/fleche_haut.png') }}" alt="">
+            </a>
+            <p class="hide" >Retour haut de page</p>
+        </div>
     </body>
 </html>

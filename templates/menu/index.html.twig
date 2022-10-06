@@ -1,19 +1,24 @@
-<div id="menu" class="pAbsolute zI3 col-0 vHidden">
-    <ul class="flex jcSpace text-center">
-        <li><a href="{{ path('app_home') }}">Accueil</a></li>
-        <li><a href="{{ path('app_brasserie') }}">La Brasserie</a></li>
-        <li><a href="{# {{ path('app_beer') }} #}">Nos bières</a></li>
-        <li class="pRelative menuOpen">Actualités
-            <ul class="hiddenMenu pAbsolute vHidden">
-                <li class="hoverStyle"><a href="{# {{ path('app_') }} #}">Tendances</a></li>
-                <li class="hoverStyle"><a href="{# {{ path('app_') }} #}">Créations</a></li>
-                <li class="hoverStyle"><a href="{# {{ path('app_pro') }} #}">Projets</a></li>
-                <li class="hoverStyle"><a href="{# {{ path('app_media') }} #}">Press<span class="opaq">_</span>Ressource</a></li>
-                <li class="hoverStyle"><a href="{# {{ path('app_') }} #}">Gallerie</a></li>
+<ul>
+    <li class="menuOpen2">
+        <img id="menuImg" class="zI5 pAbsolute vHidden" src="{{ asset('img/menu.png') }}" alt="">
+        <div id="menu" class="pAbsolute zI6 col-0 hiddenMenu2">
+            <ul class="flex jcSpace text-center">
+                <li><a href="{{ path('app_home') }}?animation=non&arrow=down">Accueil</a></li>
+                <li><a href="{{ path('app_brasserie') }}">La Brasserie</a></li>
+                <li><a href="{{ path('app_beer') }}">Nos Bières</a></li>
+                <li class="pRelative menuOpen"><span id="actu"><a href="{{ path('app_home') }}?animation=non&id=#actuality">Actualités</a></span>
+                    <ul class="hiddenMenu pAbsolute vHidden">
+                        <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#tendances">Tendances</a></li>
+                        <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#creations">Créations</a></li>
+                        <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#projets">Projets</a></li>
+                        <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#pressRessource">Press<span class="opaq">_</span>Ressource</a></li>
+                        <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#gallerie">Gallerie</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('app_engage') }}">Nos Engagements</a></li>
+                <li class="menuOpen"><a href="{{ path('app_shop') }}">Click & Collect</a></li>
+                <li><a href="{{ path('app_contact') }}">Contact</a></li>
             </ul>
-        </li>
-        <li><a href="{# {{ path('app_') }} #}">Nos engagements</a></li>
-        <li class="menuOpen"><a href="{# {{ path('app_shop') }} #}">Boutique</a></li>
-        <li><a href="{# {{ path('app_contact') }} #}">Contact</a></li>
-    </ul>
-</div>
+        </div>
+    </li>
+</ul>

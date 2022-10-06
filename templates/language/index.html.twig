@@ -1,21 +1,27 @@
 <div class="pAbsolute right col-4">
-    <div class="pAbsolute right col-2 flex"> 
-        <p>
+    <div class="flex">        
+        <img class="homeImg" src="{{ asset('img/profil.png') }}" alt="">
+        <img class="homeImg" src="{{ asset('img/inscription.png') }}" alt="">
+    </div>
+    <div class="pAbsolute right col-80 flex zI5 column"> 
+        <p class="padding">
             <a href="#">FR
-                <img class="col-40" src="{{ asset('img/fr.jpg') }}" alt="drapeau français">
+                <img class="fr" src="{{ asset('img/fr.jpg') }}" alt="drapeau français">
             </a>
         </p>
         <p class="space">|</p>  
         <p> 
             <ul>
                 <li class="uk">
-                    <a href="#" class="lT zI4">EN 
-                        <img class="col-40" src="{{ asset('img/uk.jpg') }}" alt="drapeau royaume-uni">
-                    </a>
-                    <ul  id="hiddenEnglish" class="pAbsolute right vHidden">
+                    <p class="padding">
+                        <a href="#" class="lT zI4">EN 
+                            <img class="fr" src="{{ asset('img/uk.jpg') }}" alt="drapeau royaume-uni">
+                        </a>
+                    </p>
+                    <ul id="hiddenEnglish" class="pAbsolute right vHidden">
                         <li class="uk">
                             <span>
-                                <img class="cSoon col-0" src="{{ asset('img/cSoon.jpg') }}" alt="">
+                                <img class="cSoon col-0" src="{{ asset('img/cSoon.jpg') }}" alt="Image arrive bientot">
                             </span>
                         </li>
                     </ul>

@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %} 
+    <div class="container">
+        <div id="shopPresent">
+            <h2>Click & Collect</h2>
+            <div>
+                <div class="flex text-center blocSP">
+                    <div class="col-4">
+                        <img src="{{ asset('img/cool_cool_cool.jpg') }}" alt="">
+                    </div>
+                    <div class="sPresent col-0">
+                        <div class="text-left p15">
+                            <h4>Cool Cool Cool</h4>
+                            <h5>Double India Pale Ale</h5>
+                        </div>
+                        <div class="flex col-60 jcBetween p15">
+                            <div>
+                                <p>Alcool : 5%</p>
+                            </div>
+                            <div>
+                                <p>Couleur de la bière : Blonde</p>
+                            </div>
+                            <div>
+                                <p>Prix : 4554€</p>
+                            </div>
+                            <div>
+                                <p>Volume : 44cl</p>
+                            </div>
+                        </div>                  
+                        <form action="#beer1" class="flex col-0">
+                            <div class="spaceBasket">
+                                <select name="" id="stockBeer1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="spaceBasket">
+                                <span id="resultPrice1" class="resultPrice">x 4€ =</span>
+                                <input id="price1" class="price" value="4">
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="valuePrice1" class="valuePrice" value="44€">
+                                <span id="valuePResult1" class="valuePResult"></span>
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="basket1" class="basket pRelative" type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex text-center blocSP">
+                    <div class="col-4">
+                        <img src="{{ asset('img/la_garrigue.jpg') }}" alt="">
+                    </div>
+                    <div class="sPresent col-0">
+                        <div class="text-left p15">
+                            <h4>La Garrigue</h4>
+                            <h5>American Pale Ale</h5>
+                        </div>
+                        <div class="flex col-60 jcBetween p15">
+                            <div>
+                                <p>Alcool: 6%</p>
+                            </div>
+                            <div>
+                                <p>Couleur de la bière: Blonde</p>
+                            </div>
+                            <div>
+                                <p>Prix: 4€</p>
+                            </div>
+                            <div>
+                                <p>Volume: 44cl</p>
+                            </div>
+                        </div>                  
+                        <form action="#beer1" class="flex col-0">
+                            <div class="spaceBasket">
+                                <select name="" id="stockBeer1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="spaceBasket">
+                                <span id="resultPrice1" class="resultPrice">x 4€ =</span>
+                                <input id="price1" class="price" value="4">
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="valuePrice1" class="valuePrice" value="44€">
+                                <span id="valuePResult1" class="valuePResult"></span>
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="basket1" class="basket pRelative" type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div id="allBasket" class="allBasket">
+            <h5>panier</h5>
+        </div>
+    </div>
+{% endblock %}

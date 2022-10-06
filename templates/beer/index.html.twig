@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %} 
+    <div class="container">
+        <div id="beerPresent">
+            <h2>Nos Bières</h2>
+            <div id="beer1" class="flex text-center blocBP">
+                <div class="col-40 h0">
+                    <img src="{{ asset('img/cool_cool_cool.jpg') }}" alt="">
+                </div>
+                <div class="col-60 bPresent">
+                    <h4>Cool Cool Cool</h4>
+                    <h5>Double India Pale Ale</h5>
+                    <div>
+                        <p>À coup de bon gros jus de houblon dans tes papilles, le félin que tu es sera ravi ! Bière trouble et troublante, la Cool cool cool s’adresse aux assoiffés audacieux en quête de chaleur tropicale et de fruits juicy.</p>
+                        <p>Robe relativement claire. Légère rondeur qui contrebalance la faible amertume de cette bière. Explosions de saveurs fruits exotiques, poire - un jus de houblon plein de gourmandise.</p>
+                    </div>
+                    <div class="flex jcSpace leftInfo">
+                        <div>
+                            <p>Alcool: 5%</p>
+                        </div>
+                        <div>
+                            <p>Couleur de la bière: Blonde</p>
+                        </div>
+                        <div>
+                            <p>Prix: 4554€</p>
+                        </div>
+                        <div>
+                            <p>Volume: 44cl</p>
+                        </div>
+                    </div>
+                    <div class="flex jcCenter basketLeft">
+                        <form action="#beer1" class="flex">
+                            <div class="spaceBasket">
+                                <select name="" id="stockBeer1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="spaceBasket">
+                                <span id="resultPrice1" class="resultPrice">x 4€ =</span>
+                                <input id="price1" class="price" value="4">
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="valuePrice1" class="valuePrice" value="44€">
+                                <span id="valuePResult1" class="valuePResult"></span>
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="basket1" class="basket pRelative" type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="beer2" class="flex text-center blocBP">
+                <div class="col-40 h0">
+                    <img src="{{ asset('img/la_garrigue.jpg') }}" alt=""> 
+                </div>
+                <div class="col-60 bPresent">
+                    <h4>La Garrigue</h4>
+                    <h5>American Pale Ale</h5>
+                    <div>
+                        <p>La garrigue, c'est une belle amertume et des notes de pin qui régalent tes papilles ! Cette fois, le brasseur s’est lâché : pas moins de 4 houblons qui s’entremêlent avec une juste touche de romarin, idéale pour cette automédication thérapeutique : ton corps te dit merci !</p>
+                        <p>Bière brassée avec des houblons américains qui lui confèrent des notes de pin. L'ajout de romarin accentue l'identité végétale. Forte amertume.</p>
+                    </div>
+                    <div class="flex jcSpace leftInfo">
+                        <div>
+                            <p>Alcool: 6%</p>
+                        </div>
+                        <div>
+                            <p>Couleur de la bière: Blonde</p>
+                        </div>
+                        <div>
+                            <p>Prix: 4€</p>
+                        </div>
+                        <div>
+                            <p>Volume: 44cl</p>
+                        </div>
+                    </div>
+                    <div class="flex jcCenter basketLeft">
+                        <form action="#beer2" class="flex">
+                            <div class="spaceBasket">
+                                <select name="" id="stockBeer3">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="spaceBasket">
+                                <span id="resultPrice2" class="resultPrice">x 4€ =</span>
+                                <input id="price2" class="price" value="4">
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="valuePrice2" class="valuePrice"  value="44€">
+                                <span id="valuePResult2" class="valuePResult"></span>
+                            </div>
+                            <div class="spaceBasket">
+                                <input id="basket2" class="basket pRelative" type="submit" value="Ajouter au panier">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

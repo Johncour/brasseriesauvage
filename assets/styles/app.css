@@ -50,11 +50,37 @@ canvas{
 }
 
 h1{color: rgb(246, 98, 16);
-    opacity: 0;}
+    opacity: 0;
+    width: 50%;
+    margin: auto;}
+
+h2{font-size: 1.5em;
+    text-shadow: 2px 1px rgb(217, 179, 130);}
+
+h3{font-size: 1.3em;
+    color: rgb(246, 98, 16);
+    font-weight: bold;}
+
+h4{font-size: 1.1em;
+    font-weight: bold;}
+
+h5{color: rgb(246, 98, 16);
+    font-weight: bold;}
+
+html{
+    scroll-behavior: smooth;}
+
+p{font-size: 0.9em;}
 
 /********** Layout */
 .col-0{
     width: 100%;}
+
+.col-80{
+    width: 80%;}
+
+.col-60{
+    width: 60%;}
 
 .col-2{
     width: 50%;}
@@ -76,6 +102,9 @@ h1{color: rgb(246, 98, 16);
 
 .flex{
     display: flex;}
+
+.jcBetween{
+    justify-content: space-between;}
 
 .jcCenter{
     justify-content: center;}
@@ -141,12 +170,6 @@ h1{color: rgb(246, 98, 16);
         top: 100px;}
 }
 
-#canette1{
-    width: 44%;
-    left: 29%;
-    top: 0;
-    transition: all 1s ease;}
-
 @keyframes down {
     0% {
         width: 10%;
@@ -163,7 +186,7 @@ h1{color: rgb(246, 98, 16);
         top: 1500px;}
 }
 
-#canette2, #canette3, #canette4, #eclat{
+#canette1, #canette2, #canette3, #canette4, #eclat{
     width: 0%;
     left: 29%;
     top: 0;
@@ -193,7 +216,7 @@ h1{color: rgb(246, 98, 16);
     background-color: rgb(211, 211, 211, 0.8);
     padding: 100px 50px;
     width: 100%;
-    height: 2800px;
+    height: 1100px;
 }
 
 #modal{
@@ -218,6 +241,9 @@ h1{color: rgb(246, 98, 16);
 }
 
 /********** Social network */
+
+#sNetwork{
+    left: 60px;}
 
 .fa-brands{
     font-size: 40px;}
@@ -258,12 +284,20 @@ i{padding: 10px;}
 
 /********** Lang */
 
+.fr{width: 20px;}
+
 #hiddenEnglish{
     width: 60%;
     top: 20px;}
 
+.homeImg{
+    width: 0;}
+
 .lT:hover{
     text-decoration: line-through;}
+
+.padding{
+    padding: 2px 0 0 0;}
 
 .space{
     margin: 0px 10%;}
@@ -274,10 +308,23 @@ i{padding: 10px;}
 /********** Logo */
 
 #logo{
-    width: 7%;
+    width: 85px;
     border-radius: 200px;}
 
+#h1 span{
+    font-family: 'Antonio', sans-serif;}
+
+h3 span{
+    font-family: 'Caveat', cursive;}
+
 /********** Menu */
+
+#actu:hover{
+    text-shadow: none;
+    transform: none;}
+
+.column{
+    top: 10px;}
 
 .hiddenMenu{
     padding: 5px 0px 0px 0px;}
@@ -288,15 +335,24 @@ i{padding: 10px;}
     padding: 3px 0px;
     font-size: 0.8em;}
 
+.menuOpen2 img{
+    right: 9%;
+    top: -40px;
+    width: 40px;
+    visibility: hidden;
+    cursor: pointer;
+    padding: 5px;}
+
 @keyframes menuHide {
-    0% {visibility: hidden;}
-    100% {visibility: visible;}
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 #menu{
     color: black;
     transition: all 0.4s;
-    transition-timing-function:cubic-bezier(1, 1, 1, 1);}
+    transition-timing-function: cubic-bezier(1, 1, 1, 1);
+    opacity: 0;}
 
 #menu ul li a:active{
     text-shadow: 0px 8px 0px #edaf32;}
@@ -567,7 +623,7 @@ i{padding: 10px;}
         margin-top: 0;}
     100% {
         width: 100%;
-        top: 30px;
+        top: 35px;
         height: 0px;
         font-size: 225%;
         padding-top: 0;
@@ -661,11 +717,18 @@ i{padding: 10px;}
 /********** button */
 
 #button{
-    margin: -20px auto;
+    margin: 0px 25%;
     top: 415px;}
 
+#button div{
+    padding: 0 3px;}
+
+#button img{
+    width: 0px;
+    visibility: hidden;}
+
 .button{
-    margin: 20px;
+    margin: 20px 10px;
     padding: 3px 5px;
     border-color: rgb(246, 97, 15);
     border-radius: 15px;
@@ -673,129 +736,1352 @@ i{padding: 10px;}
     font-size: 1.2em;
     box-shadow: 0px 10px 5px rgb(128, 128, 128);
     transition: all 0.4s;
-    transition-timing-function:cubic-bezier(1, 1, 1, 1);}
+    transition-timing-function:cubic-bezier(1, 1, 1, 1);
+    cursor: pointer;}
 
 .button:active{
     background-color: rgb(246, 97, 15);
-    box-shadow: none;}
+    color: white;
+    box-shadow: none;
+    transition: all 0s;
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border: 3px solid white;}
 
 .button:hover{
-    transform:scale(1.2,1.2);}
+    transform:scale(1.1,1.1);}
 
-/* Foam */
+/********** Foam */
 
-@keyframes height2 {
+@keyframes moveUp {
     0% {
-        top: 800px;
-    }
+        height: 5px;
+        top: 800px;}
     100% {
-        top: 250px;
-    }
+        height: 800px;
+        top: 165px;}
 }
 
 #beerFoam {
     width: 103%;
-    left: -10px;
-  }
+    left: -10px;}
   
-  .foam1, .foam2, .foam3, .foam4, 
-  .foam5, .foam6, .foam7,   .foam11, .foam12, .foam13, .foam14, 
-  .foam15, .foam16, .foam17, .foam18, .foam19, .foam20, .foam21, 
-  .foam10, .foam9, .foam8  {
+.foam1, .foam2, .foam3, .foam4, .foam5, .foam6, .foam7, .foam8, .foam9, .foam10, .foam11, .foam12, .foam13, .foam14, .foam15, .foam16, .foam17, .foam18, .foam19, .foam20, .foam21{
     width: 7%;
     height: 70px;
     border-radius: 50px / 50px;
     background: white;
     box-shadow: 3px -9px 1px -9px rgb(0, 0, 0);
-    filter: blur(5px);
-  }
-  #foam28, #foam22 #foam23, #foam24, 
-  #foam25, #foam26, #foam27,  #foam29, #foam30, #foam31, #foam32, 
-  #foam33, #foam34, #foam35,   #foam36, #foam37, #foam38, #foam39, 
-  #foam40, #foam41, #foam42{
+    filter: blur(5px);}
+
+#foam22 #foam23, #foam24, #foam25, #foam26, #foam27, #foam28, #foam29, #foam30, #foam31, #foam32, #foam33, #foam34, #foam35, #foam36, #foam37, #foam38, #foam39, 
+#foam40, #foam41, #foam42{
     position: absolute;
     width: 7%;
     height: 70px;
     border-radius: 50px / 50px;
     background: white;
-    filter: blur(1px);
-  }
+    filter: blur(1px);}
 
-  @keyframes foam {
-    0% {
-        box-shadow: 7px 19px 15px 25px rgb(255, 255, 255);
-    }
-    100% {
-        box-shadow: 7px 19px 15px -10px rgb(255, 255, 255);
-    }
+@keyframes foamMove {
+    0% {box-shadow: 7px 19px 15px 25px rgb(255, 255, 255);}
+    100% {box-shadow: 7px 19px 15px -10px rgb(255, 255, 255);}
 }
 
-  .rr{
-    animation: foam 3s linear forwards normal;
-  }
+.fM{
+animation: foamMove 3s linear forwards normal;}
 
-  @keyframes foam2 {
-    0% {
-        box-shadow: 7px 19px 15px -10px rgb(255, 255, 255);
-    }
-    100% {
-        box-shadow: 7px 19px 15px 25px rgb(255, 255, 255);
-    }
+@keyframes foamMove2 {
+    0% {box-shadow: 7px 19px 15px -10px rgb(255, 255, 255);}
+    100% {box-shadow: 7px 19px 15px 25px rgb(255, 255, 255);}
 }
-  .rr2{
-    animation: foam2 3s linear forwards normal;
-  }
 
-@keyframes height {
-    0% {
-        height: 5px;
-        top: 800px;
-    }
-    100% {
-        height: 800px;
-        top: 165px;
-    }
-}
+.fM2{
+    animation: foamMove2 3s linear forwards normal;}
+
+/********** Beer animation */
 
 #beer{
-    height: 5px;
-    background-color: rgb(252, 236, 158);}
+height: 5px;
+background-color: rgb(252, 236, 158);}
 
-@keyframes bubble {
-    0% { bottom: 0; }
-  
-     50% {
-       background-color: rgba(255, 255, 255, 0.4);
-        bottom: 500px;
-     }
-  
-     100% {
-       background-color: rgba(255, 255, 255, 0.2);
-        bottom: 800px;
-     }
-  }
+@keyframes bubbleMove {
+    0% {bottom: 0;}
+    50% {
+        background-color: rgba(255, 255, 255, 0.4);
+        bottom: 500px;}
+    100% {
+        background-color: rgba(255, 255, 255, 0.2);
+        bottom: 800px;}
+}
 
-.bubble {
-    animation: bubble 5s infinite linear forwards normal;
+.bubble, .bubble2 {
+    animation: bubbleMove 5s infinite linear forwards normal;
     background-color: rgba(255, 255, 255, 0.5);
     bottom: 160px;
     border-radius: 50px / 50px;
     height: 50px;
-    width: 50px;
-  }
+    width: 50px;}
 
-/********** Logo */
+/********** Presentation */
 
 #hello{
-    background: white;
+    background: rgb(255,255,255,0.2);
     width: 100%;
     height: 200px;
+    padding: 5px 10px;
+    top: -100px;}
+
+#hello img{ 
+    width: 63%;}
+
+#hello div div{ 
+    padding: 8px}
+
+.ml{
+    font-size: 1.1em;}
+
+#present{
+    padding: 5px;}
+
+#present div{
+    font-size: 0.85em;}
+
+#fTop2{
+    visibility: hidden}
+
+#fTop2 img{
+    animation: flash 5s linear forwards infinite;
+    width: 4%;
+    transform: rotate(180deg);
+    position: fixed;
+    bottom: 9%;
+    z-index: 999;
+    right: 13%;}
+
+/********** Glass */
+
+#glass{
+    top: 190px;
+    height: 100px;
+    box-shadow: 20px 60px 120px rgba(0, 0, 0, 0.5);
+    border-radius: 0px 0px 50px 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(50px);}
+
+.downActu{
+    top: 300px;
+    padding: 0 30px;}
+
+/********** Brasserie */
+
+#brasseriePresent, #beerPresent, #shopPresent, #engagePresent{
+    padding: 15px;
+    margin: 20px 0px;
+    line-height: 25px;}
+
+#brasseriePresent a{
+    color: rgb(246, 98, 16);}
+
+#brasseriePresent div{
+    margin: 30px 0;}
+
+#brasseriePresent img{
+    width: 80%;
+    margin: 5px 10%;}
+
+#brasseriePresent p, #beerPresent p{
+    margin: 5px;}
+
+h5 span{
+    font-family: 'Antonio', sans-serif;}
+
+/********** Beer */
+
+#beerPresent img{
+    width: 250px;
+    border: 8px groove rgb(252, 236, 158);}
+
+.blocBP{
+    margin: 30px 0;}
+
+.bPresent div p{
+    padding: 10px 0;}
+
+.spaceBasket{
+    margin: 20px 5px;}
+
+.spaceBasket input{
+    box-shadow: -1px 3px 8px black;}
+
+.spaceBasket input:active {
+    box-shadow: 1px 0px 1px black;}
+
+.spaceBasket select{
+    width: 70px;
+    height: 35px;
+    font-size: 1.1em;
+    position: relative;
+    bottom: 7px;
+    text-align: center;}
+
+.basket{
+    background: rgb(217, 179, 130, 0.5);
+    border: 1px solid rgb(246, 97, 15); 
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    bottom: 14px;}
+
+.basket:active {
+    background: rgb(246, 97, 15);
+    color: white;
+    bottom: 9px;}
+
+.price, .valuePrice{
+    width: 0;
     visibility: hidden;
+    position: absolute;}
+
+.valuePResult, .resultPrice{
+    font-size: 1.1em;}
+
+/********** Actualité */
+
+#actuality, #tendances, #creations, #projets, #pressRessource{
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+    border-bottom: 2px black solid;}
+
+#actuality h4{
+    font-size: 1.3em;}
+
+#actuality div{
+    margin: 15px 0;}
+
+#actuality p{
+    margin: 15px 0;}
+
+#actuality img{
+    width: 50px;
+    position: absolute;
+    top: 110px;}
+
+#actuality img:hover{
+    animation: shakeTitle 0.5s linear forwards normal;
+    width: 100px;
+    position: absolute;
+    top: 80px;}
+
+/********** Tendances */
+
+#tendances h4{
+    font-size: 0.9em;
+    margin: 50px 0 25px 0;}
+
+#tendances div{
+    margin: auto;}
+
+#tendances p{
+    margin: 15px 0;}
+
+#tendances img{
+    width: 500px;}
+
+/********** Créations */
+
+#creations h4{
+    font-size: 0.9em;
+    margin: 50px 0 25px 0;}
+
+#creations div{
+    margin: auto;}
+
+#creations p{
+    margin: 15px 0;}
+
+#creations img{
+    width: 175px;
+    border: 8px groove rgb(252, 236, 158);}
+
+/********** Projets */
+
+#projets h4{
+    font-size: 0.9em;
+    margin: 50px 0 25px 0;}
+
+#projets div{
+    margin: auto;}
+
+#projets form{
+    flex-direction: column;
+    margin: auto;}
+
+#projets form input{
+    width: 500px;
+    margin: 15px 0;
+    height: 30px;}
+
+#projets img{
+    width: 200px;}
+
+#projets p{
+    margin: 15px 0;}
+
+#projets form input[type=submit]{
+    width: 100px;
+    background: white;
+    border: 4px solid rgb(246, 97, 15);
+    margin: auto;
+    cursor: pointer;}
+
+/********** Press Ressource */
+
+#pressRessource h3{
+    margin: 50px 0 25px 0;}
+
+#pressRessource div div{
+    width: 31%;
+    margin: auto;}
+
+#pressRessource h5{
+    margin: 8px;}
+
+#pressRessource img{
+    width: 300px;}
+
+#pressRessource p{
+    margin: 15px 0;}
+
+/********** Gallerie */
+
+#gallerie img{
+    width: 145px;
+    border: 4px solid rgb(246, 97, 15);
+    margin: 13px;}
+
+#gallerie img:hover{
+    cursor: pointer;}
+
+/********** Engage */
+
+#engagePresent div{
+    margin: 10px 10px 0 10px;}
+
+#engagePresent h4{
+    font-size: 1.3em;
+    margin: 30px 0 0 0}
+
+#engagePresent h5{
+    padding: 27px 0;}
+
+#engagePresent img{
+    width: 250px;}
+
+#engagePresent .pImg{
+    width: 50px;}
+
+#engagePresent .pImg2{
+    width: 175px;}
+
+/********** Shop */
+
+#shopPresent img{
+    width: 150px;}
+
+.blocSP{
+    margin: 30px 0;}
+
+.p15{
+    padding: 15px 0;}
+
+.allBasket{
+    width:25%;
+    background: red;
+    padding: 20px 0;
+    top: 120px;
+    right: 7%;
+    position: absolute;}
+
+.allBasket2{
+    position: fixed;
+    width:25%;
+    background: red;
+    padding: 20px 0;
+    top: 300px;
+    right: 10%;}
+
+/********** Contact */
+
+#fColumn img {
+    width: 80%;
+    margin: 5px 10%;}
+
+#formContact div{
+    flex-direction: column;
+    margin: auto;}
+
+.message{
+    flex-direction: column;}
+
+#formContact label{
+    margin: 10px 0;}
+
+#formContact input{
+    width: 450px;
+    height: 30px;}
+
+#formContact input{
+    background: rgb(217, 179, 130, 0.5);
+    border: 1px solid rgb(246, 97, 15); 
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    bottom: 14px;}
+
+#formContact textarea{
+    background: rgb(217, 179, 130, 0.5);
+    border: 1px solid rgb(246, 97, 15); 
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    bottom: 14px;
+    margin: 0 auto 10px auto;
+    width: 500px;}
+
+#formContact input:active {
+    background: rgb(246, 97, 15);
+    color: white;
+    bottom: 9px;}
+
+#formContact textarea:active {
+    background: rgb(246, 97, 15);
+    color: white;
+    bottom: 9px;}
+
+#formContact input[type=submit]{
+    height: 50px;
+    background: rgb(246, 97, 15);
+    color: white;
+    border: 1px solid rgb(217, 179, 130, 0.5);}
+
+/********** fleche to top */
+
+@keyframes flash {
+    0% {
+        opacity: 1;}
+    50% {
+        opacity: 0;}
+    100% {
+        opacity: 1;}
 }
 
-#hell{
-    background: white;
-    width: 100%;
-    height: 180px;
-    visibility: hidden;
+#fTop{
+    visibility: hidden;}
+
+.arrow2{
+    animation: flash 5s linear forwards infinite;
+    width: 4%;
+    position: fixed;
+    bottom: 9%;
+    right: 3%;}
+
+.arrow{
+    width: 2%;
+    position: fixed;
+    bottom: 3%;
+    right: 3%;}
+
+#fTop p{
+    animation: flash 5s linear forwards infinite;
+    width: 8%;
+    position: fixed;
+    bottom: 8%;
+    right: 1%;
+    font-size: 0.5em;}
+
+/********** footer */
+
+#footer{
+    height: 300px;
+    background: rgb(246, 97, 15);
+    margin-top: 300px;
+    border-top: 4px rgb(217, 179, 130, 0.5) solid;}
+
+@media screen and (max-width: 1200px){
+
+    .container{
+        max-width: 1000px;
+        padding-top: 10px;}
+    #hello {
+        font-size: 0.9em;}
+    #hello div div {
+        padding: 5px;}
+    #hello img {
+        width: 76%;}
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 125%;
+            left: 0;
+            top: 50px;
+            height: 120px;
+            font-size: 200%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 25%;
+            left: 100px;
+            top: 400px;
+            height: 100px;
+            font-size: 1em;
+            padding-top: 30px;
+            margin-top: 0px;}
+        100% {
+            width: 50%;
+            left: 0px;
+            top: 60px;
+            height: 120px;
+            font-size: 200%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    @keyframes rebond7 {
+        0% {
+            width: 45%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            padding: 15px;
+            margin-top: 0;}
+        100% {
+            width: 50%;
+            top: 90px;
+            height: 0px;
+            font-size: 215%;
+            padding-top: 0;
+            padding: 15px;
+            margin-top: 40px;}
+    }
+    @keyframes rebond8 {
+        0% {
+            width: 20%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            margin-top: 0px;
+        }
+        100% {
+            width: 25%;
+            top: 118px;
+            height: 30px;
+            font-size: 215%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    #brasseriePresent img {
+        margin: 39px 5%;} 
+    #beerPresent img {
+        position: relative;
+        bottom: -30px;}  
+}
+
+@media screen and (max-width: 1000px){
+
+    .container{
+        max-width: 800px;
+        padding-top: 5px;}
+    .cSoon{
+        position: relative;
+        right: 0px;
+        bottom: 28px;
+        width: 100px;}
+    #button{
+        z-index: 1;}
+    #button img{
+        width: 30px;
+        visibility: visible;
+        position: relative;
+        left: 60%;
+        top: 18px;}
+    .button{
+        visibility: hidden;
+        width: 0;}
+    #menu{
+        top: -30px;
+        width: 225px;
+        right: 0;}
+    .hiddenMenu2{
+        visibility: hidden;}
+    #menu ul{
+        flex-direction: column;
+        width: 200px;
+        position: relative;
+        right: 53px;
+        font-size: 0.9em;
+        z-index: 99;
+        border: 1px solid black;
+        background: rgb(255,255,255);}
+    #menu ul li{
+        padding: 2px 0;}
+    #menu ul ul{
+        left: 50%;
+        border: none;}
+    .hiddenMenu{
+        height: 0;
+        padding: 0;
+        font-size: 0.9em;}
+    .hiddenMenu li{
+        background: white;
+        border: 1px solid black;}
+    .hoverStyle {
+        padding: 1px 0px;
+        width: 122px;}
+    #menu ul li:hover{
+        text-shadow: 1px 3px 2px #edaf32;
+        transform:scale(1.2,1.2);}
+    .menuOpen2:hover > .hiddenMenu2, .hiddenMenu2:hover{
+        visibility: visible;}
+    .homeImg{
+        width: 45px;
+        margin: 5px 10px;
+        position: relative;
+        right: 100px;}
+    @keyframes moveUp {
+        0% {
+            height: 5px;
+            top: 800px;}
+        100% {
+            height: 700px;
+            top: 160px;}
+    }
+    #hello{
+        top: -215px;}
+    #hello img {
+        width: 97%;}
+    #present {
+        top: 12px;}
+    @keyframes rebond8 {
+        0% {
+            width: 20%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            margin-top: 0px;}
+        100% {
+            width: 20%;
+            top: 160px;
+            height: 0px;
+            font-size: 200%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    @keyframes rebond7 {
+        0% {
+            width: 45%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            padding: 15px;
+            margin-top: 0;}
+        100% {
+            width: 40%;
+            top: 140px;
+            height: 0px;
+            font-size: 200%;
+            padding-top: 0;
+            padding: 15px;
+            margin-top: 40px;}
+    }
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 125%;
+            left: 0;
+            top: 85px;
+            height: 120px;
+            font-size: 170%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 50%;
+            left: 0px;
+            top: 90px;
+            height: 120px;
+            font-size: 170%;
+            padding-top: 0;
+            margin-top: 40px;}
+    }
+    @keyframes bubbleMove {
+        0% {bottom: 0;}
+        50% {
+            background-color: rgba(255, 255, 255, 0.4);
+            bottom: 500px;}
+        100% {
+            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 680px;}
+    }
+    #glass {
+        top: 80px;}
+    .downActu {
+        top: 230px;
+        padding: 0;}
+    #fTop2 img {
+        bottom: 0;
+        width: 50px;
+        margin: 0 33%;}
+    #fTop p{
+        bottom: 40px;}
+    .arrow2 {
+        bottom: 80px;}
+    #sNetwork{
+        left: 0px;}
+    .p30{
+        padding: 30px 0 0 0;}
+    .downActu {
+        font-size: 0.9em;}
+    #tendances div{
+        flex-direction: column-reverse;
+        margin: 15px;
+        width: 96%;}
+    #tendances img{
+        width: 475px;}
+    #actuality img {
+        top: 89px;
+        right: 85px;}
+    #actuality img:hover{
+        top: 70px;
+        right: 45px;}
+    #creations div{ 
+        margin: 15px;
+        width: 96%;}
+    #projets div{
+        flex-direction: column-reverse;
+        margin: 15px;
+        width: 96%;}
+    #projets form input{
+        width: 475px}
+    #pressRessource div{
+        flex-direction: column-reverse;
+        margin: 15px;}
+    #pressRessource div div{
+        width: 96%;}
+    #pressRessource img{
+        width: 475px;}
+    #gallerie img {
+        width: 107px;}
+    #brasseriePresent{
+        font-size: 0.9em;
+        padding: 5px;
+        line-height: 23px;}
+    #brasseriePresent p{
+        margin: 4px;}
+    #brasseriePresent div {
+        margin: 20px 0;}
+    #brasseriePresent img {
+        margin: 39px 9%;}   
+    #beerPresent img {
+        bottom: -10px;}
+    .bPresent div p {
+        padding: 0px 0;}
+    .blocBP{
+        font-size: 0.9em;}
+    #engagePresent div{
+        flex-direction: column-reverse;}
+    #engagePresent{
+        padding: 0px;
+        font-size: 0.9em;
+        line-height: 20px;}
+    #engagePresent div {
+        margin: 0;
+        width: 100%;}
+    #engagePresent .pImg {
+        position: relative;
+        top: 29px;}
+    #engagePresent img {
+        padding: 20px 0;}
+    #shopPresent{  
+        padding: 0px;
+        font-size: 0.9em;
+        line-height: 20px;}
+    #shopPresent img {
+        width: 100px;}
+    .sPresent{
+        width: 70%;
+        border-top: 1px solid black;
+        padding: 5px 0;
+        margin: 20px 0 0 10px;}
+    .sPresent h4{
+        font-size: 1em;}
+    .sPresent h5{
+        font-size: 0.9em;}
+    .p15{
+        padding: 7px 0;
+        flex-wrap: wrap;
+        width: 65%;}
+    .p15 div{
+        padding: 5px 0;}
+    .sPresent form{
+        position: absolute;
+        left: 26%;}
+    #shopPresent img {
+        position: relative;
+        top: 22px;}
+    .allBasket {
+        top: 36px;
+        right: 0;}
+    .blocSP{
+        margin: 45px 0;}
+    #fColumn{
+        flex-direction: column;}
+    #fColumn img{
+        width: 380px;
+        margin: 0px 5%;}
+    #formContact input {
+        width: 400px;
+    margin: auto;}
+}
+
+@media screen and (min-width: 1000px){
+
+    .menuOpen2 img{
+        width: 0;}
+}
+
+@media screen and (max-width: 800px){
+
+    .container{
+        max-width: 600px;}
+    #sNetwork{
+        display: flex;
+        flex-direction: column;
+        height: 120px;
+        flex-wrap: wrap;}
+    .column{
+        top: 45px;}
+    .space{
+        margin: 0 5%;}
+    #button img{
+        left: 129%;}
+    .menuOpen2 img {
+        right: 8%;}
+    .homeImg{
+        width: 35px;
+        right: -32px;}
+    @keyframes moveUp {
+        0% {
+            height: 5px;
+            top: 800px;}
+        100% {
+            height: 700px;
+            top: 155px;}
+    }
+    #hello div div {
+        padding: 3px 0px;}
+    #hello img {
+        width: 100%;
+        margin: 25px 0;}
+    @keyframes rebond8 {
+        0% {
+            width: 20%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            margin-top: 0px;}
+        100% {
+            width: 15%;
+            top: 225px;
+            height: 30px;
+            font-size: 180%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond7 {
+        0% {
+            width: 45%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            padding: 15px;
+            margin-top: 0;}
+        100% {
+            width: 28%;
+            top: 206px;
+            height: 0px;
+            font-size: 180%;
+            padding-top: 0;
+            padding: 15px;
+            margin-top: 0px;}
+    }
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 150%;
+            left: 0;
+            top: 140px;
+            height: 43px;
+            font-size: 140%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 60%;
+            left: 0px;
+            top: 145px;
+            height: 61px;
+            font-size: 140%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes bubbleMove {
+        0% {bottom: 0;}
+        50% {
+            background-color: rgba(255, 255, 255, 0.4);
+            bottom: 500px;}
+        100% {
+            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 680px;}
+    }
+    #actuality img {
+        top: 127px;
+        right: 5px;}
+    #actuality img:hover{
+        top: 106px;
+        right: -19px;}
+    #tendances div{
+        width: 95%;}
+    #tendances img{
+        width: 350px;}
+    #creations div{ 
+        width: 95%;}
+    #projets div{
+        width: 95%;}
+    #projets form input{
+        width: 350px}
+    #pressRessource div div{
+        width: 95%;}
+    #pressRessource img{
+        width: 350px;}
+    #gallerie img {
+        width: 94px;}
+    #brasseriePresent{
+        font-size: 0.9em;
+        padding: 0px;
+        line-height: 20px;}
+    #brasseriePresent p{
+        margin: 3px;}
+    #brasseriePresent div {
+        margin: 15px 0;}
+    #brasseriePresent img {
+        margin: 74px 7%;}
+    #beerPresent{
+        padding: 0px;
+        line-height: 20px;}
+    #beerPresent img {
+        width: 150px;}
+    .bPresent{
+        width: 100%}
+    #beerPresent img {
+        width: 140px;
+        position: relative;
+        bottom: 215px;
+        margin-left: 75px;}
+    .bPresent p{
+        font-size: 0.8em;}
+    #beerPresent p {
+        margin: 0px;}
+    .bPresent div p {
+        padding: 5px 0;}
+    .leftInfo{
+        flex-direction: column;
+        width: 50%;
+        position: relative;
+        left: 50%;}
+    .blocBP {
+        flex-direction: column-reverse;;
+        border-top: 1px solid black;
+        padding: 10px 0;}
+    .basketLeft{
+        width: 50%;
+        margin-left: 360px;}
+    .spaceBasket {
+        margin: 7px 5px;}
+    .bPresent form{
+        flex-wrap: wrap;}
+    .spaceBasket select {
+        font-size: 1em;}
+    .resultPrice {
+        font-size: 1em;}
+    .basket {
+        font-size: 1em;}
+    .h0 {
+        height: 0;}
+    .p15{
+        width: 80%;}
+    #fColumn{
+        flex-direction: column;}
+    #fColumn img{
+        width: 380px;
+        margin: 0px 5%;}
+    #formContact textarea{
+        width: 400px;}
+}
+
+@media screen and (max-width: 600px){
+
+    .container{
+        max-width: 500px;}
+    .column{
+        width: 100%;}
+    #button img{
+        left: 86%;}
+    .homeImg{
+        right: 2px;}
+    #present {
+        position: absolute;
+        left: 24%;
+        width: 70%;
+        top: 0;}
+    #hello {
+        top: -299px;
+        height: 240px;}
+    #hello div div {
+        padding: 10px;}
+    #hello div{
+        flex-direction: column;}
+    #hello img {
+        margin: 0px;}
+    @keyframes moveUp {
+        0% {
+            height: 5px;
+            top: 800px;}
+        100% {
+            height: 680px;
+            top: 155px;}
+    }
+    @keyframes rebond8 {
+        0% {
+            width: 20%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            margin-top: 0px;}
+        100% {
+            width: 15%;
+            top: 180px;
+            height: 30px;
+            font-size: 140%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond7 {
+        0% {
+            width: 45%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            padding: 15px;
+            margin-top: 0;}
+        100% {
+            width: 26%;
+            top: 160px;
+            height: 0px;
+            font-size: 140%;
+            padding-top: 0;
+            padding: 15px;
+            margin-top: 0px;}
+    }
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 150%;
+            left: 0;
+            top: 105px;
+            height: 43px;
+            font-size: 115%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 60%;
+            left: 0px;
+            top: 110px;
+            height: 61px;
+            font-size: 115%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }    
+    @keyframes bubbleMove {
+        0% {bottom: 0;}
+        50% {
+            background-color: rgba(255, 255, 255, 0.4);
+            bottom: 500px;}
+        100% {
+            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 680px;}
+    }
+    #glass {
+        top: 40px;}
+    .downActu {
+        top: 170px;
+        font-size: 0.8em;}
+    #fTop2 img {
+        right: 9%;
+        width: 4%;
+        margin: auto;
+        bottom: 9%;}
+    #tendances img{
+        width: 250px;}
+    #actuality img {
+        top: 123px;
+        right: 26px;}
+    #actuality img:hover{
+        top: 99px;
+        right: 0px;}
+    #creations div{
+        flex-direction: column-reverse;}
+    #projets form input{
+        width: 250px}
+    #pressRessource img{
+        width: 250px;}
+    #gallerie img {
+        width: 70px;}
+    #brasseriePresent{
+        font-size: 0.8em;}
+    #brasseriePresent p{
+        margin: 0px;}
+    #brasseriePresent div {
+        margin: 10px 0;}
+    #brasseriePresent img {
+        margin: 81px 5%;}
+    #beerPresent img {
+        margin-left: 25px;}
+    .basketLeft{
+        margin-left: 283px;}
+    .sPresent form{
+        left: 2%;}
+    #fColumn{
+        flex-direction: column;}
+    #fColumn img{
+        width: 380px;
+        margin: 0px 5%;}
+}
+
+@media screen and (max-width: 500px){
+
+    .container{
+        max-width: 400px;}
+    .fa-instagram, .fa-facebook, .fa-envelope, .fa-soundcloud{
+        font-size: 30px;}
+    #logo {
+        width: 60px;}
+    #button img{
+        left: 70%;
+        top: 45px;}
+    .space{
+        visibility: hidden;}
+    h1{
+        font-size: 0.9em;}
+    .menuOpen2 img{
+        top: 0;
+        right: 10%;}
+    #menu{
+        top: 0;}
+    .homeImg {
+        width: 30px;
+        margin: 5px 14px;
+        right: 17px;}
+    @keyframes moveUp {
+        0% {
+            height: 5px;
+            top: 800px;}
+        100% {
+            height: 640px;
+            top: 145px;}
+    }
+    #hello div div{
+        padding: 5px;}
+    #hello {
+        top: -260px;
+        height: 200px;}
+    #present {
+        top: -45px;}
+    @keyframes rebond8 {
+        0% {
+            width: 20%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            margin-top: 0px;}
+        100% {
+            width: 15%;
+            top: 200px;
+            height: 30px;
+            font-size: 95%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond7 {
+        0% {
+            width: 45%;
+            top: 400px;
+            height: 100px;
+            font-size: 1.5em;
+            padding-top: 30px;
+            padding: 15px;
+            margin-top: 0;}
+        100% {
+            width: 26%;
+            top: 180px;
+            height: 0px;
+            font-size: 95%;
+            padding-top: 0;
+            padding: 15px;
+            margin-top: 0px;}
+    }
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 150%;
+            left: 30px;
+            top: 105px;
+            height: 43px;
+            font-size: 115%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 60%;
+            left: 30px;
+            top: 110px;
+            height: 61px;
+            font-size: 115%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }    
+    @keyframes bubbleMove {
+        0% {bottom: 0;}
+        50% {
+            background-color: rgba(255, 255, 255, 0.4);
+            bottom: 500px;}
+        100% {
+            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 640px;}
+    }
+    #tendances div{
+        width: 90%;}
+    #actuality img {
+        top: 150px;
+        right: 75px}
+    #actuality img:hover{
+        top: 135px;
+        right: 35px}
+    #creations div{
+        width: 90%;}
+    #projets div{
+        width: 90%;}
+    #pressRessource div div{
+        width: 90%;}
+    #brasseriePresent img {
+        margin: 125px 5%;}
+    #beerPresent{
+        font-size: 0.9em;}
+    .basketLeft{
+        margin-left: 208px;}
+    #fColumn{
+        flex-direction: column;}
+    #fColumn img{
+        width: 380px;
+        margin: 0px 5%;}
+}
+
+@media screen and (max-width: 400px){
+
+    .container{
+        max-width: 300px;}
 }
