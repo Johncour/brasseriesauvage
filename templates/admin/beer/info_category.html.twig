@@ -1,0 +1,26 @@
+<div class="catTable2 pRelative">
+    <div class="flex text-center p55">
+        <a class="col-15" href="{{ path('app_admin_category_modif', {id: category.id}) }}">
+            <img src="{{ asset('img/modif.png') }}" alt="">
+            <span>modifier</span>
+        </a>
+        <p class="col-70">{{ category.name }}</p>
+        <a class="col-15" id="deleteCategory{{category.id}}" href="">
+            <img src="{{ asset('img/sup.png') }}" alt="">
+            <span>supprimer</span>
+        </a>
+    </div>
+    <div class="modHide2 pAbsolute">
+        <div class="modal22 text-center pAbsolute zI6" id="modalC{{category.id}}">
+            <p class="col-0">Supprimer {{ category.name }}</p>
+            <div class="flex jcSpace pRelative">
+                <a id="okC{{category.id}}" href="{{ path('app_admin_category_delete', {id: category.id}) }}">
+                    <p>Oui</p>
+                </a>
+                <a id="noC{{category.id}}">
+                    <p>Non</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

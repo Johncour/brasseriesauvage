@@ -25,7 +25,8 @@ body{
     font-family: 'Roboto','Open Sans', sans-serif;}
 
 a{  color: black;
-    text-decoration: none;}
+    text-decoration: none;
+    cursor: pointer;}
 
 a:active{
     color: black;}
@@ -79,20 +80,26 @@ p{font-size: 0.9em;}
 .col-80{
     width: 80%;}
 
+.col-70{
+    width: 70%;}
+
 .col-60{
     width: 60%;}
 
 .col-2{
-    width: 50%;}
+    width: 50%!important;}
 
 .col-40{
     width: 40%;}
 
 .col-3{
-    width: 30%;}
+    width: 30%!important;}
 
 .col-4{
     width: 25%;}
+
+.col-15{
+    width: 15%;}
 
 .container{
 	max-width: 1200px;
@@ -801,7 +808,7 @@ animation: foamMove 3s linear forwards normal;}
 
 /********** Beer animation */
 
-#beer{
+#beerBubble{
 height: 5px;
 background-color: rgb(252, 236, 158);}
 
@@ -900,6 +907,28 @@ h5 span{
 
 /********** Beer */
 
+.alert-success{
+    color: green;
+    font-size: 2.1em;
+    position: relative;
+    margin: auto;
+    bottom: 40px;
+    border: 1px solid black;
+    width: 450px;
+    background: white;
+    padding: 5px 0;}
+
+.alert-error{
+    color: red;
+    font-size: 2.1em;
+    position: relative;
+    margin: auto;
+    bottom: 40px;
+    border: 1px solid black;
+    width: 450px;
+    background: rgb(252, 236, 158);
+    padding: 5px 0;}
+
 #beerPresent img{
     width: 250px;
     border: 8px groove rgb(252, 236, 158);}
@@ -910,16 +939,164 @@ h5 span{
 .bPresent div p{
     padding: 10px 0;}
 
-.spaceBasket{
+#beer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    height: 650px;}
+
+#category{
+    padding: 30px 0;
+    height: 200px;}
+
+.p55{
+    margin: 10px;
+    background: rgb(255, 255, 255);
+    padding: 5px 5px;
+    border-radius: 20px / 20px;
+    border: 1px solid rgb(239, 88, 0);}
+
+.catTable2{
+    width: 33%;}
+
+.catTable img{
+    width: 25px;}
+
+.catTable p{
+    font-size: 1.1em;
+    position: relative;
+    top: 10px;}
+
+.catTable span{
+    font-size: 0.5em;}
+
+.beerTable{
+    width: 100%;}
+
+.beerTable table{
+    margin: 10px 0;}
+
+.beerTable th{
+    width: 10%;
+    border: 1px solid rgb(239, 88, 0);
+    padding: 5px;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;}
+
+.beerTable div{
+    width: 100%;}
+
+.beerTable td{
+    width: 10%;
+    border: 1px solid rgb(239, 88, 0);
+    padding: 5px;
+    position: relative;
+    height: 200px;
+    vertical-align: middle;}
+
+.beerTable td p, .leftInfo div p{
+    padding: 5px 0;
+    text-decoration: none;
+    line-height: 25px;}
+
+.beerTable td p span, .leftInfo div p span{
+    text-decoration: underline;}
+
+.vaT{
+    vertical-align: top !important;}
+
+.beerTable .pour15{
+    width: 15%;}
+
+.beerTable .pour20{
+    width: 20%!important;}
+
+.beerTable .pour25{
+    width: 25%;}
+    
+.beerTable .pour5{
+    width: 5%;
+    font-size: 0.5em;}
+
+.beerTable .pour5 img{
+    width: 40px;
+    position: relative;}
+
+.beerTable td img{
+    width: 115px;
+    position: absolute;}
+
+#beer div, #category div{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin: auto;}
+
+#beer input, #category input, #beer [type="submit"], #category [type="submit"], #beer select, #category select{
+    height: 30px;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 5px 0 15px 0;}
+
+#beer [type="file"], #category [type="file"]{
+    font-size: 0.9em;
+    margin: 5px 0 15px 0;}
+
+#beer textarea, #category textarea{
+    height: 130px;
+    font-size: 1em;
+    margin: 5px 0 15px 0;}
+
+.maxW p{
+    display: flex;
+    flex-direction: column;}
+
+.modal2{
+    padding: 5px 5px;
+    border-radius: 20px / 20px;
+    border: 1px solid rgb(239, 88, 0);
+    background: rgb(255,255,255);
+    padding: 100px 30px;
+    font-size: 1.1em;
+    left: 0;
+    bottom: 0;
+    visibility: hidden;}
+
+.modal22{
+    padding: 5px 5px;
+    border-radius: 20px / 20px;
+    border: 1px solid rgb(239, 88, 0);
+    background: rgb(255,255,255);
+    visibility: hidden;
+    width: 380px;
+    margin: 0;
+    bottom: 60px;
+    font-size: 0.6em;
+    height: 60px;
+    left: 10px;}
+
+.modal22 div{
+    top: 7px;}
+
+.modHide{
+    height: 0!important;
+    padding: 0!important;}
+
+.modHide2{
+    height: 50px;
+    padding: 0;}
+
+.spaceBasket, .spaceBasket2, .spaceBasket3{
     margin: 20px 5px;}
 
-.spaceBasket input{
+.spaceBasket input, .spaceBasket2 input, .spaceBasket3 input{
     box-shadow: -1px 3px 8px black;}
 
-.spaceBasket input:active {
+.spaceBasket input:active, .spaceBasket2 input:active, .spaceBasket3 input:active{
     box-shadow: 1px 0px 1px black;}
 
-.spaceBasket select{
+.spaceBasket select, .spaceBasket2 select, .spaceBasket3 select{
     width: 70px;
     height: 35px;
     font-size: 1.1em;
@@ -947,6 +1124,12 @@ h5 span{
 
 .valuePResult, .resultPrice{
     font-size: 1.1em;}
+
+.cache{
+    color: rgb(255,255,255,0);}
+
+.space span{
+    text-decoration: underline;}
 
 /********** Actualité */
 
@@ -1088,6 +1271,9 @@ h5 span{
 
 /********** Shop */
 
+#shopPresent h6{
+    margin: 10px;} 
+
 #shopPresent img{
     width: 150px;}
 
@@ -1098,20 +1284,76 @@ h5 span{
     padding: 15px 0;}
 
 .allBasket{
-    width:25%;
-    background: red;
+    width: 25%;
+    background: white;
     padding: 20px 0;
     top: 120px;
     right: 7%;
-    position: absolute;}
+    position: absolute;
+    border: 5px solid black;}
+
+.pou5 img{
+    width: 50px;
+    margin: 5px;}
+
+#allbasket .pou5{
+    width: 5%;
+    font-size: 0.5em;}
 
 .allBasket2{
     position: fixed;
-    width:25%;
-    background: red;
-    padding: 20px 0;
-    top: 300px;
-    right: 10%;}
+    width: 375px;
+    background: white;
+    padding: 20px 20px;
+    top: 120px;
+    right: 10%;
+    border: 5px solid black;
+    overflow: auto;
+    max-height: 400px;}
+
+#allBasket h5{
+    padding: 0 0 10px 0;}
+
+#basQuantity{
+    visibility: hidden;}
+
+#order{
+    color: white;
+    width: 375px;
+    height: 49px;
+    position: fixed;
+    top: 570px;
+    right: 10%;
+    font-size: 1em;
+    background: green;
+    text-align: center;    
+    visibility: hidden;
+    border: 5px solid black;
+    cursor: pointer;}
+
+.respon14{
+    position: relative; 
+    bottom: 30px; 
+    width: 175px; 
+    display: inline-block; 
+    padding: 0 0 0 5px;}
+
+#resultBasket{
+    width: 375px;
+    height: 49px;
+    position: fixed;
+    top: 525px;
+    right: 10%;
+    font-size: 1em;
+    background: white;
+    text-align: center;
+    visibility: hidden;
+    border: 5px solid black;}
+
+#newB{
+    height: 0;
+    color: rgb(255,255,255,0);
+    visibility: hidden;}
 
 /********** Contact */
 
@@ -1119,53 +1361,119 @@ h5 span{
     width: 80%;
     margin: 5px 10%;}
 
-#formContact div{
+#contact div{
+    display: flex;
     flex-direction: column;
     margin: auto;}
 
-.message{
-    flex-direction: column;}
-
-#formContact label{
+#contact label{
     margin: 10px 0;}
 
-#formContact input{
+#contact input{
     width: 450px;
-    height: 30px;}
-
-#formContact input{
-    background: rgb(217, 179, 130, 0.5);
-    border: 1px solid rgb(246, 97, 15); 
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.1em;
-    bottom: 14px;}
-
-#formContact textarea{
+    height: 30px;
     background: rgb(217, 179, 130, 0.5);
     border: 1px solid rgb(246, 97, 15); 
     padding: 10px 15px;
     cursor: pointer;
     font-size: 1.1em;
     bottom: 14px;
+    margin: auto;}
+
+#contact textarea{
+    background: rgb(217, 179, 130, 0.5);
+    border: 1px solid rgb(246, 97, 15); 
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.8em;
+    bottom: 14px;
     margin: 0 auto 10px auto;
-    width: 500px;}
+    width: 500px;
+    height: 200px;}
 
-#formContact input:active {
+#contact input:active {
     background: rgb(246, 97, 15);
     color: white;
     bottom: 9px;}
 
-#formContact textarea:active {
+#contact textarea:active {
     background: rgb(246, 97, 15);
     color: white;
     bottom: 9px;}
 
-#formContact input[type=submit]{
-    height: 50px;
+label[for="contact_date"]{
+    color: rgb(255,255,255,0);}
+
+#contact_date{
+    width: 0;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;}
+
+#contact_envoyer{
     background: rgb(246, 97, 15);
     color: white;
-    border: 1px solid rgb(217, 179, 130, 0.5);}
+    border: 1px solid rgb(217, 179, 130, 0.5);
+    width: 33%;
+    margin: auto;
+    height: 30px;
+    font-size: 1em;}
+
+#brasseriePresent .alert-success {
+    color: green;
+    font-size: 1.1em;
+    position: absolute;
+    border: none;
+    background: rgb(255,255,255,0);
+    padding: 5px 0;
+    text-align: center;
+    width: 200px;
+    top: 40px;
+    left: 42%;
+    border-radius: 20px / 20px;}
+
+.contactTable{
+    margin: 10px 0 100px 0;}
+
+.contactTable th{
+    border: 1px solid rgb(239, 88, 0);
+    padding: 5px;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;}
+
+.contactTable td{
+    border: 1px solid rgb(239, 88, 0);
+    padding: 5px;
+    position: relative;
+    height: 200px;}
+
+.contactTable td p{
+    margin: 5px;}
+    
+.contactTable td p span{
+    text-decoration: underline;
+    margin: 0 7px 0 0;}
+
+.contactTable img{
+    width: 50px;
+    cursor: pointer;}
+
+.modifContact{
+    font-size: 0.8em;}
+
+.modifContact div{
+    margin: 15px 0;}
+
+.case, .caseCoche{
+    width: 20px!important;}
+
+.modifContact img{
+    width: 40px;}
+
+#supContact div{
+    width: 100%;
+    right: 0;}
 
 /********** fleche to top */
 
@@ -1209,6 +1517,17 @@ h5 span{
     background: rgb(246, 97, 15);
     margin-top: 300px;
     border-top: 4px rgb(217, 179, 130, 0.5) solid;}
+
+@media screen and (max-width: 1400px){
+
+    .allBasket2{
+        width: 175px;
+        overflow-x: hidden;}
+    .allBasket2:hover{
+        width: 375px;}
+    #order{
+        width: 175px;}
+}
 
 @media screen and (max-width: 1200px){
 
@@ -1295,8 +1614,13 @@ h5 span{
     #brasseriePresent img {
         margin: 39px 5%;} 
     #beerPresent img {
-        position: relative;
-        bottom: -30px;}  
+        position: relative;} 
+    #gallerie img{
+        width: 140px;}
+    .catTable2{
+        width: 50%;}
+    .beerTable td img{
+        width: 95px;}
 }
 
 @media screen and (max-width: 1000px){
@@ -1475,7 +1799,7 @@ h5 span{
     #tendances div{
         flex-direction: column-reverse;
         margin: 15px;
-        width: 96%;}
+        width: 96%!important;}
     #tendances img{
         width: 475px;}
     #actuality img {
@@ -1569,15 +1893,26 @@ h5 span{
     #fColumn img{
         width: 380px;
         margin: 0px 5%;}
-    #formContact input {
-        width: 400px;
-    margin: auto;}
+    #gallerie img{
+        width: 107px;}
+    #category div{
+        width: 70%;}
+    .beerTable td img{
+        width: 70px;}
+    #shopPresent img {
+        top: 65px;}
+    .p15 {
+        width: 60%;}
+    .basket{
+        font-size: 0.9em;}
 }
 
 @media screen and (min-width: 1000px){
 
     .menuOpen2 img{
         width: 0;}
+    #allBasket{
+        z-index: 6;}
 }
 
 @media screen and (max-width: 800px){
@@ -1773,8 +2108,67 @@ h5 span{
     #fColumn img{
         width: 380px;
         margin: 0px 5%;}
-    #formContact textarea{
+    #gallerie img{
+        width: 94px;}
+    .catTable2{
+        width: 100%;}
+    #beer div{
+        width:90%;}
+    #beer{
+        flex-direction: column;
+        height: 1150px}
+    .alert-success {
+        font-size: 1.6em;
         width: 400px;}
+    .flR{
+        display: flex;
+        flex-direction: column;}
+    .maxW{
+        visibility: hidden;
+        position: absolute;}
+    .minW{
+        visibility: visible;
+        position: relative;}
+    .minW p{
+        display: flex;
+        flex-direction: column;}
+    .beerTable td img {
+        position: relative;}
+    .iMin{
+        width: 40px!important;}
+    .modal2 {
+        top: 160px;}
+    .modal22 {
+        left: 110px;}
+    tbody{
+        position: absolute;
+        display: block;
+        max-height: 500px;
+        overflow: auto;
+        width: 102.8%;}
+    thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;}
+    table{
+        height: 700px;}
+    #brasseriePresent .alert-success {
+        width: 300px;}
+    #supContact div{
+        top: -200px;
+        padding: 30px 30px;}
+    .sPresent{
+        width: 45%;}
+    .sPresent form{
+        flex-wrap: wrap;
+        width: 35%;}
+    .blocSP {
+        margin: 90px 0;}
+    .spaceBasket3{
+        order: 4;}
+    .valuePResult{  
+        bottom: 30px;
+        position: relative;}  
 }
 
 @media screen and (max-width: 600px){
@@ -1933,6 +2327,31 @@ h5 span{
     #fColumn img{
         width: 380px;
         margin: 0px 5%;}
+    #category div{
+        width: 100%;}
+    .modal2 {
+        top: 240px;
+        height: 325px;}
+    .modal22 {
+        left: 60px;}
+    table{
+        font-size: 0.9em;}
+    #brasseriePresent .alert-success {
+        width: 260px;}
+    #supContact div{
+        height: 200px;}
+    .p15{
+        width: 70%;}
+    #shopPresent img{
+        top: 101px;}
+    .sPresent h4, .sPresent h5{
+        position: relative;
+        right: 60px;}
+    .sPresent form{
+        width: 50%;}
+    .sPresent div{    
+        justify-content: flex-start;
+        text-align: left;}
 }
 
 @media screen and (max-width: 500px){
@@ -2078,10 +2497,33 @@ h5 span{
     #fColumn img{
         width: 380px;
         margin: 0px 5%;}
+    #gallerie img{
+        width: 70px;}
+    .alert-success {
+        font-size: 1.6em;
+        width: 400px;}
+    .modal2 {
+        top: 300px;}
+    .modal22 {
+        left: 10px;}
+    table{
+        font-size: 0.8em;}
+    #brasseriePresent .alert-success {
+        font-size: 1.2em;
+        width: 179px;
+        left: 55%;}
+    #contact input, #contact textarea{
+        width: 100%;}
+    .sPresent div .space{
+        visibility: visible;
+    }
+    #allBasket h5{
+        font-size: 0.7em;
+    }
 }
 
 @media screen and (max-width: 400px){
 
     .container{
-        max-width: 300px;}
+        max-width: 320px;}
 }

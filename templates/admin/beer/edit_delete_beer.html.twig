@@ -1,0 +1,24 @@
+    <td class="pour5 text-center">
+        <a href="{{ path('app_admin_beer_modif', {id: beer.id}) }}">
+            <img src="{{ asset('img/modif.png') }}" alt="">
+            <p>modifier</p>
+        </a>
+        <a id="deleteBeer{{beer.id}}" href="">
+            <img src="{{ asset('img/sup.png') }}" alt="">
+            <p>supprimer</p>
+        </a> 
+    </td>
+</tr>
+<tr class="col-0">
+    <td colspan="7" class="col-0 modHide">
+        <div class="modal2 text-center pAbsolute zI6" id="modal{{beer.id}}">
+            <p>Voulez-vous vraiment supprimer {{ beer.name }} ?</p>
+            <a id="okB{{beer.id}}" href="{{ path('app_admin_beer_delete', {id: beer.id}) }}">
+                <p>Oui</p>
+            </a>
+            <a id="noB{{beer.id}}">
+                <p>Non</p>
+            </a>
+        </div>
+    </td>
+</tr>

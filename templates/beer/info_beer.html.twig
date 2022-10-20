@@ -1,0 +1,24 @@
+<div class="col-40 h0">
+    <img src="{{ asset('img/' ~ beer.photo) }}" alt="">
+</div>
+<div class="col-60 bPresent">
+    <h4>{{ beer.name }}</h4>
+    <h5>{{ beer.category.name }}</h5>
+    <div>
+        <p>{{ beer.p1 }}</p>
+        <p>{{ beer.p2 }}</p>
+    </div>
+    <div class="flex jcSpace leftInfo">
+        <div>
+            <p><span>Alcool :</span> {{ beer.alcool[2:] == '.00' ? beer.alcool[:1] : beer.alcool  }}%</p>
+        </div>
+        <div>
+            <p><span>Couleur :</span> {{ beer.color }}</p>
+        </div>
+        <div>
+            <p><span>Prix :</span> {{ beer.price[2:] == '.00' ? beer.price[:1] : beer.price }}€</p>
+        </div>
+        <div>
+            <p><span>Volume :</span> {{ beer.volume[2:] == '.00' ? beer.volume[:2] : beer.volume }}cl</p>
+        </div>
+    </div>

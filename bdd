@@ -1,0 +1,109 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 12 oct. 2022 à 20:43
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de données : `bsauvage`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(1, 'American Pale Ale'),
+(2, 'Double India Pale Ale'),
+(3, 'French Pale Ale'),
+(4, 'Gose'),
+(5, 'India Pale Ale'),
+(6, 'Session IPA'),
+(7, 'Witbier');
+(8, 'Kolsch');
+
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : jeu. 13 oct. 2022 à 01:32
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de données : `bsauvage`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `beer`
+--
+
+DROP TABLE IF EXISTS `beer`;
+CREATE TABLE IF NOT EXISTS `beer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `p1` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `p2` longtext COLLATE utf8mb4_unicode_ci,
+  `alcool` decimal(10,2) NOT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `volume` decimal(10,2) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_58F666AD12469DE2` (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `beer`
+--
+
+INSERT INTO `beer` (`id`, `category_id`, `photo`, `name`, `p1`, `p2`, `alcool`, `color`, `price`, `volume`, `quantity`, `date`) VALUES
+(1, 8, 'tutti_va_bene.jpg', 'Tutti Va Bene', 'Aisément pintable et à boire bien fraîche, la Tutti va bene saura calmer ta soif aux beaux jours. Indice UV 5.5 degrés, lunettes de soleil et chemise courte : Andiamo e basta cosi !', 'Bière de style allemand à la couleur claire. Nez et corps malté, bière de soif, céréalière, légère amertume et léger final floral grâce au houblon Saaz.', '5.50', 'Blonde', '3.50', '33.00', 250, '2021-07-14 00:00:00'),
+(2, 5, 'eh_boboy.jpg', 'Eh Boboy', 'Notre Kveik IPA est une ébullition d’houblons en terre scandinave ! On y a ajouté la plus Viking des levures qui lui apporte des notes d’agrumes.', 'C’est l’effet garanti pour le SAUVAGE que tu es !', '7.00', 'Blonde', '4.00', '33.00', 250, '2021-07-14 00:00:00'),
+(3, 6, '5_a_7.jpg', '5 à 7', 'La 5à7 c’est notre session IPA aromatique avec une pointe d’amertume qui te fera oublier ta journée de boulot. Faible en alcool, elle saura te rafraîchir sans faire de gaffes !', 'La 5à7 est une bière de type IPA légère en alcool et rafraîchissante. Couleur claire. Bière aqueuse avec une amertume franche pour laisser place aux saveurs de fruits exotiques du houblon Galaxy.', '3.50', 'Blonde', '3.75', '33.00', 250, '2021-08-18 00:00:00'),
+(4, 4, 'jenga.jpg', 'Jenga', 'Idéale pour affronter les chaudes journées d’été, la Jenga c’est le combo des deux fruits les plus complices de la bande : la mangue & l’ananas. Petite pincée de sel du brasseur en extra, c’est cadeau !', 'Bière acide et légèrement salée. Légère rondeur en bouche due à la mangue. L’ananas vient compléter l’acidité en fin de bouche et le côté salin marque la langue pour donner envie de boire une autre gorgée.', '4.50', 'Blonde', '3.75', '33.00', 250, '2021-08-18 00:00:00'),
+(5, 3, '4507.jpg', '4507', 'La 4507, c’est un peu notre madeleine de Proust, elle saura t’apprivoiser avec ses notes florales et fruitées. On l’adopte et on y revient.', 'Bière légèrement orangée, nez florale et fruitée. En bouche, on ressent les grains puis les notes fruitées d’agrumes du houblon Amarillo (houblonnage à froid).', '5.00', 'Blonde', '3.50', '33.00', 250, '2021-09-15 00:00:00'),
+(6, 7, 'bibi_flash.jpg', 'Bibi Flash', 'Doucement, on t’entend d’ici rugir « Frrrrrramboise » ! Bière blanche aux notes fruitées, la Bibi flash est légère et rafraichissante. Grrrrros cœur avec les doigts.', 'Bière de blé trouble. Nez framboise. Belle présence de la framboise en première bouche qui laisse rapidement la place aux esters de bananes de la levure T58. Bière non sucrée !', '5.00', 'Blanche', '3.75', '33.00', 250, '2021-10-19 00:00:00'),
+(7, 2, 'cool_cool_cool.jpg', 'Cool Cool Cool', 'À coup de bon gros jus de houblon dans tes papilles, le félin que tu es sera ravi ! Bière trouble et troublante, la Cool cool cool s’adresse aux assoiffés audacieux en quête de chaleur tropicale et de fruits juicy.', 'Robe relativement claire. Légère rondeur qui contrebalance la faible amertume de cette bière. Explosions de saveurs fruits exotiques, poire - un jus de houblon plein de gourmandise.', '7.50', 'Blonde', '5.75', '44.00', 250, '2021-12-16 00:00:00'),
+(8, 5, 'eh_boboy_ddh.jpg', 'Eh Boboy - Rakau', 'Rencontre brutale entre la levure Kveik et le Houblon Néo-Z Rakau ! Cette IPA avec double houblonnage à cru va te donner envie de faire le haka habillé en Viking.', 'Bière trouble. Belle rondeur en bouche, les houblons Rakau, Amarillo et Citra apportent des saveurs de pêche et d’abricot à cette IPA très gourmande.', '7.00', 'c', '5.75', '44.00', 250, '2021-12-16 00:00:00'),
+(9, 1, 'la_garrigue.jpg', 'La Garrigue', 'La garrigue, c’est une belle amertume et des notes de pin qui régalent tes papilles ! Cette fois, le brasseur s’est lâché : pas moins de 4 houblons qui s’entremêlent avec une juste touche de romarin, idéale pour cette automédication thérapeutique : ton corps te dit merci !', 'Bière brassée avec des houblons américains qui lui confèrent des notes de pin. L’ajout de romarin accentue l’identité végétale.', '6.00', 'Blonde', '5.00', '44.00', 250, '2022-02-17 00:00:00');
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `beer`
+--
+ALTER TABLE `beer`
+  ADD CONSTRAINT `FK_58F666AD12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);

@@ -1,0 +1,49 @@
+    <td class="modifContact">
+        <div>
+            <p>
+                <span>Date du message : </pan>
+                <p>{{ contact.date|date('d/m/Y') }}</p>
+            </p>
+        </div>
+        <div class="flex">
+            {% if contact.readding == 0 %}
+                <a href="{{ path('app_admin_contact_modif_check', {id: contact.id, check: 1}) }}">
+                    <img class="case" src="{{ asset('img/case.png') }}" alt="">
+                </a>
+            {% else %}
+                <a href="{{ path('app_admin_contact_modif_check', {id: contact.id, check: 0}) }}">
+                    <img class="caseCoche" src="{{ asset('img/case_coche.png') }}" alt="">
+                </a>
+            {% endif %}
+            <p>Lu</p>
+        </div>
+        <div class="flex">
+            {% if contact.answer == 0 %}
+                <a href="{{ path('app_admin_contact_modif_check', {id: contact.id, check: 3}) }}">
+                    <img class="case" src="{{ asset('img/case.png') }}" alt="">
+                </a>
+            {% else %}
+                <a href="{{ path('app_admin_contact_modif_check', {id: contact.id, check: 2}) }}">
+                    <img class="caseCoche" src="{{ asset('img/case_coche.png') }}" alt="">
+                </a>
+            {% endif %}
+            <p>Répondu</p>
+        </div>
+        <a id="deleteContact{{contact.id}}" href="">
+            <img src="{{ asset('img/sup.png') }}" alt="">
+        </a> 
+    </td>
+</tr>
+<tr class="col-0">
+    <td colspan="2" class="col-0 modHide" id="supContact">
+        <div class="modal2 text-center pAbsolute zI6" id="modalCt{{contact.id}}">
+            <p>Voulez-vous vraiment supprimer le message concernant "{{ contact.subject }}" de {{ contact.name }} ?</p>
+            <a id="okct{{contact.id}}" href="{{ path('app_admin_contact_delete', {id: contact.id}) }}">
+                <p>Oui</p>
+            </a>
+            <a id="noct{{contact.id}}">
+                <p>Non</p>
+            </a>
+        </div>
+    </td>
+</tr>

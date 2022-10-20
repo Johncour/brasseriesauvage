@@ -1,0 +1,60 @@
+<tr class="vHidden pAbsolute minW">
+    <td class="pour20">
+        <p>
+            <span>Nom :</span> 
+                {{ beer.name }}
+        </p>
+        <p>
+            <span>Catégorie :</span>
+                {{ beer.category.name }}
+        </p>
+        <p>
+            <span>Couleur :</span>
+                {{ beer.color }}
+        </p>
+        <img src="{{ asset('img/' ~ beer.photo) }}" alt="" >
+        <p class="text-center">
+            <a href="{{ path('app_admin_beer_modif', {id: beer.id}) }}">
+                <img class="iMin" src="{{ asset('img/modif.png') }}" alt="">
+            </a>
+        </p>
+    </td>
+    <td class="col-2">
+        <p>
+            <span></span>
+            {{ beer.p1 }}
+        </p>
+        <hr>
+        <p>
+            <span></span>
+            {{ beer.p2 }}
+        </p>
+    </td>
+    <td class="col-3">
+        <p>
+            <span>Taux d'alcool :</span>
+                {{ beer.alcool }}%
+        </p>
+        <p>
+            <span>Prix Unitaire:</span>
+                {{ beer.price }}€
+        </p>
+        <p>
+            <span>Volume canette:</span>
+                {{ beer.volume }}cl
+        </p>
+        <p>
+            <span>Date de création :</span>
+                {{ beer.date|date('d/m/Y') }}
+        </p>
+        <p>
+            <span>Stock :</span> 
+            {{ beer.quantity }}
+        </p>
+        <p class="text-center">
+            <a id="deleteBeerM{{beer.id}}" href="">
+                <img class="iMin" src="{{ asset('img/sup.png') }}" alt="">
+            </a>
+        </p>
+    </td>
+</tr>

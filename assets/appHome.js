@@ -38,7 +38,7 @@ window.addEventListener('load', (event) => {
         let button = document.getElementById('button');
         const canvas =  document.getElementById('canvas');
         let c = canvas.getContext('2d');
-        let beer = document.getElementById('beer');
+        let beerBubble = document.getElementById('beerBubble');
         let beerFoam = document.getElementById('beerFoam');
         let foamArray = [];
         for( let i=22; i<43; i++){ 
@@ -109,9 +109,41 @@ window.addEventListener('load', (event) => {
                         foamArray[i].classList.replace("fM2", "fM");}
                 }
                 setTimeout(foam3, 3000);}
+                for( let i=0; i<imgHover.length; i++){
+                    if (window.matchMedia("(max-width: 600px)").matches) {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '70px';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                    }else if (window.matchMedia("(max-width: 800px)").matches) {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '94px';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                    } else if (window.matchMedia("(max-width: 1000px)").matches) {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '107px';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                    } else if (window.matchMedia("(max-width: 1200px)").matches) {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '140px';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                    } else {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '12%';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";}
+                }
         }
         setInterval(foam2, 6000);
-        beer.style.animation = 'moveUp 0s linear forwards';
+        beerBubble.style.animation = 'moveUp 0s linear forwards';
         beerFoam.style.animation = 'moveUp 0s linear forwards';
         canvas.style.animation = 'down3 0s linear forwards';
         brasserie.classList.replace("brasserie", "moveBra3");  
@@ -153,6 +185,12 @@ window.addEventListener('load', (event) => {
                         imgHover[i].style.position = "relative";
                         imgHover[i].style.zIndex = 1;
                         imgHover[i].style.width = '107px';
+                        imgHover[i].style.margin = '13px';
+                        imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                    } else if (window.matchMedia("(max-width: 1200px)").matches) {
+                        imgHover[i].style.position = "relative";
+                        imgHover[i].style.zIndex = 1;
+                        imgHover[i].style.width = '140px';
                         imgHover[i].style.margin = '13px';
                         imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
                     } else {
@@ -233,7 +271,7 @@ window.addEventListener('load', (event) => {
         let button = document.getElementById('button');
         const canvas =  document.getElementById('canvas');
         let c = canvas.getContext('2d');
-        let beer = document.getElementById('beer');
+        let beerBubble = document.getElementById('beerBubble');
         let beerFoam = document.getElementById('beerFoam');
         let foamArray = [];
         for( let i=22; i<43; i++){ 
@@ -313,6 +351,12 @@ window.addEventListener('load', (event) => {
                             imgHover[i].style.position = "relative";
                             imgHover[i].style.zIndex = 1;
                             imgHover[i].style.width = '107px';
+                            imgHover[i].style.margin = '13px';
+                            imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
+                        } else if (window.matchMedia("(max-width: 1200px)").matches) {
+                            imgHover[i].style.position = "relative";
+                            imgHover[i].style.zIndex = 1;
+                            imgHover[i].style.width = '140px';
                             imgHover[i].style.margin = '13px';
                             imgHover[i].style.border = "4px solid rgb(246, 97, 15)";
                         } else {
@@ -431,7 +475,7 @@ window.addEventListener('load', (event) => {
 
             function move1() {
                 brasserie.classList.toggle("moveBra1");
-                beer.style.animation = 'moveUp 5s linear forwards normal';
+                beerBubble.style.animation = 'moveUp 5s linear forwards normal';
                 beerFoam.style.animation = 'moveUp 5s linear forwards normal';}
             function move1Plus() {
                 brasseriePlus.classList.toggle("moveBra2");

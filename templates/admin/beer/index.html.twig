@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <h4>Les catégories</h4>
+        <div class="col-0 text-center">
+            <h5>Ajout de catégories</h5>
+            {{ form(formCategory)}}
+            {{ include('message/message_alert.html.twig') }}
+            <div class="catTable col-0">
+                <h5>Catégories existantes : {{ categories|length }}</h5>
+                <div class="flex wrap jcCenter">
+                    {% for category in categories %}
+                        {{ include('admin/beer/info_category.html.twig') }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="blocBP">
+            <h4>Les bières</h4>
+                <div class="col-0 text-center">
+                    <h5>Ajout des bières</h5>
+                    {{ form(formBeer)}}
+                    <div class="beerTable">
+                        <h5>Bières existantes : {{ beers|length }}</h5>
+                        <div>
+                            <table class="pRelative">
+                                {{ include('admin/beer/table_head_beer.html.twig') }}
+                                <tbody>
+                                    {% for beer in beers %}
+                                        {{ include('admin/beer/info_beer.html.twig') }}
+                                        {{ include('admin/beer/edit_delete_beer.html.twig') }}
+                                        {{ include('admin/beer/info_beer_800.html.twig') }}
+                                        {{ include('admin/beer/edit_delete_beer_800.html.twig') }}
+                                    {% endfor %}                                
+                                </tbody>                                    
+                            </table>                        
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

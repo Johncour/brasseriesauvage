@@ -1,0 +1,54 @@
+<tr class="text-left maxW">
+    <td class="pour20">
+        <p>
+            <span>Nom :</span> 
+                {{ beer.name }}
+        </p>
+        <p>
+            <span>Catégorie :</span>
+                {{ beer.category.name }}
+        </p>
+        <p>
+            <span>Couleur :</span>
+                {{ beer.color }}
+        </p>
+    </td>
+    <td class="vaT">
+        <img src="{{ asset('img/' ~ beer.photo) }}" alt="" >
+    </td>
+    <td class="pour25">
+        <p>
+            <span></span>
+            {{ beer.p1 }}
+        </p>
+    </td>
+    <td class="pour15">
+        <p>
+            <span></span>
+            {{ beer.p2 }}
+        </p>
+    </td>
+    <td>
+        <p>
+            <span>Taux d'alcool :</span>
+                {{ beer.alcool }}%
+        </p>
+        <p>
+            <span>Prix Unitaire:</span>
+                {{ beer.price }}€
+        </p>
+        <p>
+            <span>Volume canette:</span>
+                {{ beer.volume }}cl
+        </p>
+    </td>
+    <td>
+        <p>
+            <span>Date de création :</span>
+                {{ beer.date|date('d/m/Y') }}
+        </p>
+        <p>
+            <span>Stock :</span> 
+            {{ beer.quantity }}
+        </p>  
+    </td>
