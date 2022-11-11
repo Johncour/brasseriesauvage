@@ -6,6 +6,9 @@
                 <li><a href="{{ path('app_home') }}?animation=non&arrow=down">Accueil</a></li>
                 <li><a href="{{ path('app_brasserie') }}">La Brasserie</a></li>
                 <li><a href="{{ path('app_beer') }}">Nos Bières</a></li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li><a href="{{ path('app_admin_beer') }}">Gestion bières</a></li>
+                {% else %}
                 <li class="pRelative menuOpen"><span id="actu"><a href="{{ path('app_home') }}?animation=non&id=#actuality">Actualités</a></span>
                     <ul class="hiddenMenu pAbsolute vHidden">
                         <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#tendances">Tendances</a></li>
@@ -15,9 +18,21 @@
                         <li class="hoverStyle"><a href="{{ path('app_home') }}?animation=non&id=#gallerie">Gallerie</a></li>
                     </ul>
                 </li>
+                {% endif %}
                 <li><a href="{{ path('app_engage') }}">Nos Engagements</a></li>
-                <li class="menuOpen"><a href="{{ path('app_shop') }}">Click & Collect</a></li>
-                <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li class="menuOpen"><a href="{{ path('app_shop') }}">C&C</a></li>
+                {% else %}
+                    <li class="menuOpen"><a href="{{ path('app_shop') }}">Boutique</a></li>
+                    <a href="{{ path('app_shop') }}">
+                        <img id="panier" class="panier" src="{{ asset('img/pack.png') }}" alt="" title="commande en cours">
+                    </a>
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li class="collect"><a href="{{ path('app_admin_contact') }}">Contacts reçus</a></li>
+                {% else %}
+                    <li class="collect"><a href="{{ path('app_contact') }}">Contact</a></li>
+                {% endif %}
             </ul>
         </div>
     </li>

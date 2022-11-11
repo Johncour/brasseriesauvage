@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %} 
+    {% if app.user %}
+        <div class="container">
+            <div id="successShop" class="text-center">
+                <h2>Commande validée!! vous pouvez suivre le statut de la commande sur votre profil.</h2>
+        
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

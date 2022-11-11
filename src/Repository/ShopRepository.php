@@ -54,13 +54,33 @@ class ShopRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Shop
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    // public function findByUser($value): ?Shop
+    // {
+    //     return $this->createQueryBuilder('s')
+    //         ->andWhere('s.user_id = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult()
+    //     ;
+    // }
+
+   public function findOneByDate($value): ?Shop
+   {
+       return $this->createQueryBuilder('s')
+           ->andWhere('s.shipping_date = :val')
+           ->setParameter('val', $value)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
+
+   public function findByPrice($value): ?Shop
+   {
+       return $this->createQueryBuilder('s')
+           ->andWhere('s.price_order = :val')
+           ->setParameter('val', $value)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
 }

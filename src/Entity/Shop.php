@@ -18,13 +18,13 @@ class Shop
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'shops')]
     private $user;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string')]
     private $order_status;
 
     #[ORM\Column(type: 'datetime')]
     private $order_date;
 
-    #[ORM\Column(type: 'date')]
+    #[ORM\Column(type: 'datetime')]
     private $shipping_date;
 
     #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
@@ -32,6 +32,9 @@ class Shop
 
     #[ORM\OneToMany(mappedBy: 'shop', targetEntity: ShopBeer::class)]
     private $shopBeers;
+
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    private $email_user;
 
     public function __construct()
     {
@@ -49,6 +52,12 @@ class Shop
         return $this->user;
     }
 
+    // public function __toString(): string
+    // {
+    //     // TODO: Implement __toString() method.
+    //     return $this->user;
+    // }
+
     public function setUser(?User $user): self
     {
         $this->user = $user;
@@ -56,12 +65,12 @@ class Shop
         return $this;
     }
 
-    public function getOrderStatus(): ?int
+    public function getOrderStatus(): ?string
     {
         return $this->order_status;
     }
 
-    public function setOrderStatus(int $order_status): self
+    public function setOrderStatus(string $order_status): self
     {
         $this->order_status = $order_status;
 

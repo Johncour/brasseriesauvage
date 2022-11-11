@@ -1,0 +1,44 @@
+<div id="newB">
+    <p>{{quantity}}</p>
+    <p>{{bid}}</p>
+    <p>{{price}}</p>
+</div>
+<div id="allBasket" class="allBasket zI4">
+    <h5 class="text-center">Remplissez votre panier</h5>
+    {% set items = [] %}
+    {% for beer in beers %}
+        <div class="flex">
+            <div id="addBasInfo{{ beer.id }}"></div>
+            <div class="pou5 text-center">
+                <a id="deleteBeerBas{{beer.id}}" href="">
+                    <img src="{{ asset('img/sup.png') }}" alt="">
+                </a> 
+            </div>
+        </div>
+    {% endfor %}
+    {% set result = 0 %}
+</div>
+{% if app.user %}
+    <form id="formShop2" action="{{ path('app_shop_order', {'id': app.user.id}) }}" method="get">
+        <input id="resultBasket" type="text" class="text-center" disabled value="">
+        <input name="resultBasket" type="text" class="text-center" value="{{result}}">         
+        <input id="order" type="submit" class="submit" value="commander">
+    </form>
+{% else %}
+        <input name="resultBasket" id="resultBasket" type="text" class="text-center" disabled value="">
+        <div id="modalShop"> 
+            <p class="text-center">Merci de vous inscrire ou connectez afin de poursuivre vos achats.</p>
+            <div class="text-center">
+                <a href="{{ path('app_login')}}">
+                    <img src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                    <button class="button">Mon compte</button>
+                </a>
+                <a href="{{ path('app_register')}}">
+                    <img src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                    <button class="button">Inscription</button>
+                </a>
+            </div>
+        </div>
+        <input id="order2" type="submit" class="submit" value="commander">
+{% endif %}
+<input id="basQuantity" type="text" value="">

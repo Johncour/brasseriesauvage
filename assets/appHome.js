@@ -78,7 +78,8 @@ window.addEventListener('load', (event) => {
         setInterval(vTitle, 1);
         for( let i=1; i<3; i++){ 
             canetteArray[i].style.width = '44%';}
-        button.style.visibility = 'visible';
+        if(button){
+            button.style.visibility = 'visible';}
         aWarning.style.visibility = 'hidden';
         eclat.style.visibility = 'visible';
         aWarning.style.height = '0px';

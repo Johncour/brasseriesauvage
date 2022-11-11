@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <div id="profilPresent">
+            <h2>Détails commande n°{{com}}</h2>
+            {% if app.user %}
+            <a href="{{ path('app_profil_orders', {'id': id}) }}">
+                <button class="sbutton3">Retour commande</button>
+            </a>{% for shop in shops %}
+            {% for beer in beers %}
+        {% for shopbe in shopbeer %}
+            
+                {% if shop.id == shopbe.shop.id %}
+            {% if beer.id == shopbe.beer.id %}
+            <div id="beer{{ beer.id }}" class="flex text-center blocSP">
+                <div class="col-4">
+                    <img src="{{ asset('img/' ~ beer.photo) }}" alt="">
+                </div>
+                <div class="sPresent col-70">
+                    <div class="text-left p15">
+                        <h4>{{ beer.name }}</h4>
+                        <h5>{{ beer.category.name }}</h5>
+                    </div>
+                    <div class="flex col-60 jcSpace p15">
+                        <div>
+                            <p class="space"><span>Prix :</span> {{ beer.price[2:] == '.00' ? beer.price[:1] : beer.price }}€</p>
+                        </div>
+                                                <div>
+                            <p class="space"><span>Quantity :</span> {{ shopbe.quantity }}</p>
+                        </div>
+                                                <div>
+                            <p class="space"><span>Prix Quantity:</span> {{ shopbe.priceQuantity }}€</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>{% endif %}{% endif %}
+            {% endfor %}{% endfor %}{% if shop.id == com %}
+                                                        <p><span>Statut :</span></p>{% if shop.orderStatus == 0 %}en cours de préparation{% elseif shop.orderStatus == 1 %}en préparation{% elseif shop.orderStatus == 2 %}en cours d'acheminement{% elseif shop.orderStatus == 3 %}livrée{% endif %}</p>    
+                        <p><span>Date de la commande :</span>{{ shop.orderDate|date('d/m/Y') }}</p>    
+                        <p><span>Date de livraison prévue :</span>{{ shop.shippingDate|date('d/m/Y') }}</p>    
+                        <p><span>Montant de la commande :</span>{{ shop.priceOrder }}€</p>{% endif %} {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -39,25 +39,25 @@ class ShopBeerRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return ShopBeer[] Returns an array of ShopBeer objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return ShopBeer[] Returns an array of ShopBeer objects
+    */
+   public function findByShopId($value): array
+   {
+       return $this->createQueryBuilder('s')
+           ->andWhere('s.shop = :val')
+           ->setParameter('val', $value)
+           ->orderBy('s.id', 'ASC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
-//    public function findOneBySomeField($value): ?ShopBeer
+//    public function findByShopId($value): ?ShopBeer
 //    {
 //        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
+//            ->andWhere('s.shop = :val')
+//            ->setParameters(array('param1'=> $param1, 'param2' => $param2))
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()

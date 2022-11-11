@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <div id="profilPresent">
+            <h2>Mes commandes</h2>
+            <a href="{{ path('app_profil') }}">
+                <button class="sbutton3">Retour profil</button>
+            </a>
+            <div class="flex col-0">
+                {% for shop in shops %}
+                    <div class="blocSP col-3">
+                        <p><span>Commande n°:</span>{{ shop.id }}</p>
+                        <a href="{{ path('app_details_order', {'id' : app.user.id, 'com': shop.id }) }}">
+                            <button class="sbutton4">Détail commande</button>
+                        </a>
+                        <p><span>Statut :</span></p>{% if shop.orderStatus == 0 %}en cours de préparation{% elseif shop.orderStatus == 1 %}en préparation{% elseif shop.orderStatus == 2 %}en cours d'acheminement{% elseif shop.orderStatus == 3 %}livrée{% endif %}</p>    
+                        <p><span>Date de la commande :</span>{{ shop.orderDate|date('d/m/Y') }}</p>    
+                        <p><span>Date de livraison prévue :</span>{{ shop.shippingDate|date('d/m/Y') }}</p>    
+                        <p><span>Montant de la commande :</span>{{ shop.priceOrder }}€</p>        
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

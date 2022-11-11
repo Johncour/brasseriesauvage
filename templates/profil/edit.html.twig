@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <div id="profilPresent">
+            <h2>Modifier profil</h2>
+            <a href="{{ path('app_profil') }}">
+                <button class="sbutton3">Retour profil</button>
+            </a>
+            {% if app.user %}
+                <div  class="text-center">
+                    {{ form_start(formuser) }}
+                        {{ form_row(formuser.email) }}
+                        {{ form_row(formuser.plainPassword, {
+                            label: 'Mot de passe'
+                        }) }}
+                        {{ form_row(formuser.last_name) }}
+                        {{ form_row(formuser.first_name) }}
+                        {{ form_row(formuser.pseudo) }}
+                        {{ form_row(formuser.adress) }}
+                        {{ form_row(formuser.city) }}
+                        {{ form_row(formuser.postalCode) }}
+                        {{ form_row(formuser.phone) }}
+                        {{ form_row(formuser.birthday_date) }}
+                        <input type="submit" class="submit" value="Valider">
+                    {{ form_end(formuser) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

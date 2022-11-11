@@ -1,9 +1,32 @@
 <div id="button" class="zI4 pAbsolute col-2 vHidden">
     <div>
-        <a href=""><button class="button">Click & collect</button></a>
+        <a href="{{ path('app_shop')}}">
+            <button class="button">Click & collect</button>
+        </a>
     </div>
-    <div>
-        <a href=""><img src="{{ asset('img/profil.png') }}" alt=""><button class="button">Mon compte</button></a>
-        <a href=""><img src="{{ asset('img/inscription.png') }}" alt=""><button class="button">Inscription</button></a>
-    </div>
+    {% if app.user %}
+        <div>
+            <a href="{{ path('app_profil')}}">
+                <button class="button">Hello {{ app.user.pseudo ? app.user.pseudo : app.user.firstName }}</button>
+            </a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{{ path('app_login')}}">
+                <img src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                <button class="button">Mon compte</button>
+            </a>
+            <a href="{{ path('app_register')}}">
+                <img src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                <button class="button">Inscription</button>
+            </a>
+        </div>
+    {% endif %}
 </div>
+{% if app.user %}
+    <a href="{{ path('app_profil')}}">
+        <div id="profilBan" class="text-center">
+            <p>Hello {{ app.user.pseudo ? app.user.pseudo : app.user.firstName }}</p>
+        </div>
+    </a>
+{% endif %}

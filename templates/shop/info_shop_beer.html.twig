@@ -1,0 +1,47 @@
+<div id="beer{{ beer.id }}" class="flex text-center blocSP">
+    <div class="col-4">
+        <img src="{{ asset('img/' ~ beer.photo) }}" alt="">
+    </div>
+    <div class="sPresent col-70">
+        <div class="text-left p15">
+            <h4>{{ beer.name }}</h4>
+            <h5>{{ beer.category.name }}</h5>
+        </div>
+        <div class="flex col-60 jcSpace p15">
+            <div>
+                <p class="space"><span>Alcool :</span> {{ beer.alcool[2:] == '.00' ? beer.alcool[:1] : beer.alcool  }}%</p>
+            </div>
+            <div>
+                <p class="space"><span>Couleur :</span> {{ beer.color }}</p>
+            </div>
+            <div>
+                <p class="space"><span>Prix :</span> {{ beer.price[2:] == '.00' ? beer.price[:1] : beer.price }}€</p>
+            </div>
+            <div>
+                <p class="space"><span>Volume :</span> {{ beer.volume[2:] == '.00' ? beer.volume[:2] : beer.volume }}cl</p>
+            </div>
+        </div>
+        <form action="" class="flex col-0">
+            <div class="spaceBasket">
+                    <select name="" id="stockBeer{{ beer.id }}">
+                        {% for j in 1..beer.quantity %}
+                            <option value="{{j}}">{{j}}</option>
+                        {% endfor %}
+                    </select>
+            </div>
+            <div class="spaceBasket2">
+                <span id="resultPrice{{ beer.id }}" class="resultPrice">x {{ beer.price }}€ =</span>
+                <input id="price{{ beer.id }}" class="price" value="{{ beer.price }}">
+            </div>
+            <div class="spaceBasket3">
+                <input id="valuePrice{{ beer.id }}" class="valuePrice" value="{{ beer.price|number_format(2) }}€">
+                <span id="valuePResult{{ beer.id }}" class="valuePResult"></span>
+            </div>
+            <div class="spaceBasket">
+                <a id="basAdd{{ beer.id }}" href="">
+                    <input class="basket pRelative" type="submit" value="Ajouter">
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

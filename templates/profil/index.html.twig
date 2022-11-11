@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <div id="profilPresent">
+            <h2>Profil</h2>
+            {% if app.user %}
+                <div>
+                    <h3>Mes informations</h3>
+                    <a href="{{ path('app_logout') }}">
+                        <button class="sbutton3">Déconnexion</button>
+                    </a>
+                    <a href="{{ path('app_profil_orders', {'id' : app.user.id }) }}">
+                        <button class="sbutton1">Voir mes commandes</button>
+                    </a>
+                    <a href="{{ path('app_profil_edituser', {'id' : app.user.id }) }}">
+                        <button class="sbutton2">Modifier mes informations</button>
+                    </a>
+                    <div>
+                        <p><span>Pseudo :</span>{{ app.user.pseudo }}</p>
+                        <p><span>Nom :</span>{{ app.user.lastName }}</p>
+                        <p><span>Prénom :</span>{{ app.user.firstName }}</p>
+                        <p><span>E-mail :</span>{{ app.user.email }}</p>
+                        <p><span>Mot de passe :</span>********</p>
+                        <p><span>Adresse</span>{{ app.user.adress }}</p>
+                        <p><span>Ville</span>{{ app.user.city }}</p>
+                        <p><span>Code Postal</span>{{ app.user.postalCode }}</p>
+                        <p><span>Téléphone</span>{{ app.user.phone }}</p>
+                        <p><span>Date d'anniversaire</span>{{ app.user.birthdayDate|date('d/m/Y') }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

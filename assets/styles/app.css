@@ -3,7 +3,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /**************************** GLOBAL ******************/
 /* Charte Graphique
-** 
+**
 ** color1: ;
 ** color2: ;
 ** color3: ;
@@ -275,6 +275,14 @@ p{font-size: 0.9em;}
     100% {color: rgb(128, 11, 247);}
 }
 
+@keyframes borderChange {
+    15% {border: rgb(247, 11, 86) solid 1px;}
+    30% {border: rgb(239, 88, 0) solid 1px;}
+    50% {border: rgb(247, 179, 3) solid 1px;}
+    70% {border: rgb(239, 88, 0) solid 1px;}
+    85% {border: rgb(247, 11, 86) solid 1px;}
+}
+
 .fa-instagram{
     animation: backgroundChange 10s infinite;
     font-size: 40px;}
@@ -375,6 +383,32 @@ h3 span{
 .opaq{
     color: rgb(255,255,255,0);}
 
+@keyframes shakeTitle2 {
+    0% {transform: rotate(0deg);}
+    10% {transform: rotate(5deg);}
+    20% {transform: rotate(-5deg);}
+    30% {transform: rotate(10deg);}
+    40% {transform: rotate(-10deg);}
+    50% {transform: rotate(5deg);}
+    60% {transform: rotate(-5deg);}
+    70% {transform: rotate(10deg);}
+    80% {transform: rotate(-10deg);}
+    90% {transform: rotate(5deg);}
+    100% {transform: rotate(0deg);}
+}
+
+#panier{
+    width: 50px;
+    position: absolute;
+    z-index: 99;
+    height: 50px;
+    top: -55px;
+    right: 19%;
+    visibility: hidden;}
+
+.panier{
+    animation: shakeTitle2 10s infinite;}
+
 /********** Banner */
 
 #banner{
@@ -400,8 +434,8 @@ h3 span{
 
 .title1, .title2, .title3{
     border-radius: 50%;
-    background: rgb(0,0,0,0); 
-    color: rgb(0,0,0,0); 
+    background: rgb(0,0,0,0);
+    color: rgb(0,0,0,0);
     padding: 3px;}
 
 /********** Brasserie mouvement 1 */
@@ -429,7 +463,7 @@ h3 span{
         font-size: 1em;
         padding-top: 15px;}
 }
-    
+
 .moveBra1{
     animation: rebond1 0.5s linear forwards normal;
     position: relative;}
@@ -459,7 +493,7 @@ h3 span{
         font-size: 1.5em;
         padding-top: 30px;}
 }
-    
+
 .moveBra2{
     animation: rebond2 0.5s linear forwards normal;}
 
@@ -483,7 +517,7 @@ h3 span{
         padding-top: 0;
         margin-top: 40px;}
 }
-    
+
 .moveBra3{
     animation: rebond3 0.5s linear forwards normal;
     position: relative;
@@ -509,12 +543,12 @@ h3 span{
         padding-top: 0;
         margin-top: 40px;}
 }
-    
+
 .moveBra4{
     animation: rebond4 0.5s linear forwards normal;}
 
 /********** change title 2 et 3 */
-    
+
 @keyframes letterVisible1 {
     0% {
         background: rgb(0,0,0,1);
@@ -525,7 +559,7 @@ h3 span{
         font-size: 2em;
         text-shadow: 1px 3px 0 #edaf32, 1px 13px 5px #edaf32;}
 }
-    
+
 .changeTitle1{
     animation: letterVisible1 0.5s linear forwards normal;
     border-radius: 50%;
@@ -572,8 +606,8 @@ h3 span{
 
 .title4, .title5{
     border-radius: 50%;
-    background: rgb(0,0,0,0); 
-    color: rgb(0,0,0,0); 
+    background: rgb(0,0,0,0);
+    color: rgb(0,0,0,0);
     padding: 15px;}
 
 /********** Sauvage mouvement 1 */
@@ -592,7 +626,7 @@ h3 span{
         font-size: 1.5em;
         padding-top: 30px;}
 }
-    
+
 .moveSau1{
     animation: rebond5 1s linear forwards normal;
     position: relative;}
@@ -613,7 +647,7 @@ h3 span{
         font-size: 1.5em;
         padding-top: 30px;}
 }
-    
+
 .moveSau2{
     animation: rebond6 1s linear forwards normal;}
 
@@ -642,7 +676,7 @@ h3 span{
     0% {transform: rotate(0deg);}
     100% {transform: rotate(-18deg);}
 }
-    
+
 .moveSau3{
     animation: rebond7 0.5s linear forwards normal, rotateTitle 1.5s linear forwards normal;
     position: relative;
@@ -668,7 +702,7 @@ h3 span{
         margin-top: 40px;
     }
 }
-    
+
 .moveSau4{
     animation: rebond8 0.5s linear forwards normal, rotateTitle 1.5s linear forwards normal;
     padding: 15px;}
@@ -678,8 +712,8 @@ h3 span{
 @keyframes margin {
     0% {margin: 0px 0px;}
     100% {margin: 0px 15px;}
-}   
-    
+}
+
 .margin{
     animation: margin 2.5s linear forwards normal;}
 
@@ -703,7 +737,7 @@ h3 span{
     animation: shakeTitle 0.5s linear forwards normal, margin 2.5s linear forwards normal;}
 
 /********** change title 4 et 5 */
-    
+
 @keyframes letterVisible2  {
     0% {
         background: rgb(0,0,0,1);
@@ -714,7 +748,7 @@ h3 span{
         font-size: 4em;
         text-shadow: 1px 3px 0 #edaf32, 1px 13px 5px #edaf32;}
 }
-    
+
 .changeTitle2{
     animation: letterVisible2 0.5s linear forwards normal;
     border-radius: 50%;
@@ -733,6 +767,10 @@ h3 span{
 #button img{
     width: 0px;
     visibility: hidden;}
+
+#button img:hover{
+    content: 'fzrfz';
+}
 
 .button{
     margin: 20px 10px;
@@ -772,7 +810,7 @@ h3 span{
 #beerFoam {
     width: 103%;
     left: -10px;}
-  
+
 .foam1, .foam2, .foam3, .foam4, .foam5, .foam6, .foam7, .foam8, .foam9, .foam10, .foam11, .foam12, .foam13, .foam14, .foam15, .foam16, .foam17, .foam18, .foam19, .foam20, .foam21{
     width: 7%;
     height: 70px;
@@ -781,7 +819,7 @@ h3 span{
     box-shadow: 3px -9px 1px -9px rgb(0, 0, 0);
     filter: blur(5px);}
 
-#foam22 #foam23, #foam24, #foam25, #foam26, #foam27, #foam28, #foam29, #foam30, #foam31, #foam32, #foam33, #foam34, #foam35, #foam36, #foam37, #foam38, #foam39, 
+#foam22 #foam23, #foam24, #foam25, #foam26, #foam27, #foam28, #foam29, #foam30, #foam31, #foam32, #foam33, #foam34, #foam35, #foam36, #foam37, #foam38, #foam39,
 #foam40, #foam41, #foam42{
     position: absolute;
     width: 7%;
@@ -839,10 +877,10 @@ background-color: rgb(252, 236, 158);}
     padding: 5px 10px;
     top: -100px;}
 
-#hello img{ 
+#hello img{
     width: 63%;}
 
-#hello div div{ 
+#hello div div{
     padding: 8px}
 
 .ml{
@@ -882,9 +920,46 @@ background-color: rgb(252, 236, 158);}
     top: 300px;
     padding: 0 30px;}
 
+/********** Inscription */
+
+form[name="registration_form"] div, form[name="user"] div{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin: auto!important;
+    padding: 10px 0;}
+
+form[name="registration_form"] input, form[name="user"] input{
+    height: 30px;
+    text-align: center;}
+
+.help-text{
+    font-size: 0.6em;}
+
+/********** Connexion */
+
+#login{
+    padding: 50px 0;
+    flex-direction: column;
+    width: 450px;
+    margin: auto;}
+
+#login input{
+    margin: 5px 0 50px 0;
+    height: 30px;}
+
+.submit{
+    color: white;
+    height: 49px!important;
+    font-size: 1em;
+    background: green;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;}
+
 /********** Brasserie */
 
-#brasseriePresent, #beerPresent, #shopPresent, #engagePresent{
+#brasseriePresent, #beerPresent, #shopPresent, #engagePresent, #errorShop, #profilPresent{
     padding: 15px;
     margin: 20px 0px;
     line-height: 25px;}
@@ -1014,7 +1089,7 @@ h5 span{
 
 .beerTable .pour25{
     width: 25%;}
-    
+
 .beerTable .pour5{
     width: 5%;
     font-size: 0.5em;}
@@ -1106,7 +1181,7 @@ h5 span{
 
 .basket{
     background: rgb(217, 179, 130, 0.5);
-    border: 1px solid rgb(246, 97, 15); 
+    border: 1px solid rgb(246, 97, 15);
     padding: 10px 15px;
     cursor: pointer;
     font-size: 1.1em;
@@ -1272,7 +1347,7 @@ h5 span{
 /********** Shop */
 
 #shopPresent h6{
-    margin: 10px;} 
+    margin: 10px;}
 
 #shopPresent img{
     width: 150px;}
@@ -1317,7 +1392,7 @@ h5 span{
 #basQuantity{
     visibility: hidden;}
 
-#order{
+#order, #order2{
     color: white;
     width: 375px;
     height: 49px;
@@ -1326,16 +1401,16 @@ h5 span{
     right: 10%;
     font-size: 1em;
     background: green;
-    text-align: center;    
+    text-align: center;
     visibility: hidden;
     border: 5px solid black;
     cursor: pointer;}
 
 .respon14{
-    position: relative; 
-    bottom: 30px; 
-    width: 175px; 
-    display: inline-block; 
+    position: relative;
+    bottom: 30px;
+    width: 175px;
+    display: inline-block;
     padding: 0 0 0 5px;}
 
 #resultBasket{
@@ -1355,6 +1430,165 @@ h5 span{
     color: rgb(255,255,255,0);
     visibility: hidden;}
 
+#modalShop img{
+    width: 40px;
+}
+
+#modalShop{
+    width: 80%;
+    position: fixed;
+    z-index: 99;
+    height: 50px;
+    top: 160px;
+    background: white;
+    padding: 150px 50px;
+    visibility: hidden;}
+
+#orderShop #allBasket{
+    position: relative;
+    width: 70%;
+    background: rgb(255, 255, 255, 0.8);
+    padding: 50px 50px;
+    border: 2px solid black;
+    margin: auto;
+    top: 0;
+    right: 0;
+    max-height: none;
+    overflow-y: hidden;
+    margin-top: 75px;
+    margin-bottom: 50px;}
+
+#orderShop #allBasket div div{
+    width: 100%;}
+
+#orderShop #allBasket img{
+    width: 100px!important;
+    order: 2;}
+
+#orderShop #allBasket .respon14{
+    width: 50%!important;
+    order: 4;
+    padding: 0 0 0 10px;
+    top: 70px;
+    text-align: center;}
+
+#hiddenOrder{
+    position: absolute;
+    visibility: hidden;
+    line-height: 0;}
+
+.t1{
+    order: 1;
+    flex-direction: column;
+    padding: 40px 10px;
+    text-align: center;
+    font-weight: bold;
+    width: 250px;}
+
+.t1 b{
+    margin: 10px 0;}
+
+.t2{
+    order: 3;
+    flex-direction: column;
+    padding: 20px 10px;
+    text-align: center;
+    border: 1px solid black;
+    width: 180px;}
+
+.t2 b{
+    margin: 5px 0;}
+
+#formShop2 input:nth-child(2n+2){
+    display: none;}
+
+form[name="shop"]{
+    width: 315px;
+    margin: auto;}
+
+form[name="shop"] div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    padding: 10px 0;}
+
+form[name="shop"] label{
+    text-decoration: underline;
+}
+
+form[name="shop"] input{
+    font-size: 1em;
+    height: 30px;
+    text-align: center;
+    color: black;
+    border: none;
+    background: rgb(255,255,255,0);}
+
+form[name="shop"] button, .sbutton{
+    color: white;
+    width: 250px;
+    height: 49px;
+    font-size: 1em;
+    background: green;
+    text-align: center;
+    border: 5px solid black;
+    cursor: pointer;
+    margin: auto;}
+
+.sbutton{
+    position: absolute;
+    right: 0;
+    width: 150px;
+    top: 300px;
+    font-size: 0.6em;
+    border: 2px solid black;}
+
+.sbutton1, .sbutton2, .sbutton3{
+    position: absolute;
+    right: 0;
+    width: 150px;
+    font-size: 0.6em;
+    border: 2px solid black;
+    top: 250px;
+    color: white;
+    height: 49px;
+    background: green;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;}
+
+.sbutton1{
+    top: 150px;}
+
+.sbutton3{
+    top: 25px;
+    background: rgb(246, 97, 15);}
+
+.sbutton4{
+    width: 150px;
+    font-size: 0.6em;
+    border: 2px solid black;
+    color: black;
+    height: 25px;
+    background: rgb(255,255,255,0.5);
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;}
+
+.sbutton1:hover, .sbutton3:hover, .sbutton2:hover, .sbutton4:hover{
+    margin: 5px 0 5px 3px;
+    box-shadow: 3px 1px 2px black;}
+
+.sbutton1:active, .sbutton3:active, .sbutton2:active, .sbutton4:active{
+    margin: 0px 0 5px 0px;
+    box-shadow: 1px -1px 1px black;}
+
+#errorShop, #sucessShop{
+    padding: 50px 10px;}
+
 /********** Contact */
 
 #fColumn img {
@@ -1373,7 +1607,7 @@ h5 span{
     width: 450px;
     height: 30px;
     background: rgb(217, 179, 130, 0.5);
-    border: 1px solid rgb(246, 97, 15); 
+    border: 1px solid rgb(246, 97, 15);
     padding: 10px 15px;
     cursor: pointer;
     font-size: 1.1em;
@@ -1382,7 +1616,7 @@ h5 span{
 
 #contact textarea{
     background: rgb(217, 179, 130, 0.5);
-    border: 1px solid rgb(246, 97, 15); 
+    border: 1px solid rgb(246, 97, 15);
     padding: 10px 15px;
     cursor: pointer;
     font-size: 0.8em;
@@ -1450,7 +1684,7 @@ label[for="contact_date"]{
 
 .contactTable td p{
     margin: 5px;}
-    
+
 .contactTable td p span{
     text-decoration: underline;
     margin: 0 7px 0 0;}
@@ -1510,6 +1744,26 @@ label[for="contact_date"]{
     right: 1%;
     font-size: 0.5em;}
 
+/********** profil */
+
+#profilBan{
+    border: rgb(246, 97, 15) 1px solid;
+    padding: 5px 0;
+    width: 70%;}
+
+#profilPresent span{
+    text-decoration: underline;
+    margin: 0 10px 0 0;}
+
+#profilPresent h3{
+    margin: 20px 0;}
+
+#profilPresent div{
+    flex-wrap: wrap;}
+
+#profilPresent .sbutton{
+    top: 25px;}
+
 /********** footer */
 
 #footer{
@@ -1525,7 +1779,7 @@ label[for="contact_date"]{
         overflow-x: hidden;}
     .allBasket2:hover{
         width: 375px;}
-    #order{
+    #order, #order2{
         width: 175px;}
 }
 
@@ -1612,9 +1866,9 @@ label[for="contact_date"]{
             margin-top: 40px;}
     }
     #brasseriePresent img {
-        margin: 39px 5%;} 
+        margin: 39px 5%;}
     #beerPresent img {
-        position: relative;} 
+        position: relative;}
     #gallerie img{
         width: 140px;}
     .catTable2{
@@ -1645,9 +1899,9 @@ label[for="contact_date"]{
         visibility: hidden;
         width: 0;}
     #menu{
-        top: -30px;
+        top: -15px;
         width: 225px;
-        right: 0;}
+        right: -1%;}
     .hiddenMenu2{
         visibility: hidden;}
     #menu ul{
@@ -1662,8 +1916,9 @@ label[for="contact_date"]{
     #menu ul li{
         padding: 2px 0;}
     #menu ul ul{
-        left: 50%;
-        border: none;}
+        border: none;
+        right: -100px;
+        bottom: 10px;}
     .hiddenMenu{
         height: 0;
         padding: 0;
@@ -1808,7 +2063,7 @@ label[for="contact_date"]{
     #actuality img:hover{
         top: 70px;
         right: 45px;}
-    #creations div{ 
+    #creations div{
         margin: 15px;
         width: 96%;}
     #projets div{
@@ -1835,7 +2090,7 @@ label[for="contact_date"]{
     #brasseriePresent div {
         margin: 20px 0;}
     #brasseriePresent img {
-        margin: 39px 9%;}   
+        margin: 39px 9%;}
     #beerPresent img {
         bottom: -10px;}
     .bPresent div p {
@@ -1856,7 +2111,7 @@ label[for="contact_date"]{
         top: 29px;}
     #engagePresent img {
         padding: 20px 0;}
-    #shopPresent{  
+    #shopPresent{
         padding: 0px;
         font-size: 0.9em;
         line-height: 20px;}
@@ -1905,6 +2160,30 @@ label[for="contact_date"]{
         width: 60%;}
     .basket{
         font-size: 0.9em;}
+    #panier{
+        width: 40px;
+        height: 40px;
+        top: -25px;
+        border-radius: 20px / 20px;
+        padding: 2px;
+        right: -1%;
+        background: white;
+        animation: borderChange 5s infinite, shakeTitle2 10s infinite;}
+    .t2{
+        font-size: 0.8em;
+        padding: 5px 5px;}
+    .t1{
+        padding: 20px 10px;}
+    #orderShop #allBasket{
+        width: 85%;}
+    .sbutton{
+        width: 90px;}
+    #allBasket div{
+        justify-content: flex-start;}
+    #allBasket .space{
+        margin: 0 0 0 5px;}
+    .menuOpen a{
+        margin: 0!important;}
 }
 
 @media screen and (min-width: 1000px){
@@ -1913,6 +2192,11 @@ label[for="contact_date"]{
         width: 0;}
     #allBasket{
         z-index: 6;}
+    #profilBan{
+        visibility: hidden;}
+    .collect{
+        position: relative;
+        right: 50px;}
 }
 
 @media screen and (max-width: 800px){
@@ -2037,7 +2321,7 @@ label[for="contact_date"]{
         width: 95%;}
     #tendances img{
         width: 350px;}
-    #creations div{ 
+    #creations div{
         width: 95%;}
     #projets div{
         width: 95%;}
@@ -2087,10 +2371,15 @@ label[for="contact_date"]{
         border-top: 1px solid black;
         padding: 10px 0;}
     .basketLeft{
-        width: 50%;
+        width: 33%;
         margin-left: 360px;}
     .spaceBasket {
         margin: 7px 5px;}
+    #beerPresent .spaceBasket2 {
+        margin: 7px 5px;}
+    #beerPresent .spaceBasket3 {
+        width: 100%;
+        text-align: center;}
     .bPresent form{
         flex-wrap: wrap;}
     .spaceBasket select {
@@ -2165,10 +2454,26 @@ label[for="contact_date"]{
     .blocSP {
         margin: 90px 0;}
     .spaceBasket3{
+        order: 3;}
+    #beerPresent form a{
         order: 4;}
-    .valuePResult{  
-        bottom: 30px;
-        position: relative;}  
+    .valuePResult{
+        bottom: 15px;
+        position: relative;}
+    .t2{
+        font-size: 0.7em;}
+    .t1{
+        font-size: 0.7em;
+        padding: 0px 5px;}
+    #orderShop #allBasket .respon14{
+        padding: 0 0 0 5px;
+        font-size: 0.7em!important;}
+    #orderShop #allBasket{
+        width: 100%;}
+    #profilPresent .blocSP{
+        width: 50%!important;}
+    #panier{
+        right: -12%;}
 }
 
 @media screen and (max-width: 600px){
@@ -2184,7 +2489,7 @@ label[for="contact_date"]{
     #present {
         position: absolute;
         left: 24%;
-        width: 70%;
+        width: 70%!important;
         top: 0;}
     #hello {
         top: -299px;
@@ -2272,7 +2577,7 @@ label[for="contact_date"]{
             font-size: 115%;
             padding-top: 0;
             margin-top: 0px;}
-    }    
+    }
     @keyframes bubbleMove {
         0% {bottom: 0;}
         50% {
@@ -2346,12 +2651,22 @@ label[for="contact_date"]{
         top: 101px;}
     .sPresent h4, .sPresent h5{
         position: relative;
-        right: 60px;}
+        right: 60px;
+        width: 300px;}
     .sPresent form{
-        width: 50%;}
-    .sPresent div{    
+        width: 52%;}
+    .sPresent div{
         justify-content: flex-start;
         text-align: left;}
+    #profilPresent .blocSP{
+        width: 100%!important;}
+    .sbutton2{
+        top: 85px;}
+    .sbutton1{
+        top: 25px;
+        right: 160px; }
+    #panier{
+        right: -18%;}
 }
 
 @media screen and (max-width: 500px){
@@ -2369,11 +2684,13 @@ label[for="contact_date"]{
         visibility: hidden;}
     h1{
         font-size: 0.9em;}
+    h2{
+        font-size: 1.3em;}
     .menuOpen2 img{
         top: 0;
         right: 10%;}
-    #menu{
-        top: 0;}
+    /* #menu{
+        top: 0;} */
     .homeImg {
         width: 30px;
         margin: 5px 14px;
@@ -2462,7 +2779,7 @@ label[for="contact_date"]{
             font-size: 115%;
             padding-top: 0;
             margin-top: 0px;}
-    }    
+    }
     @keyframes bubbleMove {
         0% {bottom: 0;}
         50% {
@@ -2515,11 +2832,23 @@ label[for="contact_date"]{
     #contact input, #contact textarea{
         width: 100%;}
     .sPresent div .space{
-        visibility: visible;
-    }
+        visibility: visible;}
     #allBasket h5{
-        font-size: 0.7em;
-    }
+        font-size: 0.7em;}
+    form[name="registration_form"] div, form[name="user"] div, #login{
+        width: 400px;}
+    #panier{
+        top: 15px;}
+    #orderShop #allBasket{
+        padding: 50px 0;}
+    .sbutton{
+        right: 125px;}
+    #allBasket .space{
+        visibility: visible;}
+    .sbutton1, .sbutton2, .sbutton3 {
+        height: 35px;}
+    .sbutton1, .sbutton3 {
+        top: 35px;}
 }
 
 @media screen and (max-width: 400px){

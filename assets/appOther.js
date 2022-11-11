@@ -26,6 +26,7 @@ window.addEventListener('load', (event) => {
     let p55 = document.getElementsByClassName("p55");
     let allBasket = document.getElementById('allBasket');
     let order = document.getElementById('order');
+    let order2 = document.getElementById('order2');
     let respon14 = document.getElementsByClassName('respon14');
     let rBas = document.getElementById("resultBasket");
     let stockBeer = [];pou5
@@ -39,7 +40,7 @@ window.addEventListener('load', (event) => {
     let ac3 = [];
     let addBI = [];
     let pou5 = [];
-    let montant = "Montant du panier = ";
+    let montant = "Total = ";
     for( let i=0; i<sB.length; i++){
         stockBeer.push(document.getElementById(sB[i].children[0].id));}
     for( let i=0; i<sB2.length; i++){
@@ -56,28 +57,43 @@ window.addEventListener('load', (event) => {
     let body = document.querySelector("body");
     if(allBasket){
         for( let i=1; i<allBasket.children.length; i++){
-            aBasket.push(document.getElementById(allBasket.children[i].children[0].id));
-            pou5.push(allBasket.children[i].children[1]);}
-        for( let i=0; i<stockBeer.length/2; i++){
-            ac3.push(allBasket.children[i+1].children[1].children[0]);}
+            if(allBasket.children[i].children[0]){
+                aBasket.push(document.getElementById(allBasket.children[i].children[0].id));}
+            if(allBasket.children[i].children[1]){
+                pou5.push(allBasket.children[i].children[1]);}
+            }
+        if(stockBeer){
+            for( let i=0; i<stockBeer.length/2; i++){
+                ac3.push(allBasket.children[i+1].children[1].children[0]);}
+        }
         function clientWidth(){
-            for( let k=0; k<respon14.length; k++){ 
+            for( let k=0; k<respon14.length; k++){
                 if(allBasket.clientWidth<250){
-                    rBas.style.width = "175px";
+                    if(rBas){
+                        rBas.style.width = "175px";}
                     respon14[k].style.width = "100px";
                     respon14[k].style.bottom = '60px';
                     respon14[k].style.left = "55px";
                     respon14[k].style.fontSize = "0.9em";
-                    for( let q=0; q<pou5.length; q++){
-                        pou5[q].children[0].children[0].style.padding = "0 0 0 20px";}
+                    if(pou5){
+                        for( let q=0; q<pou5.length; q++){
+                            if(pou5[q].children[0].children[0]){
+                                pou5[q].children[0].children[0].style.padding = "0 0 0 20px";}
+                        }
+                    }
                 }else{
-                    rBas.style.width = "375px";
+                    if(rBas){
+                        rBas.style.width = "375px";}
                     respon14[k].style.width = "175px";
                     respon14[k].style.bottom = '30px';
                     respon14[k].style.left = '0';
                     respon14[k].style.fontSize = "1.1em";
-                    for( let q=0; q<pou5.length; q++){
-                        pou5[q].children[0].children[0].style.padding = 0;}
+                    if(pou5){
+                        for( let q=0; q<pou5.length; q++){
+                            if(pou5[q].children[0].children[0]){
+                                pou5[q].children[0].children[0].style.padding = 0;}
+                        }
+                    }
                 }
             }
         }
@@ -90,21 +106,36 @@ window.addEventListener('load', (event) => {
     let hide = document.getElementsByClassName("hide");
     let homeImg = document.getElementsByClassName("homeImg");
     let nB = document.getElementById("newB");
-    button.style.textAlign = "center";
-    button.style.left = "32%";
-    button.style.visibility = "visible";
-    button.style.top = "-131px";
-    button.style.display = "flex";
-    button.style.width = "25%";
+    let menuOpen = document.getElementsByClassName("menuOpen");
+    let panier = document.getElementById("panier");
+    let modalShop = document.getElementById("modalShop");
+    let orderShop = document.getElementById("orderShop");
+    let errorShop = document.getElementById('errorShop')
+    if(errorShop){
+       sessionStorage.clear();
+    }
+    let successShop = document.getElementById('successShop')
+    if(successShop){
+       sessionStorage.clear();
+    }
+    if(button){
+        button.style.textAlign = "center";
+        button.style.left = "32%";
+        button.style.visibility = "visible";
+        button.style.top = "-131px";
+        button.style.display = "flex";
+        button.style.width = "25%";}
     button3[0].style.display = "none";
     for( let i=1; i<3; i++){
-        button3[i].style.margin = "10px 5px";
-        button3[i].style.fontSize = "0.7em";
-        button3[i].style.transition = "all 0s";
-        button3[i].style.boxShadow = "none";
-        button3[i].style.transition = "none";
-        button3[i].style.borderRadius = "0";
-        button3[i].style.border = "1px solid rgb(246, 97, 15)";}
+        if(button3[i]){
+            button3[i].style.margin = "10px 5px";
+            button3[i].style.fontSize = "0.7em";
+            button3[i].style.transition = "all 0s";
+            button3[i].style.boxShadow = "none";
+            button3[i].style.transition = "none";
+            button3[i].style.borderRadius = "0";
+            button3[i].style.border = "1px solid rgb(246, 97, 15)";}
+    }
     h1.style.animation = 'none';
     h1.style.opacity = 1;
     menu.style.opacity = 1;
@@ -112,7 +143,7 @@ window.addEventListener('load', (event) => {
     menuImg.style.visibility = "visible";
     body.style.background = "linear-gradient(white, rgb(237, 175, 50, 0.5))";
     body.style.paddingBottom = 0;
-    footer.style.marginTop = 0;
+    footer.style.marginTop = '160px';
     fTop.style.visibility = 'visible';
     for( let i=0; i<2; i++){
         homeImg[i].style.display = "none";}
@@ -233,16 +264,16 @@ window.addEventListener('load', (event) => {
                 ac3[i].addEventListener("click", (event) => {
                     event.preventDefault();
                     ab.style.height = 0;
-                    ab.innerHTML =  ""
+                    ab.innerHTML =  "";
                     ac3[i].children[0].style.visibility = "hidden";
                     ac3[i].children[0].style.height = 0;
                     addBI.pop();
                     if(addBI.length == 0){
                         allBasket.classList.replace("allBasket2", "allBasket");}
-                    let montant = "Montant du panier = ";
                     let m = ab.id;
                     let n = m.slice(10, m.length);
                     let o = 'basAdd' + n;
+                    sessionStorage.removeItem(abi);
                     let p = document.getElementById(o);
                     p.children[0].value = "Ajouter";
                     sum.splice(0, sum.length)
@@ -257,12 +288,20 @@ window.addEventListener('load', (event) => {
                             numSum += parseFloat(sum[q]);}
                         return numSum;};
                     if(rBas){
+                        if(document.getElementById('formShop2')){
+                            let fs2 = document.getElementById('formShop2');
+                            fs2.children[1].setAttribute('value', sumArray().toFixed(2));}
                         rBas.value = montant + sumArray().toFixed(2) + '€';}
                     if(sumArray() == 0){
                         if(rBas){
                             rBas.style.visibility = "hidden";}
-                        order.style.visibility = "hidden";}
-                    })
+                        if(order){
+                            order.style.visibility = "hidden"}
+                        else {
+                            order2.style.visibility = "hidden";}
+                    }
+
+                })
             }
             if(stockBeer[i+1+i]){
                 stockBeer[i+1+i].addEventListener("click", (event) => {
@@ -272,11 +311,9 @@ window.addEventListener('load', (event) => {
                     let basQuantity = document.getElementById('basQuantity');
                     if(basQuantity){
                         basQuantity.value = stockBeer[i*2].value;}
-                    let montant = "Total = ";
                     let rBB = [];
                     rBB.push(document.getElementsByClassName("rBB"));
                     sum.splice(0, sum.length)
-                    if(aBasket[i]){
                         if(aBasket[i].id){
                             let resultPrice = stockBeer[i*2].value * price[i].value;
                             allBasket.classList.replace("allBasket", "allBasket2");
@@ -284,7 +321,7 @@ window.addEventListener('load', (event) => {
                             ab.style.height = "80px";
                             ab.innerHTML =  '<img style="width: 50px;" src=' + str2 + ' alt=""> <span class="respon14">X ' + basQuantity.value + ' = <b class="rBB">' +  parseFloat(resultPrice).toFixed(2) + "</b>€" + '</span>';
                             for( let l=0; l<rBB[0].length; l++){
-                                rBB[0][l];
+                                sessionStorage.setItem(aBasket[i].id, aBasket[i].children[1].children[0].textContent);
                                 sum.push(rBB[0][l].textContent);}
                             function sumArray(){
                                 let numSum = 0;
@@ -292,27 +329,95 @@ window.addEventListener('load', (event) => {
                                     numSum += parseFloat(sum[q]);}
                                 return numSum;};
                             if(rBas){
+                                if(document.getElementById('formShop2')){
+                                    let fs2 = document.getElementById('formShop2');                               
+                                    fs2.children[1].setAttribute('value', sumArray().toFixed(2));}
                                 rBas.value = montant + sumArray().toFixed(2) + '€';}
                         }
-                    }
+
                     if(ab){
                         if(ab.children.length == 2 && stockBeer[i*2+1].children[0].value == 'Ajouter'){
                             addBI.push(ab.id);}
                         stockBeer[i*2+1].children[0].value = 'Modifier';
                         ac3[i].children[0].style.visibility = "visible";
-                        order.style.visibility = "visible";
+                        if(order){
+                            order.style.visibility = "visible"}
+                        else {
+                            order2.style.visibility = "visible";}
                         ac3[i].children[0].style.height = "50px";}
                     if(allBasket.clientWidth<250){
-                        let str4 = rBas.value;
-                        console.log(str4);
-                        rBas.style.width = "175px";
-                        let q = str4.slice(17, str4.length);
-                        console.log(q);}
-                        // rBas.value = q;
+                        rBas.style.width = "175px";}
                 })
             }
         }
-    }   
+    }
+
+    // sessionStorage.clear();
+    console.log(sessionStorage);
+    if(sessionStorage.length>0){
+        let cc = menuOpen[1].children;
+        menuOpen[1].style.fontSize = "1.2em";
+        cc[0].style.color = "red";
+        cc[0].style.marginRight = "20px";
+        panier.style.visibility = "visible";
+        if(rBas){
+            rBas.style.visibility = "visible";}
+        let rBB = [];
+        rBB.push(document.getElementsByClassName("rBB"));
+        for( let i=0; i<aBasket.length; i++){
+            if(aBasket[i]){
+                if(sessionStorage.getItem(aBasket[i].id)){
+                    let resultPrice = sessionStorage.getItem(aBasket[i].id);
+                    allBasket.classList.replace("allBasket", "allBasket2");
+                    let str = aBasket[i].id;
+                    let j = str.slice(10, str.length);
+                    let beerId = 'beer' + j;
+                    let numbeer = sessionStorage.getItem(aBasket[i].id) / price[i].value;
+                    let bi = document.getElementById(beerId);
+                    let str2 = bi.children[0].children[0].src;
+                    let ab = document.getElementById(aBasket[i].id);
+                    ab.style.height = "80px";
+                    ab.innerHTML =  '<img style="width: 50px;" src=' + str2 + ' alt=""> <span class="respon14">X ' + numbeer + ' = <b class="rBB">' +  parseFloat(resultPrice).toFixed(2) + "</b>€" + '</span>';
+                    if(ab){
+                        if(stockBeer[i*2+1]){
+                            if(ab.children.length == 2 && stockBeer[i*2+1].children[0].value == 'Ajouter'){
+                                addBI.push(ab.id);}
+                            stockBeer[i*2+1].children[0].value = 'Modifier';
+                            if(ac3){
+                                ac3[i].children[0].style.visibility = "visible";}
+                        }
+                        if(order){
+                            order.style.visibility = "visible"}
+                        else {
+                            order2.style.visibility = "visible";}
+                        if(ac3[i]){
+                            ac3[i].children[0].style.height = "50px";}
+                    }
+                    if(allBasket.clientWidth<250){
+                        rBas.style.width = "175px";}
+                }
+            }
+        }
+        for( let l=0; l<rBB[0].length; l++){
+            sum.push(rBB[0][l].textContent);}
+        function sumArray(){
+            let numSum = 0;
+            for (let q=0 ; q<sum.length ; q++){
+                numSum += parseFloat(sum[q]);}
+            return numSum;};
+        if(rBas){
+            if(document.getElementById('formShop2')){
+                let fs2 = document.getElementById('formShop2');
+                fs2.children[1].setAttribute('value', sumArray().toFixed(2));}
+            rBas.value = montant + sumArray().toFixed(2) + '€';}
+    }
+
+    if(order2){
+        order2.addEventListener("click", (event) => {
+            event.preventDefault();
+            modalShop.style.visibility = "visible";
+        })
+    }
 
     if(nB){
         if(nB.children[0].textContent){
@@ -332,8 +437,9 @@ window.addEventListener('load', (event) => {
             ab2.innerHTML =  '<img style="width: 50px;" src=' + str22 + ' alt=""> <span class="respon14">X ' + nB.children[0].textContent + ' = <b class="rBB">' +  parseFloat(resultPrice2).toFixed(2) + "</b>€" + '</span>';
             let rBB = [];
             rBB.push(document.getElementsByClassName("rBB"));
-            sum.splice(0, sum.length)
+            sum.splice(0, sum.length);
             for( let l=0; l<rBB[0].length; l++){
+                sessionStorage.setItem(ab2.id, ab2.children[1].children[0].textContent);
                 rBB[0][l];
                 sum.push(rBB[0][l].textContent);}
             function sumArray(){
@@ -342,14 +448,69 @@ window.addEventListener('load', (event) => {
                     numSum += parseFloat(sum[q]);}
                 return numSum;};
             if(rBas){
+                if(document.getElementById('formShop2')){
+                    let fs2 = document.getElementById('formShop2');
+                    fs2.children[1].setAttribute('value', sumArray().toFixed(2));}
                 rBas.value = montant + sumArray().toFixed(2) + '€';}
             if(ab2){
                 if(ab2.children.length == 2 && ba2.children[0].value == 'Ajouter'){
                     addBI.push(ab2.id);}
                 ba2.children[0].value = 'Modifier';
                 db.children[0].style.visibility = "visible";
-                order.style.visibility = "visible";
+                if(order){
+                    order.style.visibility = "visible"}
+                else {
+                    order2.style.visibility = "visible";}
                 db.children[0].style.height = "50px";}
         }
     }
+
+    if(orderShop){
+        let sumOrder = [];
+        for( let r=1; r<orderShop.children[0].children.length-2; r++){
+            if(orderShop.children[0].children[r].children[0].children[0]){
+                let oc = orderShop.children[0].children[r].children[0];
+                oc.style.display = "none";
+            };
+            if(orderShop.children[0].children[r].children[0].children[1]){
+                let oc = orderShop.children[0].children[r].children[0];
+                oc.style.height = "160px";
+                oc.style.border = '1px solid black';
+                let str4 = oc.id;
+                let j = str4.slice(10, str4.length);
+                let beerId = 'be' + j;
+                let bid = document.getElementById(beerId);
+                oc.innerHTML += "<span class='t1 flex'><b>" + bid.children[0].textContent + "</b><b>" + bid.children[1].textContent + "</b></span>";
+                oc.style.display = "flex";
+                oc.innerHTML += "<span class='t2 flex'><b>alc%: " + bid.children[2].children[0].children[0].textContent + "</b><b>" + bid.children[2].children[1].children[0].textContent + "</b><b>prix U: " + bid.children[2].children[2].children[0].textContent + "</b><b>vol cl: " + bid.children[2].children[3].children[0].textContent + "</b></span>";
+                sumOrder.push(orderShop.children[0].children[r].children[0].children[1].children[0].textContent);
+            };
+            function sumArrayOrder(){
+                let numSumOrder = 0;
+                for (let q=0 ; q<sumOrder.length ; q++){
+                    numSumOrder += parseFloat(sumOrder[q]);}
+                return numSumOrder;}
+            let spo = document.getElementById('shop_price_order');
+            spo.value = sumArrayOrder().toFixed(2);
+        }
+        let order = document.getElementById('order');
+        order.style.visibility = "hidden";
+        let alc = document.getElementById("formdetailscommande").children[0];
+        for (let r=0 ; r<(aBasket.length-2)*2 ; r++){
+            if(aBasket[r]){
+                if(sessionStorage.getItem(aBasket[r].id)){
+                    if(alc.children[r*2+1]){
+                    alc.children[r*2+1].value = sessionStorage.getItem(aBasket[r].id);}
+                }
+                if(alc.children[r*2+1]){
+                    if(alc.children[r*2+1].value == 0){
+                        alc.children[r*2+1].style.display = "none";
+                        alc.children[r*2+1].setAttribute("disabled", "disabled");
+                        alc.children[r*2].style.display = "none";
+                        alc.children[r*2].setAttribute("disabled", "disabled");}
+                }
+            }    
+        }
+    }
+
 })
