@@ -7,9 +7,13 @@
             <h2>Click & Collect</h2>
             <h5>{{ beers|length }} bières en vente.</h5>
             <div>
+            {% if beers is defined %}
             {% for beer in beers %}
+                {% if beer.quantity > 0 %}
                 {{ include('shop/info_shop_beer.html.twig') }}
-            {% endfor %} 
+                {% endif %}
+            {% endfor %}
+            {% endif %}
             </div>
         </div> 
         {{ include('shop/basket_shop.html.twig') }}

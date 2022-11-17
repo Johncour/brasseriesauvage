@@ -3,6 +3,7 @@
 {% block body2 %}
     <div class="container">
         <h4>Les catégories</h4>
+        {% if is_granted("ROLE_ADMIN") %}
         <div class="col-0 text-center">
             <h5>Ajout de catégories</h5>
             {{ form(formCategory)}}
@@ -10,34 +11,39 @@
             <div class="catTable col-0">
                 <h5>Catégories existantes : {{ categories|length }}</h5>
                 <div class="flex wrap jcCenter">
+                {% if categories is defined %}
                     {% for category in categories %}
                         {{ include('admin/beer/info_category.html.twig') }}
                     {% endfor %}
+                {% endif %}
                 </div>
             </div>
         </div>
         <div class="blocBP">
-            <h4>Les bières</h4>
-                <div class="col-0 text-center">
-                    <h5>Ajout des bières</h5>
-                    {{ form(formBeer)}}
-                    <div class="beerTable">
-                        <h5>Bières existantes : {{ beers|length }}</h5>
-                        <div>
-                            <table class="pRelative">
-                                {{ include('admin/beer/table_head_beer.html.twig') }}
-                                <tbody>
-                                    {% for beer in beers %}
-                                        {{ include('admin/beer/info_beer.html.twig') }}
-                                        {{ include('admin/beer/edit_delete_beer.html.twig') }}
-                                        {{ include('admin/beer/info_beer_800.html.twig') }}
-                                        {{ include('admin/beer/edit_delete_beer_800.html.twig') }}
-                                    {% endfor %}                                
-                                </tbody>                                    
-                            </table>                        
-                        </div>
+        <h4>Les bières</h4>
+            <div class="col-0 text-center">
+                <h5>Ajout des bières</h5>
+                {{ form(formBeer)}}
+                <div class="beerTable">
+                    <h5>Bières existantes : {{ beers|length }}</h5>
+                    <div>
+                        <table class="pRelative">
+                            {{ include('admin/beer/table_head_beer.html.twig') }}
+                            <tbody>
+                            {% if beers is defined %}
+                                {% for beer in beers %}
+                                    {{ include('admin/beer/info_beer.html.twig') }}
+                                    {{ include('admin/beer/edit_delete_beer.html.twig') }}
+                                    {{ include('admin/beer/info_beer_800.html.twig') }}
+                                    {{ include('admin/beer/edit_delete_beer_800.html.twig') }}
+                                {% endfor %}
+                            {% endif %}                                
+                            </tbody>                                    
+                        </table>                        
                     </div>
                 </div>
+            </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body2 %}
+    <div class="container">
+        <div id="profilPresent">
+            <h2>Commandes</h2>
+            {% if is_granted("ROLE_ADMIN") %}
+            <form action="" class="text-center">
+                <select name="" id="orderAdmin">
+                    <option value="0">non finalisées par le client</option>
+                    <option value="1">à traiter</option>
+                    <option value="2">en cours d'acheminement</option>
+                    <option value="3">livrées</option>
+                    <option value="" selected>(selectionner)</option>
+                </select>
+            </form>
+            <div class="pRelative">
+                <h5 class="text-center vHidden pAbsolute">Nombre de commande non finalisées par le client : {{ shop0|length }}</h5>
+                <h5 class="text-center vHidden pAbsolute">Nombre de commande à traiter : {{ shop1|length }}</h5>
+                <h5 class="text-center vHidden pAbsolute">Nombre de commande en cours d'acheminement : {{ shop2|length }}</h5>
+                <h5 class="text-center vHidden pAbsolute">Nombre de commande livrée : {{ shop3|length }}</h5>
+            </div>
+            <div class="flex col-0 pRelative">
+                {% for shop in shops %}
+                    <div class="blocSP col-3 vHidden pAbsolute">
+                        <p><span>Commande n°:</span>{{ shop.id }}</p>
+                        <a href="{{ path('app_admin_details_order', {'id' : shop.user.id, 'com': shop.id }) }}">
+                            <button class="sbutton4">Détail commande</button>
+                        </a>
+                        <p><span>Statut :</span>{% if shop.orderStatus == 0 %}en cours de préparation{% elseif shop.orderStatus == 1 %}en préparation{% elseif shop.orderStatus == 2 %}en cours d'acheminement{% elseif shop.orderStatus == 3 %}livrée{% endif %}</p>    
+                        <p><span>Date de la commande :</span>{{ shop.orderDate|date('d/m/Y') }}</p>    
+                        <p><span>Date de livraison prévue :</span>{{ shop.shippingDate|date('d/m/Y') }}</p>    
+                        <p><span>Montant de la commande :</span>{{ shop.priceOrder }}€</p>        
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

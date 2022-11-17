@@ -3,9 +3,9 @@
 {% block body2 %}
     <div class="container">
         <div id="profilPresent">
-            <h2>Détails commande n°{{com}}</h2>
-            {% if app.user %}
-            <a href="{{ path('app_profil_orders', {'id': id}) }}">
+        <h2>Détails commande n°{{com}}</h2>
+            {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('app_admin_order') }}">
                 <button class="sbutton3">Retour commande</button>
             </a>
             {% if shops is defined %}
@@ -44,7 +44,18 @@
             </div>
             <div class="col-0 flex help-text">
             {% if shop.id == com %}
-                <p class="col-2"><span>Statut de la commande:</span>{% if shop.orderStatus == 0 %}en cours de préparation{% elseif shop.orderStatus == 1 %}en préparation{% elseif shop.orderStatus == 2 %}en cours d'acheminement{% elseif shop.orderStatus == 3 %}livrée{% endif %}</p>    
+                <p class="col-2"><span>Statut de la commande:</span>{% if shop.orderStatus == 0 %}en cours de préparation{% elseif shop.orderStatus == 1 %}en préparation{% elseif shop.orderStatus == 2 %}en cours d'acheminement{% elseif shop.orderStatus == 3 %}livrée{% endif %}</p>
+                <form action="{{ path('app_admin_details_order', {'id' : shop.user.id, 'com': shop.id }) }}" class="col-0">
+                    <label for="statut">Changer le statut de la commande :</label>
+                    <select name="statut" id="statut" >
+                        <option value="{{0}}">en cours de préparation</option>
+                        <option value="{{1}}">en préparation</option>
+                        <option value="{{2}}">en cours d'acheminement</option>
+                        <option value="{{3}}">livrée</option>
+                    </select>
+                    <input type="submit" value="Valider">
+                    <input type="text" name="com" value="{{com}}" class="vHidden">
+                </form>
                 <p class="col-2"><span>Date de la commande :</span>{{ shop.orderDate|date('d/m/Y') }}</p>    
                 <p class="col-2" style="order: 4"><span>Date de livraison prévue :</span>{{ shop.shippingDate|date('d/m/Y') }}</p>    
                 <p class="col-2"><span>Montant total de la commande :</span>{{ shop.priceOrder }}€</p>
@@ -52,6 +63,23 @@
             </div>
             {% endfor %}
             {% endif %}
+                <div class="blocBP">
+                    <h5>Client :</h5>
+                    <div class="col-0 flex">
+                        <p class="col-0"><span>Mail :</span>
+                            <a target="blank" href="mailto:{{user.email}}">
+                                <button>Envoyer un mail au sujet de la commande</button>
+                            </a>
+                        </p>
+                        <p class="col-2"><span>Nom :</span>{{user.lastName}}</p>
+                        <p class="col-2"><span>Prénom :</span>{{user.firstName}}</p>
+                        <p class="col-0"><span>Adresse :</span>{{user.adress}}</p>
+                        <p class="col-2"><span>Ville :</span>{{user.city}}</p>
+                        <p class="col-2"><span>Code postal :</span>{{user.postalCode}}</p>
+                        <p class="col-2"><span>Téléphone :</span>{{user.phone}}</p>
+                        <p class="col-0"><span>Date d'anniversaire :</span>{{user.birthdayDate|date('d/m/Y')}}</p>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>

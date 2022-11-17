@@ -1,4 +1,5 @@
 <div class="flex jcCenter basketLeft">
+    {% if beer.quantity > 0 %}
     <form action="{{ path('app_shop')}}" class="flex">
         <div class="spaceBasket">
             <select name="quantity" id="stockBeer{{ beer.id }}">
@@ -21,4 +22,7 @@
             <input class="basket pRelative" type="submit" value="Ajouter au panier">
         </a>
     </form>
+    {% else %}
+    <h3>Produit indisponible pour le moment! Désolé!!!</h3>
+    {% endif %}
 </div>

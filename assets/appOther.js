@@ -104,13 +104,19 @@ window.addEventListener('load', (event) => {
     let fTop = document.getElementById('fTop');
     let arrow2 = document.getElementsByClassName("arrow2");
     let hide = document.getElementsByClassName("hide");
-    let homeImg = document.getElementsByClassName("homeImg");
     let nB = document.getElementById("newB");
     let menuOpen = document.getElementsByClassName("menuOpen");
     let panier = document.getElementById("panier");
     let modalShop = document.getElementById("modalShop");
     let orderShop = document.getElementById("orderShop");
-    let errorShop = document.getElementById('errorShop')
+    let errorShop = document.getElementById('errorShop');
+    let buttonProfil = document.getElementsByClassName('helloButton');
+    let buttonImg1 = button.children[1].children[0].children[0];
+    if(button.children[1].children[1]){
+        let buttonImg2 = button.children[1].children[1].children[0];
+            buttonImg2.style.height= "30px";}
+    if(buttonProfil[0]){
+        buttonProfil[0].style.display = "none";}
     if(errorShop){
        sessionStorage.clear();
     }
@@ -119,6 +125,7 @@ window.addEventListener('load', (event) => {
        sessionStorage.clear();
     }
     if(button){
+        buttonImg1.style.height= "30px"; 
         button.style.textAlign = "center";
         button.style.left = "32%";
         button.style.visibility = "visible";
@@ -143,15 +150,14 @@ window.addEventListener('load', (event) => {
     menuImg.style.visibility = "visible";
     body.style.background = "linear-gradient(white, rgb(237, 175, 50, 0.5))";
     body.style.paddingBottom = 0;
-    footer.style.marginTop = '160px';
+    footer.style.marginTop = '0px';
     fTop.style.visibility = 'visible';
-    for( let i=0; i<2; i++){
-        homeImg[i].style.display = "none";}
     for(const arr of arrow2){
         arr.classList.replace("arrow2", "arrow");}
     for(const hid of hide){
         hid.classList.replace("hide", "vHidden");}
     for( let i=0; i<ac3.length; i++){
+        console.log(ac3[i]);
         ac3[i].children[0].style.visibility = "hidden";
         ac3[i].children[0].style.height = 0;
         pou5[i].style.height = '0px';}
@@ -159,6 +165,8 @@ window.addEventListener('load', (event) => {
         if(valuePrice[i]){
             valuePResult[i].innerHTML = valuePrice[i].value;}
     }
+    if(allBasket){
+        allBasket.style.visibility = "visible";}
 
     for( let i=0; i<stockBeer.length/2; i++){
         if(stockBeer[i*2]){
@@ -416,7 +424,24 @@ window.addEventListener('load', (event) => {
         order2.addEventListener("click", (event) => {
             event.preventDefault();
             modalShop.style.visibility = "visible";
+            window.addEventListener("dblclick", function(event) {
+                modalShop.style.visibility = "hidden";})
         })
+    }
+
+    let heart = document.getElementsByClassName("heart");
+    console.log(heart);
+    if(heart){
+        for( let i=0; i<heart.length; i++){
+        heart[i].addEventListener("click", (event) => {
+            event.preventDefault();
+            modalShop.style.visibility = "visible";
+            modalShop.style.right = "10%";
+            modalShop.children[1].children[0].children[0].style.bottom = "140px";
+            modalShop.children[1].children[1].children[0].style.bottom = "140px";
+            window.addEventListener("dblclick", function(event) {
+                modalShop.style.visibility = "hidden";})
+        })}
     }
 
     if(nB){
@@ -467,6 +492,9 @@ window.addEventListener('load', (event) => {
 
     if(orderShop){
         let sumOrder = [];
+        let but2 = document.getElementsByClassName('sbutton2');
+        but2[0].style.position = 'relative';
+        but2[0].style.top = 0;
         for( let r=1; r<orderShop.children[0].children.length-2; r++){
             if(orderShop.children[0].children[r].children[0].children[0]){
                 let oc = orderShop.children[0].children[r].children[0];
@@ -511,6 +539,44 @@ window.addEventListener('load', (event) => {
                 }
             }    
         }
+        let alc2 = document.getElementById("formdetailscommande").children[1];
+        console.log(document.getElementById("formdetailscommande").children[0].lastElementChild);
+        let alc3 = document.getElementById("formdetailscommande").children[0].lastElementChild;
+        alc3.setAttribute('name', 'something');
+        alc2.click();
+
+    }
+
+    let orderAdmin = document.getElementById("orderAdmin");
+    if(orderAdmin){
+        orderAdmin.addEventListener('change', function(){
+            let ppresent = document.getElementById("profilPresent");
+            var index = orderAdmin.selectedIndex;
+            let bsp = document.getElementsByClassName("blocSP");
+            for(let s=0; s<bsp.length; s++){
+                let ppc = ppresent.children[2].children[s];
+                if(ppc){
+                ppc.style.visibility = "hidden";
+                ppc.style.fontSize = "0";}
+            bsp[s].style.visibility = "hidden";
+            bsp[s].style.position = "absolute";
+            if(bsp[s].children[2].textContent == 'Statut :en cours de préparation' && index == 0){
+                bsp[s].style.visibility = "visible";
+                bsp[s].style.position = "relative";
+            }else if(bsp[s].children[2].textContent == 'Statut :en préparation' && index == 1){
+                bsp[s].style.visibility = "visible";
+                bsp[s].style.position = "relative";
+            }else if(bsp[s].children[2].textContent == "Statut :en cours d'acheminement" && index == 2){
+                bsp[s].style.visibility = "visible";
+                bsp[s].style.position = "relative";                     
+            }else if(bsp[s].children[2].textContent == "Statut :livrée" && index == 3){
+                bsp[s].style.visibility = "visible";
+            bsp[s].style.position = "relative";}
+            if(index == s){
+                ppc.style.visibility = "visible";
+                ppc.style.fontSize = "1em";}
+            }
+        })
     }
 
 })

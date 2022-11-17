@@ -23,4 +23,10 @@ class HomeController extends AbstractController
             'arrow' => $arrow
         ]);
     }
+
+    #[Route('/mentions', name: 'app_mentions', methods: ['GET'])]
+    public function mentions(Request $request): Response
+    {
+        return $this->render('home/mentions.html.twig');
+    }
 }

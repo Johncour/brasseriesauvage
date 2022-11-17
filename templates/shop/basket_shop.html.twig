@@ -3,19 +3,23 @@
     <p>{{bid}}</p>
     <p>{{price}}</p>
 </div>
-<div id="allBasket" class="allBasket zI4">
+<div id="allBasket" class="allBasket zI4 vHidden">
     <h5 class="text-center">Remplissez votre panier</h5>
     {% set items = [] %}
+    {% if beers is defined %}
     {% for beer in beers %}
-        <div class="flex">
-            <div id="addBasInfo{{ beer.id }}"></div>
-            <div class="pou5 text-center">
-                <a id="deleteBeerBas{{beer.id}}" href="">
-                    <img src="{{ asset('img/sup.png') }}" alt="">
-                </a> 
+        {% if beer.quantity > 0 %}
+            <div class="flex">
+                <div id="addBasInfo{{ beer.id }}"></div>
+                <div class="pou5 text-center">
+                    <a id="deleteBeerBas{{beer.id}}" href="">
+                        <img src="{{ asset('img/sup.png') }}" alt="">
+                    </a> 
+                </div>
             </div>
-        </div>
+        {% endif %}
     {% endfor %}
+    {% endif %}
     {% set result = 0 %}
 </div>
 {% if app.user %}

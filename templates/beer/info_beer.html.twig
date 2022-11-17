@@ -4,6 +4,38 @@
 <div class="col-60 bPresent">
     <h4>{{ beer.name }}</h4>
     <h5>{{ beer.category.name }}</h5>
+    {% if app.user %}
+    <div class="pRelative">
+        {% if beer in app.user.favoris %}
+            <a href="{{ path('app_beer_favoris', {'id': beer.id, 'heart': 0, 'user' : app.user.id})}}">
+                <img class="heartf pAbsolute" src="{{ asset('img/full_heart.png') }}" alt="">
+            </a>
+        {% else %}
+            <a href="{{ path('app_beer_favoris', {'id': beer.id, 'heart': 1, 'user' : app.user.id})}}">
+                <img class="hearte pAbsolute" src="{{ asset('img/empty_heart.png') }}" alt="">
+            </a>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="pRelative">
+        <a href="" class="heart">
+            <img class="hearte pAbsolute" src="{{ asset('img/empty_heart.png') }}" alt="">
+        </a>
+        <div id="modalShop"> 
+            <p class="text-center">Merci de vous inscrire ou connectez afin de poursuivre vos achats.</p>
+            <div class="text-center">
+                <a href="{{ path('app_login')}}">
+                    <img style="width: 50px" src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                    <button class="button">Mon compte</button>
+                </a>
+                <a href="{{ path('app_register')}}">
+                    <img style="width: 50px" src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                    <button class="button">Inscription</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <div>
         <p>{{ beer.p1 }}</p>
         <p>{{ beer.p2 }}</p>

@@ -3,58 +3,62 @@
 {% block body2 %} 
     <div class="container">
         <a href="{{ path('app_shop') }}">
-            <button class="sbutton">Retour modification</button>
+            <button class="sbutton3">Retour modification</button>
         </a>
         {% if app.user %}
             <div id="hiddenOrder">
                 {% set idBeer = [] %}
-                {% for beer in beers %} 
-                    {% set idBeer =  idBeer|merge([beer.id]) %}
-                    <div id="be{{ beer.id }}">  
-                        <h4>{{ beer.name }}</h4>
-                        <h5>{{ beer.category.name }}</h5>
-                        <div class="flex jcSpace leftInfo">
-                            <div>
-                                <p>{{ beer.alcool[2:] == '.00' ? beer.alcool[:1] : beer.alcool  }}</p>
-                            </div>
-                            <div>
-                                <p>{{ beer.color }}</p>
-                            </div>
-                            <div>
-                                <p>{{ beer.price[2:] == '.00' ? beer.price[:1] : beer.price }}</p>
-                            </div>
-                            <div>
-                                <p>{{ beer.volume[2:] == '.00' ? beer.volume[:2] : beer.volume }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div id="orderShop">
-                <div id="allBasket" class="allBasket zI4">
-                    <h5 class="text-center">Confirmez la commande avant paiement</h5>
-                    {% for beer in beers %}
-                        <div class="flex">
-                            <div id="addBasInfo{{ beer.id }}">
-                                <div id="beer{{ beer.id }}" class="flex text-center blocSP">
-                                    <div class="col-4">
-                                        <img src="{{ asset('img/' ~ beer.photo) }}" alt="">
-                                    </div>
-                                    <div class="spaceBasket2">
-                                        <span id="resultPrice{{ beer.id }}" class="resultPrice">x {{ beer.price }}€ =</span>
-                                        <input id="price{{ beer.id }}" class="price" value="{{ beer.price }}">
-                                    </div>
-                                    <div class="text-center">
-                                        <a id="deleteBeerBas{{beer.id}}" href="">
-                                            <img src="{{ asset('img/sup.png') }}" alt="">
-                                        </a> 
-                                    </div>
+                {% if beers is defined %}
+                    {% for beer in beers %} 
+                        {% set idBeer =  idBeer|merge([beer.id]) %}
+                        <div id="be{{ beer.id }}">  
+                            <h4>{{ beer.name }}</h4>
+                            <h5>{{ beer.category.name }}</h5>
+                            <div class="flex jcSpace leftInfo">
+                                <div>
+                                    <p>{{ beer.alcool[2:] == '.00' ? beer.alcool[:1] : beer.alcool  }}</p>
+                                </div>
+                                <div>
+                                    <p>{{ beer.color }}</p>
+                                </div>
+                                <div>
+                                    <p>{{ beer.price[2:] == '.00' ? beer.price[:1] : beer.price }}</p>
+                                </div>
+                                <div>
+                                    <p>{{ beer.volume[2:] == '.00' ? beer.volume[:2] : beer.volume }}</p>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
+                {% endif %}
+            </div>
+            <div id="orderShop">
+                <div id="allBasket" class="allBasket zI4">
+                    <h5 class="text-center">Confirmez la commande avant paiement</h5>
+                    {% if beers is defined %}
+                        {% for beer in beers %}
+                            <div class="flex">
+                                <div id="addBasInfo{{ beer.id }}">
+                                    <div id="beer{{ beer.id }}" class="flex text-center blocSP">
+                                        <div class="col-4">
+                                            <img src="{{ asset('img/' ~ beer.photo) }}" alt="">
+                                        </div>
+                                        <div class="spaceBasket2">
+                                            <span id="resultPrice{{ beer.id }}" class="resultPrice">x {{ beer.price }}€ =</span>
+                                            <input id="price{{ beer.id }}" class="price" value="{{ beer.price }}">
+                                        </div>
+                                        <div class="text-center">
+                                            <a id="deleteBeerBas{{beer.id}}" href="">
+                                                <img src="{{ asset('img/sup.png') }}" alt="">
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <div class="text-center blocBP">
-                        <input id="order" type="submit" class="submit" value="payer">
+                        <input id="order" type="submit" class="submit" value="payer">                    
                         <div class="flex jcCenter">
                             <h5>Nom :</h5>
                             <p class="space">{{ app.user.lastName }}</p>
@@ -78,20 +82,25 @@
                         <div class="flex jcCenter">
                             <h5>Phone :</h5>
                             <p class="space">{{ app.user.phone }}</p>
-                        </div>
+                        </div> 
+                        <div>
+                            <a href="{{ path('app_profil_edituser', {'id' : app.user.id }) }}">
+                                <button class="sbutton2">Modifier mes informations</button>
+                            </a>
+                        </div>                       
                         <div>
                             <form action="#checkout" id="formdetailscommande">
                                 <div>
                                     {% set result = rb %}
                                     {% for j in 0..beers|length %}
                                     {% if idBeer[j] is defined %}
-                                        <input type="text" name="{{j}}" class="hiddenInput" value="b{{idBeer[j]}}">
-                                        <input type="text" name="b{{idBeer[j]}}" class="hiddenInput" value="0">
+                                        <input type="text" name="{{j}}" class="hiddenInput pAbsolute" value="b{{idBeer[j]}}">
+                                        <input type="text" name="b{{idBeer[j]}}" class="hiddenInput pAbsolute" value="0">
                                         {% endif %}
                                     {% endfor %} 
-                                    <input name="resultBasket" type="text" class="text-center" value="{{rb}}">
+                                    <input name="resultBasket" type="text" class="text-center hiddenInput pAbsolute" value="{{rb}}">
                                 </div>
-                                <button>go</button>
+                                <button class="vHidden"></button>
                             </form>
                         </div>                          
                     </div>
@@ -108,4 +117,4 @@
             </div>
         {% endif %}
     </div>
-   {% endblock %} 
+{% endblock %} 

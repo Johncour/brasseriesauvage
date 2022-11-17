@@ -1,1 +1,66 @@
-<div id="footer"></div>
+<div id="footer" class="zI1 pAbsolute col-0">
+    <div class="container">
+        <div class="flex jcBetween">   
+            <div class="col-3">
+                <p>3 Rue Jacqueline Auriol</p>
+                <p>35136 Saint-Jacques-de-la-Lande</p>
+                <p>FRANCE</p>
+                <p>Adresse e-mail :</p>
+                <a href="mailto:allo@brasseriesauvage.co" target="blank"><p>allo@brasseriesauvage.co</p></a>
+            </div>
+            <div class="col-3 text-center">
+                <h4>Plan de site</h4>
+                <div class="p15">
+                    <a href="{{ path('app_home') }}?animation=non&arrow=down"><p>Accueil</p></a>
+                    <a href="{{ path('app_register')}}"><p>Inscription</p></a>
+                    <a href="{{ path('app_login')}}"><p>Connexion</p></a>
+                    <a href="{{ path('app_contact') }}"><p>Contact</p></a>
+                    <a href="{{ path('app_shop') }}"><p>Boutique</p></a>
+                    <a href="{{ path('app_beer') }}"><p>Nos Bières</p></a>
+                    <a href="{{ path('app_engage') }}"><p>Nos Engagement</p></a>
+                    <a href="{{ path('app_brasserie') }}"><p>La Brasserie</p></a>
+                    <a href="{{ path('app_home') }}?animation=non&id=#tendances"><p>Tendances / Evenements</p></a>
+                    <a href="{{ path('app_home') }}?animation=non&id=#creations"><p>Créations</p></a>
+                    <a href="{{ path('app_home') }}?animation=non&id=#projets"><p>Projets</p></a>
+                    <a href="{{ path('app_home') }}?animation=non&id=#pressRessource"><p>Articles de presse</p></a>
+                    <a href="{{ path('app_home') }}?animation=non&id=#gallerie"><p>Gallerie</p></a>
+                </div>
+                <h4>Les classiques</h4>
+                <div class="p15">
+                    <a href="{{ path('app_beer') }}"><p>Tutti Va Bene</p></a>
+                    <a href="{{ path('app_beer') }}"><p>Eh Boboy</p></a>
+                    <a href="{{ path('app_beer') }}"><p>5 à 7</p></a>
+                    <a href="{{ path('app_beer') }}"><p>Jenga</p></a>
+                    <a href="{{ path('app_beer') }}"><p>4507</p></a>
+                </div>
+            </div>
+            <div class="col-3 text-center column">
+                <img id="logo" src="{{ asset('img/logobs.jpg') }}" alt="logo brasserie sauvage septembre 2022">
+                <h2 id="h1">Brasserie <span>Sauvage</span>!</h2>
+            </div>
+        </div>
+        <div class="flex pAbsolute footop col-0 jcBetween">
+            <div class="col-3 text-center">
+                <p>L’abus d’alcool est dangereux pour la santé. À consommer avec modération.</p>
+            </div> 
+            <div id="sNetwork" class="col-3 text-center">
+                <a target="blank" href="https://www.instagram.com/brasserie_sauvage/?hl=fr">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a target="blank" href="https://www.facebook.com/sauvagebrasserie">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a target="blank" href="mailto:allo@brasseriesauvage.co">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+                <a target="blank" href="https://soundcloud.com/brasserie_sauvage">
+                    <i class="fa-brands fa-soundcloud"></i>
+                </a>
+            </div>
+        </div>
+        <div  class="col-0 text-center">
+            <p>
+                <a href="{{ path('app_mentions') }}">Mentions Légales & Politique de confidentialité</a> / <a href="{{ path('app_contact') }}">Renseignements & contact</a></p>
+        </div>
+    </div>
+</div>

@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -28,7 +29,8 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Votre E-mail',
                 'constraints' => [
-                    new NotNull([ 'message' => 'L\'e-mail ne paut pas être vide'])
+                    new NotNull([ 'message' => 'L\'e-mail ne peut pas être vide']),
+                    // new Assert\IsNull([ 'message' => 'E-mail déjà existant'])
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -108,8 +110,14 @@ class RegistrationFormType extends AbstractType
             ->add('birthday_date',  DateType::class, [
                 'label' => "Date d'anniversaire",
                 'widget'      => 'single_text',
-                'data' => new DateTime("now")
-                ])
+                'data' => new DateTime("now"),
+                'constraints' => [
+                    new Assert\LessThan([
+                        'value' => '-18 years',
+                        'message' => 'Vous devez être majeur!',
+                    ]),
+                ],
+            ])
         ;
     }
 

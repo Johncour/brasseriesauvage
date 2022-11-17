@@ -39,20 +39,19 @@ class ShopRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Shop[] Returns an array of Shop objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Shop[] Returns an array of Shop objects
+    */
+   public function findByOrderStatut($value): array
+   {
+       return $this->createQueryBuilder('s')
+           ->andWhere('s.order_status = :val')
+           ->setParameter('val', $value)
+           ->orderBy('s.id', 'ASC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
     // public function findByUser($value): ?Shop
     // {

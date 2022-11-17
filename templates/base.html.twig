@@ -8,7 +8,7 @@
                 var stripe = Stripe("pk_test_51LzoqIAfdtI2a3VcGn5xVMURDi97X7MjrTamRdps639g0xE7Xs4Zk5QwbXbX5F362hXWerRKelXyvx47KmoY1qpt00zu8beOtE");
                 var checkoutButton = document.getElementById("checkout-button");
                 checkoutButton.addEventListener("click", function () {
-                    fetch("/create-checkout-session/{value}/{ssd}", {
+                    fetch("/create-checkout-session//{ssd}", {
                         method: "POST",
                     })
                         .then(function (response) {
@@ -63,11 +63,6 @@
             </a>
             <p class="hide" >Retour haut de page</p>
         </div>
-        {# Afficher les message d'erreurs des formulaires. 
-        Allez directement id route
-        echo  '<pre>';
-            print_r($numberBeer);
-        echo  '</pre>';
-        #}
+        {# Afficher les message d'erreurs des formulaires. #}
     </body>
 </html>

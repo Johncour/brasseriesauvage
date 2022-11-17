@@ -6,18 +6,21 @@
             <h2>Connectez-vous</h2> 
             <form id="login" method="post" class="text-center flex">
                 {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
-                {% if app.user %}
-                    <div class="mb-3">You are logged in as {{ app.user.userIdentifier }}, 
-                        <a href="{{ path('app_logout') }}">Logout</a>
+                    <div class="alert alert-danger">
+                        <p>Identifiant ou mot de passe invalide</p>
                     </div>
                 {% endif %}
 
-                <label for="inputEmail">Email</label>
+                {% if app.user %}
+                    <div class="mb-3">
+                        <p>Vous êtes connecté en tant que {{ app.user.pseudo ? app.user.pseudo : app.user.firstName }}!</p>
+                        <a href="{{ path('app_logout') }}"><p>Déconnexion</p></a>
+                    </div>
+                {% endif %}
+
+                <label for="inputEmail">Adresse Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                <label for="inputPassword">Password</label>
+                <label for="inputPassword">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

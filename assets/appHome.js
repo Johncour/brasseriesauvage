@@ -51,7 +51,16 @@ window.addEventListener('load', (event) => {
         let imgHover = document.getElementsByClassName("imgHover");
         let fTop = document.getElementById("fTop");
         let fTop2 = document.getElementById("fTop2");
+        let menuOpen = document.getElementsByClassName("menuOpen");
+        let panier = document.getElementById("panier");
+        let homeImg = document.getElementsByClassName("homeImg");
+        let footer = document.getElementById("footer");
 
+        footer.style.marginTop = 0;
+        if(homeImg[0]){
+            homeImg[0].style.visibility = "visible";
+            homeImg[1].style.visibility = "visible";
+        }
         window.addEventListener('scroll', function(e) {
             let scroll = window.scrollY;
             if(scroll > 500){
@@ -240,6 +249,14 @@ window.addEventListener('load', (event) => {
                 }
             })
         }
+        console.log(sessionStorage);
+        if(sessionStorage.length>0){
+            let cc = menuOpen[1].children;
+            menuOpen[1].style.fontSize = "1.2em";
+            cc[0].style.color = "red";
+            cc[0].style.marginRight = "20px";
+            panier.style.visibility = "visible";
+        }
         }
     else{
         let canetteArray = [];
@@ -280,10 +297,24 @@ window.addEventListener('load', (event) => {
         let h1 = document.getElementById("h1");
         let menuImg = document.getElementById("menuImg");
         let menu = document.getElementById("menu");
+        let bubble = document.getElementsByClassName("bubble");
         let bubble2 = document.getElementsByClassName("bubble2");
         let body = document.querySelector("body");
+        let menuOpen = document.getElementsByClassName("menuOpen");
+        let panier = document.getElementById("panier");
+        let homeImg = document.getElementsByClassName("homeImg");
         let imgHover = document.getElementsByClassName("imgHover");
         let downActu = document.getElementsByClassName("downActu");
+        let profilBan = document.getElementById("profilBan");
+        let buttonImg1 = button.children[1].children[0].children[0];
+        console.log(button.children[1]);
+        if(button.children[1].children[1]){
+            let buttonImg2 = button.children[1].children[1].children[0];
+                buttonImg2.style.visibility= "hidden";}
+        let footer = document.getElementById('footer');
+        if(profilBan){
+            profilBan.style.visibility = "hidden";
+        }
 
         let circleArray = [] ;
         let colors = ['rgb(252, 236, 158)'];
@@ -295,13 +326,26 @@ window.addEventListener('load', (event) => {
         
         downActu[0].style.visibility = "hidden";
         downActu[0].style.position = "fixed";
+        
+        if(homeImg[0]){
+            homeImg[0].style.visibility = "visible";
+            homeImg[1].style.visibility = "visible";
+        }
+        buttonImg1.style.visibility= "hidden"; 
 
         ok.addEventListener( 'click', () => {
 
             /********** mouvement canette */
             for( let bub2 of bubble2){
-                bub2.style.visibility = "hidden";
-            }
+                bub2.style.visibility = "hidden";}
+            // for(let t=0; t<bubble.length; t++){
+            //     if(bubble[t]){
+            //         bubble[t].style.visibility = "hidden";
+            //     }
+            // }
+            // for( let bub of bubble){
+            //     // bub.style.visibility = "hidden";
+            //     console.log(bubble);   }
             eclat.style.width = '44%';
             for( let i=1; i<3; i++){ 
                 canetteArray[i].style.width = '44%';}
@@ -327,11 +371,20 @@ window.addEventListener('load', (event) => {
             for( let i=1; i<4; i++){ 
                 canetteArray[i].style.animation = 'rotate 0.5s linear forwards normal';}
             function loading(){
-                white.style.animation = "white2 2s linear forwards normal"; 
-                menu.style.animation = "menuHide 2s linear forwards normal";
+                if(white.style.opacity == 0){
+                    white.style.animation = "white2 2s linear forwards normal"
+                }
+                // white.style.animation = "white2 2s linear forwards normal"; 
+                if(menu.style.opacity == 0){
+                    menu.style.animation = "menuHide 2s linear forwards normal";}
                 menuImg.style.visibility = "visible";
                 downActu[0].style.visibility = "visible";
-                downActu[0].style.position = "relative";}
+                downActu[0].style.position = "relative";
+                buttonImg1.style.visibility= "visible";
+                if(button.children[1].children[1]){ 
+                    let buttonImg2 = button.children[1].children[1].children[0];
+                        buttonImg2.style.visibility= "visible";}
+                footer.style.marginTop = 0;}
             setTimeout(loading, 6000);
             for( let i=0; i<imgHover.length; i++){
                 imgHover[i].addEventListener( 'click', (event) =>{
@@ -632,5 +685,12 @@ window.addEventListener('load', (event) => {
             }
             setTimeout(time, 600);
         })
+        console.log(sessionStorage);
+        if(sessionStorage.length>0){
+            let cc = menuOpen[1].children;
+            menuOpen[1].style.fontSize = "1.2em";
+            cc[0].style.color = "red";
+            cc[0].style.marginRight = "20px";
+            panier.style.visibility = "visible";}
     }        
 })

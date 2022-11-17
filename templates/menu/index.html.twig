@@ -19,9 +19,13 @@
                     </ul>
                 </li>
                 {% endif %}
-                <li><a href="{{ path('app_engage') }}">Nos Engagements</a></li>
                 {% if is_granted("ROLE_ADMIN") %}
-                    <li class="menuOpen"><a href="{{ path('app_shop') }}">C&C</a></li>
+                    <li><a href="{{ path('app_admin_order') }}">Gestion commandes</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_engage') }}">Nos Engagements</a></li>
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li class="menuOpen"><a href="{{ path('app_shop') }}"></a></li>
                 {% else %}
                     <li class="menuOpen"><a href="{{ path('app_shop') }}">Boutique</a></li>
                     <a href="{{ path('app_shop') }}">

@@ -1,7 +1,23 @@
 <div class="pAbsolute right col-4">
     <div class="flex">        
-        <img class="homeImg" src="{{ asset('img/profil.png') }}" alt="">
-        <img class="homeImg" src="{{ asset('img/inscription.png') }}" alt="">
+    {% if app.user %}
+        <div>
+            <a href="{{ path('app_profil')}}">
+                <button class="helloButton">Hello {{ app.user.pseudo ? app.user.pseudo : app.user.firstName }}</button>
+            </a>
+        </div>
+    {% else %}
+        <div class="flex">
+            <a href="{{ path('app_login')}}">
+                <img class="homeImg" src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                <button class="hiddenInput">Mon compte</button>
+            </a>
+            <a href="{{ path('app_register')}}">
+                <img class="homeImg" src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                <button class="hiddenInput">Inscription</button>
+            </a>
+        </div>
+    {% endif %}
     </div>
     <div class="pAbsolute right col-80 flex zI5 column"> 
         <p class="padding">

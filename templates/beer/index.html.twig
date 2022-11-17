@@ -4,13 +4,15 @@
     <div class="container">
         <div id="beerPresent">
             <h2>Nos Bières</h2>
+            {% if beers is defined %}
             {% for beer in beers %}
                 <div id="beer{{ beer.id }}" class="flex text-center blocBP">
                     {{ include('beer/info_beer.html.twig') }}
                         {{ include('beer/basket_price.html.twig') }}
                     </div>
                 </div>
-            {% endfor %}    
+            {% endfor %}
+            {% endif %}   
         </div>
     </div>
 {% endblock %}

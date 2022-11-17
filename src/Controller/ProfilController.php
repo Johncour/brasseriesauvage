@@ -41,8 +41,7 @@ class ProfilController extends AbstractController
                 
             if( $mdp = $formuser->get('plainPassword')->getData()){
                 $password = $hasher->hashPassword($user, $mdp);
-                $user->setPassword($password);
-            }
+                $user->setPassword($password);}
     
             $em->flush();
             echo "<pre>";

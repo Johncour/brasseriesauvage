@@ -60,12 +60,38 @@ class ShopController extends AbstractController
     {
         $numberBeer = $beerRepository->findAll();
         $nBeer = count($numberBeer);
-        $rb = $request->query->get('resultBasket');
+        if($request->query->get('resultBasket')){
+            $rb = $request->query->get('resultBasket');
+            $lastn = substr($rb, -1);
+            $lastn2 = substr($rb, -2);
+            if($lastn2 != 0 & $lastn == 0){
+                $whole = floor($rb);
+                $fraction = $rb - $whole;
+                $rest = substr($fraction, -1);
+                $long = $whole * 100;
+                $value = $long + ($rest*10);
+                $session->set('value', $value);
+            } else if($lastn2 == 0 & $lastn == 0){
+                    $rb2 = $rb + 0.11;
+                    $whole = floor($rb2);
+                    $fraction = $rb2 - $whole;
+                    $rest = substr($fraction, -2);
+                    $long = $whole * 100;
+                    $value = $long + $rest;
+                    $value = $value - 11;
+                    $session->set('value', $value);
+            } else {  
+                $whole = floor($rb);
+                $fraction = $rb - $whole;
+                $rest = substr($fraction, -2);
+                $long = $whole * 100;
+                $value = $long + $rest;
+            $session->set('value', $value);};}
         $s = new Shop();
-        $forms = $this->createForm(ShopType::class, $s, ['attr' => ['result' => $rb]]);
+        $forms = $this->createForm(ShopType::class, $s, ['attr' => ['result' => $session->get('value')]]);
         $forms->add('price_order', NumberType::class, [
             'label'       => "montant de la commande en € :",
-            'data'        => $rb,            
+            'data'        => $session->get('value'),            
             'disabled'    => true
         ] ); 
         $forms->handleRequest($request);
@@ -90,7 +116,7 @@ class ShopController extends AbstractController
             $s->setOrderStatus(0);
             $em->persist($s);
             $em->flush();
-            $n = $rb;
+            $n = $session->get('value');
             $lastn = substr($n, -1);
             $lastn2 = substr($n, -2);
             if($lastn2 != 0 & $lastn == 0){
@@ -113,6 +139,10 @@ class ShopController extends AbstractController
                 $rest = substr($fraction, -2);
                 $long = $whole * 100;
                 $value = $long + $rest;} 
+                
+                echo "<pre>";
+                print_r($session->get('value'));
+                echo "</pre>";
 
             $b = array();
             $c = array();
@@ -131,34 +161,60 @@ class ShopController extends AbstractController
             }
             for($l=0; $l<sizeof($d); $l++){
                 $bd = substr($d[$l], 1);
-                $bd1 = $beerRepository->find($bd);
-                $bd2 = $bd1->getPrice();
-                $bd3 = $c[$l] / $bd2;
-                $sbd = new ShopBeer();
-                $sbd->setQuantity($bd3);
-                $sbd->setPriceQuantity($c[$l]);
-                $sbd->setBeer($bd1);
-                $sbd->setShop($s);
-                $em->persist($sbd);
-                $em->flush();}
+                $session->set($l,$bd);
+                $session->set($bd,$c[$l]);
+                // $bd1 = $beerRepository->find($bd);
+                // $bd2 = $bd1->getPrice();
+                // $bd3 = $c[$l] / $bd2;
+                // $sbd = new ShopBeer();
+                // $sbd->setQuantity($bd3); 
+                // $bdq = $bd1->getQuantity();
+                // $bd1->setQuantity($bdq - $bd3);
+                // $sbd->setPriceQuantity($c[$l]);
+                // $sbd->setBeer($bd1);
+                // $sbd->setShop($s);
+                // $em->persist($sbd);
+                // $em->flush();
+            }
 
-            return $this->redirectToRoute('app_checkout', [ 'value' => $value, 'ssd' => $ssdate]);
+
+            return $this->redirectToRoute('app_checkout', ['ssd' => $ssdate]);
         }
         return $this->render('shop/order.html.twig', [
             "beers" => $beerRepository->findAll(),
-            "rb" => $rb,
+            "rb" => $session->get('value'),
             'formShop' => $forms->createView()
         ]); 
     }
 
     #[Route('/success', name: 'success', methods: ['GET', 'POST'])]
-    public function success(EntityManagerInterface $em, ShopRepository $sr, Request $request) : Response
+    public function success(BeerRepository $beerRepository, EntityManagerInterface $em, ShopRepository $sr, ShopBeerRepository $sbRepository, Request $request, SessionInterface $session) : Response
     {
-        $value = $request->query->get('value');
+        // $value = $request->query->get('value');
+        $numberBeer = $beerRepository->findAll();
+        $nBeer = count($numberBeer);
         $ssd = $request->query->get('ssd');
         $shop = $sr->findOneByDate($ssd);
-        $shop->setPriceOrder($value/100);
+        $shop->setPriceOrder($session->get('value')/100);
         $shop->setOrderStatus(1);
+        for($i=0; $i<$nBeer; $i++){
+            if($session->get($i)){
+                // $session->set($bd,$c[$l]);
+                $bd = $session->get($i);
+                $bd1 = $beerRepository->find($session->get($i));
+                $bd2 = $bd1->getPrice();
+                $bd3 = $session->get($bd) / $bd2;
+                $sbd = new ShopBeer();
+                $sbd->setQuantity($bd3); 
+                $bdq = $bd1->getQuantity();
+                $bd1->setQuantity($bdq - $bd3);
+                $sbd->setPriceQuantity($session->get($bd));
+                $sbd->setBeer($bd1);
+                $sbd->setShop($shop);
+                $em->persist($sbd);
+                $em->flush();
+            }
+        }
         $em->persist($shop);
         $em->flush();
         $sprice = $sr->findByPrice(0);
@@ -170,13 +226,18 @@ class ShopController extends AbstractController
 
 
     #[Route('/error', name: 'error', methods: ['GET', 'POST'])]
-    public function error(EntityManagerInterface $em, ShopRepository $sr, Request $request, ShopBeerRepository $sbRepository) : Response
+    public function error(BeerRepository $beerRepository, EntityManagerInterface $em, ShopRepository $sr, Request $request, ShopBeerRepository $sbRepository) : Response
     {
         $sprice = $sr->findByPrice(0);
         if($sprice){
             $sbdelete = $sprice->getId();
             $bdelete = $sbRepository->findByShopId($sbdelete);
-            foreach($bdelete as $bde){ 
+            foreach($bdelete as $bde){
+                $bd = $bde->getBeer();
+                $bd3 = $bde->getQuantity();
+                $bd1 = $beerRepository->find($bd);
+                $bdq = $bd1->getQuantity();
+                $bd1->setQuantity($bdq + $bd3);
                 $em->remove($bde);
                 $em->flush();}
             $em->remove($sprice);
@@ -190,10 +251,9 @@ class ShopController extends AbstractController
         return $this->render('default/error.html.twig');
     }
 
-    #[Route('/create-checkout-session/{value}/{ssd}', name: 'app_checkout', methods: ['GET', 'POST'])]
-    public function checkout(BeerRepository $beerRepository, Request $request, SessionInterface $session, EntityManagerInterface $em, ShopBeerRepository $sbRepository, ShopRepository $sr, $value, $ssd) : Response
+    #[Route('/create-checkout-session/{ssd}', name: 'app_checkout', methods: ['GET', 'POST'])]
+    public function checkout(BeerRepository $beerRepository, Request $request, SessionInterface $session, EntityManagerInterface $em, ShopBeerRepository $sbRepository, ShopRepository $sr, $ssd) : Response
     {
-
         \Stripe\Stripe::setApiKey('sk_test_51LzoqIAfdtI2a3VcNYdsmskfgMyzg15C0xQWbA2aUt6VIhSmcEqT0p2s0il3Xw6VhlimR1Wh4JzVcASEQUaZBc3P00XCiUXh8p');
 
         $checkout_session = \Stripe\Checkout\Session::create([
@@ -203,12 +263,12 @@ class ShopController extends AbstractController
                     'product_data' => [
                       'name' => 'brasserie sauvage',
                     ],
-                    'unit_amount_decimal' => $value,
+                    'unit_amount_decimal' => $session->get('value'),
                   ],
                 'quantity' => 1,
               ]],
               'mode' => 'payment',
-            'success_url' => $this->generateUrl('success', [ 'value' => $value, 'ssd' => $ssd], UrlGeneratorInterface::ABSOLUTE_URL),
+            'success_url' => $this->generateUrl('success', [ 'ssd' => $ssd], UrlGeneratorInterface::ABSOLUTE_URL),
             'cancel_url' => $this->generateUrl('error', [ 'ssd' => $ssd ], UrlGeneratorInterface::ABSOLUTE_URL),
         ]);
 
