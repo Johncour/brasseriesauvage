@@ -39,7 +39,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (4, 'Gose'),
 (5, 'India Pale Ale'),
 (6, 'Session IPA'),
-(7, 'Witbier');
+(7, 'Witbier'),
 (8, 'Kolsch');
 
 -- phpMyAdmin SQL Dump

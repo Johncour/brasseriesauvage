@@ -30,7 +30,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre E-mail',
                 'constraints' => [
                     new NotNull([ 'message' => 'L\'e-mail ne peut pas être vide']),
-                    // new Assert\IsNull([ 'message' => 'E-mail déjà existant'])
+                    new Assert\IsNull([ 'message' => 'E-mail invalide'])
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -110,7 +110,7 @@ class RegistrationFormType extends AbstractType
             ->add('birthday_date',  DateType::class, [
                 'label' => "Date d'anniversaire",
                 'widget'      => 'single_text',
-                'data' => new DateTime("now"),
+                'data' => new DateTime("-18 years"),
                 'constraints' => [
                     new Assert\LessThan([
                         'value' => '-18 years',

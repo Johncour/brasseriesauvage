@@ -21,7 +21,7 @@
                 <p class="space"><span>Volume :</span> {{ beer.volume[2:] == '.00' ? beer.volume[:2] : beer.volume }}cl</p>
             </div>
         </div>
-        <form action="" class="flex col-0">
+        <form action="" class="flex col-70">
             <div class="spaceBasket">
                     <select name="" id="stockBeer{{ beer.id }}">
                         {% for j in 1..beer.quantity %}

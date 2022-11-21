@@ -92,12 +92,14 @@
                             <form action="#checkout" id="formdetailscommande">
                                 <div>
                                     {% set result = rb %}
-                                    {% for j in 0..beers|length %}
-                                    {% if idBeer[j] is defined %}
-                                        <input type="text" name="{{j}}" class="hiddenInput pAbsolute" value="b{{idBeer[j]}}">
-                                        <input type="text" name="b{{idBeer[j]}}" class="hiddenInput pAbsolute" value="0">
-                                        {% endif %}
-                                    {% endfor %} 
+                                    {% if beers is defined %}
+                                        {% for j in 0..beers|length %}
+                                        {% if idBeer[j] is defined %}
+                                            <input type="text" name="{{j}}" class="hiddenInput pAbsolute" value="b{{idBeer[j]}}">
+                                            <input type="text" name="b{{idBeer[j]}}" class="hiddenInput pAbsolute" value="0">
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
                                     <input name="resultBasket" type="text" class="text-center hiddenInput pAbsolute" value="{{rb}}">
                                 </div>
                                 <button class="vHidden"></button>

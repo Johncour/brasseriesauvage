@@ -11,13 +11,13 @@
             </a>
         </div>
     {% else %}
-        <div>
+        <div class="pRelative col-2">
             <a href="{{ path('app_login')}}">
-                <img src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                <img class="login2" src="{{ asset('img/profil.png') }}" alt="" title="connexion">
                 <button class="button">Mon compte</button>
             </a>
             <a href="{{ path('app_register')}}">
-                <img src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                <img class="register2" src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
                 <button class="button">Inscription</button>
             </a>
         </div>

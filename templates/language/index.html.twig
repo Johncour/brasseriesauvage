@@ -1,5 +1,5 @@
 <div class="pAbsolute right col-4">
-    <div class="flex">        
+    <div class="flex pRelative col-0 right3">        
     {% if app.user %}
         <div>
             <a href="{{ path('app_profil')}}">
@@ -7,18 +7,20 @@
             </a>
         </div>
     {% else %}
-        <div class="flex">
+       <div class="flex pAbsolute col-2">
             <a href="{{ path('app_login')}}">
-                <img class="homeImg" src="{{ asset('img/profil.png') }}" alt="" title="connexion">
+                <img class="homeImg login3" src="{{ asset('img/profil.png') }}" alt="" title="connexion">
                 <button class="hiddenInput">Mon compte</button>
             </a>
+        </div>
+        <div class="flex pAbsolute col-2">
             <a href="{{ path('app_register')}}">
-                <img class="homeImg" src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
+                <img class="homeImg register2" src="{{ asset('img/inscription.png') }}" alt="" title="Inscription">
                 <button class="hiddenInput">Inscription</button>
             </a>
         </div>
     {% endif %}
-    </div>
+    </div> 
     <div class="pAbsolute right col-80 flex zI5 column"> 
         <p class="padding">
             <a href="#">FR
@@ -26,23 +28,23 @@
             </a>
         </p>
         <p class="space">|</p>  
-        <p> 
+         <p> 
             <ul>
                 <li class="uk">
                     <p class="padding">
                         <a href="#" class="lT zI4">EN 
                             <img class="fr" src="{{ asset('img/uk.jpg') }}" alt="drapeau royaume-uni">
                         </a>
-                    </p>
+                    </p> 
                     <ul id="hiddenEnglish" class="pAbsolute right vHidden">
                         <li class="uk">
-                            <span>
-                                <img class="cSoon col-0" src="{{ asset('img/cSoon.jpg') }}" alt="Image arrive bientot">
+                           <span>
+                             <img class="cSoon" src="{{ asset('img/cSoon.jpg') }}" alt="Image arrive bientot">
                             </span>
                         </li>
                     </ul>
                 </li>
             </ul>
-        </p>
+        </p> 
     </div>
 </div>

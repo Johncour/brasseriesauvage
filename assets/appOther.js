@@ -83,11 +83,19 @@ window.addEventListener('load', (event) => {
                     }
                 }else{
                     if(rBas){
-                        rBas.style.width = "375px";}
-                    respon14[k].style.width = "175px";
+                        if (window.matchMedia("(max-width: 400px)").matches) {
+                            rBas.style.width = "290px";}
+                        else{rBas.style.width = "375px";}
+                    }
+                    if (window.matchMedia("(max-width: 400px)").matches) {                           
+                        respon14[k].style.width = "165px";}
+                    else{respon14[k].style.width = "175px";}
                     respon14[k].style.bottom = '30px';
                     respon14[k].style.left = '0';
-                    respon14[k].style.fontSize = "1.1em";
+                    if (window.matchMedia("(max-width: 400px)").matches) {                           
+                        respon14[k].style.fontSize = "0.9em";}
+                    else{respon14[k].style.fontSize = "1.1em";}
+                    
                     if(pou5){
                         for( let q=0; q<pou5.length; q++){
                             if(pou5[q].children[0].children[0]){
@@ -424,8 +432,18 @@ window.addEventListener('load', (event) => {
         order2.addEventListener("click", (event) => {
             event.preventDefault();
             modalShop.style.visibility = "visible";
+            modalShop.children[1].children[0].children[1].style.visibility = "visible";
+            modalShop.children[1].children[1].children[1].style.visibility = "visible";
+            modalShop.children[1].children[0].children[1].style.width = "125px";
+            modalShop.children[1].children[1].children[1].style.width = "125px";
+            modalShop.children[1].children[0].children[1].style.fontSize = "0.8em";
+            modalShop.children[1].children[1].children[1].style.fontSize = "0.8em";
+            modalShop.children[1].children[0].children[0].style.visibility = "hidden";
+            modalShop.children[1].children[1].children[0].style.visibility = "hidden";
             window.addEventListener("dblclick", function(event) {
-                modalShop.style.visibility = "hidden";})
+                modalShop.style.visibility = "hidden";
+                modalShop.children[1].children[0].children[1].style.visibility = "hidden";
+                modalShop.children[1].children[1].children[1].style.visibility = "hidden";})
         })
     }
 
@@ -459,6 +477,7 @@ window.addEventListener('load', (event) => {
             let ba2 = document.getElementById(ba);
             let db = document.getElementById(dBb);
             let str22 = bi2.children[0].children[0].src;
+            ab2.style.height = "80px";
             ab2.innerHTML =  '<img style="width: 50px;" src=' + str22 + ' alt=""> <span class="respon14">X ' + nB.children[0].textContent + ' = <b class="rBB">' +  parseFloat(resultPrice2).toFixed(2) + "</b>€" + '</span>';
             let rBB = [];
             rBB.push(document.getElementsByClassName("rBB"));

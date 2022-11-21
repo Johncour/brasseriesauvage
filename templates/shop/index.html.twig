@@ -4,8 +4,10 @@
 {% block body2 %} 
     <div class="container">
         <div id="shopPresent">
-            <h2>Click & Collect</h2>
+            <h2>Boutique</h2>
+            {% if beers is defined %}
             <h5>{{ beers|length }} bières en vente.</h5>
+            {% endif %}
             <div>
             {% if beers is defined %}
             {% for beer in beers %}

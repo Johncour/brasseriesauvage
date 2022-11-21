@@ -77,6 +77,9 @@ p{font-size: 0.9em;}
 .col-0{
     width: 100%;}
 
+.col-010{
+    width: 110%;}
+
 .col-80{
     width: 80%;}
 
@@ -315,8 +318,18 @@ i{padding: 10px;}
     width: 60%;
     top: 20px;}
 
+#hiddenEnglish .uk{
+    position: relative;
+    right: 100px;}
+
 .homeImg{
     width: 0;}
+
+.cSoon{
+    position: relative;
+    right: 0px;
+    bottom: 28px;
+    width: 100px;}
 
 .lT:hover{
     text-decoration: line-through;}
@@ -768,8 +781,18 @@ h3 span{
 /********** button */
 
 #button{
-    margin: 0px 25%;
+    margin: 0px 17%;
     top: 415px;}
+
+#button>.pRelative{
+    left: 50px;}
+
+#banner #button{
+    margin: 0px 25%;}
+
+#banner> #button> .pRelative{
+    width: 100%!important;
+    left: 0!important}
 
 #button div{
     padding: 0 3px;}
@@ -819,7 +842,7 @@ h3 span{
 }
 
 #beerFoam {
-    width: 103%;
+    width: 99%;
     left: -10px;}
 
 .foam1, .foam2, .foam3, .foam4, .foam5, .foam6, .foam7, .foam8, .foam9, .foam10, .foam11, .foam12, .foam13, .foam14, .foam15, .foam16, .foam17, .foam18, .foam19, .foam20, .foam21{
@@ -858,9 +881,10 @@ animation: foamMove 3s linear forwards normal;}
 /********** Beer animation */
 
 #beerBubble{
-height: 5px;
-background-color: rgb(252, 236, 158);
-top: 1392px;}
+    height: 5px;
+    background-color: rgb(252, 236, 158);
+    top: 1392px;
+    border-radius: 60px 50px 50px 20px;}
 
 @keyframes bubbleMove {
     0% {bottom: 0px;}
@@ -943,7 +967,12 @@ form[name="registration_form"] div, form[name="user"] div{
 
 form[name="registration_form"] input, form[name="user"] input{
     height: 30px;
-    text-align: center;}
+    text-align: center;
+    margin: auto;
+    width: 100%;}
+
+form[name="registration_form"] input[type="submit"] , form[name="user"] input[type="submit"] {
+    width: 50%;}
 
 .help-text{
     font-size: 0.6em;}
@@ -1316,7 +1345,8 @@ h5 span{
     background: white;
     border: 4px solid rgb(246, 97, 15);
     margin: auto;
-    cursor: pointer;}
+    cursor: pointer;
+    color: black;}
 
 /********** Press Ressource */
 
@@ -1454,18 +1484,18 @@ h5 span{
     visibility: hidden;}
 
 #modalShop img{
-    width: 40px;
-}
+    width: 40px;}
 
 #modalShop{
     width: 80%;
     position: fixed;
     z-index: 99;
-    height: 50px;
-    top: 160px;
+    height: 270px;
+    top: 125px;
     background: white;
-    padding: 150px 50px;
-    visibility: hidden;}
+    padding: 10% 50px;
+    visibility: hidden;
+    left: 10%;}
 
 #orderShop #allBasket{
     position: relative;
@@ -1834,6 +1864,9 @@ label[for="contact_date"]{
     margin: 5px;
     border-radius: 20px/20px;}
 
+.right3{
+    right: 5px;}
+
 @media screen and (max-width: 1400px){
 
     .allBasket2{
@@ -1954,27 +1987,33 @@ label[for="contact_date"]{
         position: relative;
         right: 0px;
         bottom: 28px;
-        width: 100px;}
+        width: 100px;
+        border-radius: 20px/20px;}
+    #hiddenEnglish .uk{
+        position: relative;
+        right: 100px;}
+    #banner #button{
+        margin: 0px 0%;}
     #button{
-        z-index: 1;}
+        z-index: 1;
+        margin: 0 19%;}
     #button img{
         width: 30px;
         visibility: visible;
-        position: relative;
-        left: 45%;
+        position: absolute;
         top: 18px;}
     .button{
         visibility: hidden;
         width: 0;}
     #menu{
         top: -15px;
-        width: 225px;
-        right: -1%;}
+        width: 180px;
+        right: 0;}
     .hiddenMenu2{
         visibility: hidden;}
     #menu ul{
         flex-direction: column;
-        width: 200px;
+        width: 142px;
         position: relative;
         right: 53px;
         font-size: 0.9em;
@@ -1985,7 +2024,7 @@ label[for="contact_date"]{
         padding: 2px 0;}
     #menu ul ul{
         border: none;
-        right: -100px;
+        right: 65px;
         bottom: 10px;}
     .hiddenMenu{
         height: 0;
@@ -2008,6 +2047,9 @@ label[for="contact_date"]{
         position: relative;
         right: 100px;
         visibility: hidden;}
+    .register2{
+        right: 30px;
+        top: 2px;}
     @keyframes moveUp {
         0% {
             height: 5px;
@@ -2123,7 +2165,7 @@ label[for="contact_date"]{
     #tendances div{
         flex-direction: column-reverse;
         margin: 15px;
-        width: 96%!important;}
+        width: 86%!important;}
     #tendances img{
         width: 475px;}
     #actuality img {
@@ -2235,7 +2277,7 @@ label[for="contact_date"]{
         top: -25px;
         border-radius: 20px / 20px;
         padding: 2px;
-        right: -1%;
+        right: -15%;
         background: white;
         animation: borderChange 5s infinite, shakeTitle2 10s infinite;}
     .t2{
@@ -2271,6 +2313,10 @@ label[for="contact_date"]{
     #footer .p15{
         padding: 15px 0;
         width: 100%;}
+    #banner{
+        padding: 0;}
+    #alcoholWarning{
+        padding: 50px 50px;}
 }
 
 @media screen and (min-width: 1000px){
@@ -2299,13 +2345,19 @@ label[for="contact_date"]{
         top: 45px;}
     .space{
         margin: 0 5%;}
-    #button img{
-        left: 115%;}
+    .login2{
+        right: -30px;}
+    #button .pRelative{
+        left: 25px;}
+    #menu{
+        width: 155px;}
     .menuOpen2 img {
         right: 8%;}
     .homeImg{
         width: 35px;
         right: -32px;}
+    .register2{
+        right: -93px;}
     @keyframes moveUp {
         0% {
             height: 5px;
@@ -2472,7 +2524,11 @@ label[for="contact_date"]{
     .spaceBasket select {
         font-size: 1em;}
     .resultPrice {
-        font-size: 1em;}
+        font-size: 1em;
+        bottom: 15px;
+        position: relative;}
+    #beerPresent .resultPrice{
+        bottom: 0px;}
     .basket {
         font-size: 1em;}
     .h0 {
@@ -2545,8 +2601,10 @@ label[for="contact_date"]{
     #beerPresent form a{
         order: 4;}
     .valuePResult{
-        bottom: 15px;
+        bottom: 50px;
         position: relative;}
+    #beerPresent .valuePResult{
+        bottom: 10px;}
     .t2{
         font-size: 0.7em;}
     .t1{
@@ -2572,7 +2630,7 @@ label[for="contact_date"]{
     .helloButton{
         width: 180px;
         right: 0px;
-        bottom: -30px;} 
+        bottom: -30px;}
     .heartf, .hearte{
         bottom: 0px!important;}
     #footer div{
@@ -2585,6 +2643,9 @@ label[for="contact_date"]{
         flex-direction: column;}
     #footer #sNetwork{
         flex-wrap: wrap;}
+    #modal p{
+        padding: 5px;}
+        
 }
 
 @media screen and (max-width: 600px){
@@ -2593,10 +2654,16 @@ label[for="contact_date"]{
         max-width: 500px;}
     .column{
         width: 100%!important;}
-    #button img{
-        left: 70%;}
+    #button .pRelative {
+        left: 0px;}
+    #button .register2{
+        right: -90px;}
     .homeImg{
         right: 2px;}
+    #menu{
+        width: 145px;}
+    .register2{
+        right: -60px;}
     #present {
         position: absolute;
         left: 24%;
@@ -2777,7 +2844,7 @@ label[for="contact_date"]{
         top: 25px;
         right: 160px; }
     #panier{
-        right: -18%;}
+        right: -15%;}
     #profilPresent .sPresent h4, #profilPresent .sPresent h5{
         right: 0px;}
     #profilPresent .help-text p{
@@ -2791,6 +2858,12 @@ label[for="contact_date"]{
     #footer #sNetwork a {
         padding: 15px 5px 5px 5px;
         margin: 15px;}
+    #modal{
+        padding: 30px 15px;}
+    .hiddenMenu{
+        width: 130px!important;}
+    #beerFoam {
+        width: 100%;}
 }
 
 @media screen and (max-width: 500px){
@@ -2802,21 +2875,29 @@ label[for="contact_date"]{
     #logo {
         width: 60px;}
     #button img{
-        left: 50%;
         top: 45px;}
+    #button .pRelative {
+        left: -15px;}
     .space{
         visibility: hidden;}
     h1{
         font-size: 0.9em;}
     h2{
-        font-size: 1.3em;}
+        font-size: 1.3em;
+        padding: 0px 15px;}
     .menuOpen2 img{
         top: 0;
         right: 10%;}
+    #menu {
+        width: 150px;}
     .homeImg {
         width: 30px;
-        margin: 5px 14px;
+        margin: 5px 4px;
         right: 17px;}
+    .login3{
+        left: -3px;}
+    .register2{
+        right: -50px;}
     @keyframes moveUp {
         0% {
             height: 5px;
@@ -2934,7 +3015,7 @@ label[for="contact_date"]{
     #fColumn{
         flex-direction: column;}
     #fColumn img{
-        width: 380px;
+        width: 260px;
         margin: 0px 5%;}
     #gallerie img{
         width: 70px;}
@@ -2984,10 +3065,156 @@ label[for="contact_date"]{
         top: -10px;}
     #footer #sNetwork{
         flex-direction: column;}
+    #footer #sNetwork a i{
+        padding: 0px 0px 6px 1px;;
+        font-size: 20px;}
+    #footer .flex div {
+        width: 90%!important;}
+    #modal{
+        font-size: 0.8em;}
 }
 
 @media screen and (max-width: 400px){
 
     .container{
         max-width: 400px;}
+    #pressRessource img, #projets img, #creations img, #tendances img{
+        width: 200px;}
+    #projets form input{
+        width: 200px;
+        margin: auto;}
+    #actuality div {
+        margin: 15px 40px;}
+    #actuality img {
+        top: 177px;
+        right: 35px;}
+    @keyframes margin {
+        0% {margin: 0px 0px;}
+        100% {margin: 0px 5px;}
+    }
+    @keyframes rebond3 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 150%;
+            left: 30px;
+            top: 105px;
+            height: 43px;
+            font-size: 95%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    @keyframes rebond4 {
+        0% {
+            width: 50%;
+            left: 40px;
+            top: 400px;
+            height: 70px;
+            font-size: 1em;
+            padding-top: 15px;
+            margin-top: 0px;}
+        100% {
+            width: 60%;
+            left: 30px;
+            top: 110px;
+            height: 61px;
+            font-size: 95%;
+            padding-top: 0;
+            margin-top: 0px;}
+    }
+    .register2 {
+        right: -40px;}
+    #modal{
+        margin: 25px 0px;}
+    #menu{
+        width: 150px;}
+    h1{
+        width: 100px;}
+    .helloButton{
+        width: 120px;
+        bottom: -45px;}
+    .spaceBasket {
+        margin: 0px 0px;}
+    #beerPresent img {
+        bottom: 269px;}
+    .basketLeft {
+        margin-left: 160px;
+        width: 40%;
+        position: relative;}
+    .basketLeft input{
+        position: relative;
+        right: 110px;}
+    form[name="registration_form"] div, form[name="user"] div, #login{
+        width: 300px;}
+    form[name="registration_form"] div label, form[name="user"] div label{
+        margin: 5px 0;}
+    .login3{
+        left: -9px;}
+    #banner #button{
+        margin: 0px 0%;}
+    #button{
+        left: 20%!important;
+        top: -143px!important;}
+    #button .register2{
+        right: -120px;}
+    .login2{
+        right: -65px;}
+    #shopPresent h5{
+        padding: 0 15px;}
+    .allBasket2 {
+        width: 140px;
+        padding: 20px 8px;
+        right: 2%;}
+    #shopPresent div{
+        padding: 0 5px;}
+    #shopPresent .spaceBasket3{
+        width: 70px;}
+    .sPresent h4, .sPresent h5{
+        width: 260px;
+        padding: 2px 0!important;}
+    #shopPresent .sPresent form{
+        width: 200px;}
+    #shopPresent img{
+        top: 65px;
+        right: 5px;}
+    #shopPresent .sPresent .jcSpace{
+        width: 85%;}
+    #order2, #resultBasket{
+        right: 2%;}
+    .allBasket2:hover {
+        width: 290px;}
+    #panier{
+        right: -20%;}
+    #allBasket h5 {
+        font-size: 0.5em;}
+    .pou5 img {
+        width: 40px;
+        margin: 5px 0;}
+    #beerPresent div{
+        padding: 0 5px;}
+    #beerPresent .spaceBasket select{
+        right: -77px;
+        bottom: 0;}
+    #beerPresent .resultPrice{
+        right: -47px;}
+    #engagePresent div{
+        padding: 0 5px;}
+    #brasseriePresent div{
+        flex-direction: column;
+        width: 100%;
+        padding: 0 15px;}
+    #brasseriePresent img {
+        margin: 10px 5%;}
+    #fColumn{
+        padding: 0 0!important;}
+    #fColumn div{
+        width: 100%!important;}
+    #fColumn a{
+        font-size: 0.7em;}
 }
